@@ -18,6 +18,9 @@
     <string name="keyword">Keyword</string>
     <string name="searchTitle">Find tasks</string>
     <string name="month">Month</string>
+    <string name="done1">Done!</string>
+    <string name="in_progress">In Progress...</string>
+    <string name="to_do">TO DO</string>
     <string-array name="months">
         <item>All</item>
         <item>January</item>

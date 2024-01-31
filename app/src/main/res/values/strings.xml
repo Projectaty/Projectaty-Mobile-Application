@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Projectaty</string>
+    <string name="warning">Enter a title to proceed</string>
+    <string name="description">Description</string>
+    <string name="due">Due Date</string>
+    <string name="newTask">New Task</string>
+    <string name="title">Title</string>
+    <string name="create">Create a new Task</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="assign_to">Assign To</string>
 </resources>

@@ -26,17 +26,10 @@ public class TaskList extends AppCompatActivity {
         setTaskListView(findViewById(R.id.taskListView));
         handle_add(getAdd());
         hadnle_find(getFind());
-        handle_on_click_list(getTaskListView());
     }
     /*
     Buttons Handlers
      */
-    private void handle_on_click_list(ListView taskListView) {
-        taskListView.setOnItemClickListener((parent, view, position, id) -> {
-
-        });
-    }
-
     private void hadnle_find(Button find) {
         find.setOnClickListener(e->{
             Intent intent = new Intent(this, SearchTask.class);

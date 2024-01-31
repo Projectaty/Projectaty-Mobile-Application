@@ -53,7 +53,7 @@
         android:labelFor="@id/pickDate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.637" />
@@ -76,18 +76,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.573" />
 
+    <!--        android:entries="@array/team_members"-->
+
     <Spinner
-        android:id="@+id/categorySpinner"
+        android:id="@+id/asssignSpinner"
         android:layout_width="327dp"
         android:layout_height="52dp"
-        android:labelFor="@id/categoryTxtView"
+        android:labelFor="@id/assignTxtView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.793" />
-    <!--        android:entries="@array/team_members"-->
 
     <Button
         android:id="@+id/pickDate"
@@ -192,19 +192,19 @@
         app:layout_constraintVertical_bias="0.214" />
 
     <TextView
-        android:id="@+id/categoryTxtView"
+        android:id="@+id/assignTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
-        android:labelFor="@id/categorySpinner"
+        android:labelFor="@id/asssignSpinner"
         android:text="@string/assign_to"
         android:textColor="#2F2E41"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.722" />

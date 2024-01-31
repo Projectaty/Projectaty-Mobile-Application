@@ -8,6 +8,19 @@
 
     <!-- ListView to display tasks -->
 
+    <Button
+        android:id="@+id/add"
+        android:layout_width="274dp"
+        android:layout_height="64dp"
+        android:text="@string/add"
+        app:icon="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
+
     <TextView
         android:id="@+id/appName2"
         android:layout_width="187dp"
@@ -27,7 +40,7 @@
     <ListView
         android:id="@+id/taskListView"
         android:layout_width="348dp"
-        android:layout_height="537dp"
+        android:layout_height="484dp"
         android:background="@android:color/background_light"
         android:clipToPadding="false"
         android:divider="@android:color/darker_gray"
@@ -38,13 +51,13 @@
         android:scrollbarSize="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.603"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintVertical_bias="0.497" />
 
     <Button
-        android:id="@+id/search"
+        android:id="@+id/find"
         android:layout_width="108dp"
         android:layout_height="48dp"
         android:text="@string/search"

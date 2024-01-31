@@ -38,6 +38,8 @@ public class CreateTask extends AppCompatActivity {
         setDateEditText(findViewById(R.id.dateEditText));
         setAsssignSpinner(findViewById(R.id.asssignSpinner));
         setCreateTaskButton(findViewById(R.id.createTaskButton));
+        setWarning(findViewById(R.id.warning));
+
         handle_pick_date(getPickDate());
         handle_create_task(getCreateTaskButton());
     }

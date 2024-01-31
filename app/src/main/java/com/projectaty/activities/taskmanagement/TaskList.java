@@ -39,7 +39,7 @@ public class TaskList extends AppCompatActivity {
 
     private void handle_add(Button add) {
         add.setOnClickListener(e->{
-            Intent intent = new Intent(this, CreateAccount.class);
+            Intent intent = new Intent(this, CreateTask.class);
             startActivity(intent);
         });
     }

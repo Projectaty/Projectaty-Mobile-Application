@@ -5,6 +5,7 @@
     <string name="due">Due Date</string>
     <string name="newTask">New Task</string>
     <string name="title">Title</string>
+    <string name="add">Add a new Task</string>
     <string name="create">Create a new Task</string>
     <string name="pick_date">Pick Date</string>
     <string name="assign_to">Assign To</string>
@@ -14,4 +15,22 @@
     <string name="update_date">Edit Date</string>
     <string name="task_title">Tasks List</string>
     <string name="search">Find</string>
+    <string name="keyword">Keyword</string>
+    <string name="searchTitle">Find tasks</string>
+    <string name="month">Month</string>
+    <string-array name="months">
+        <item>All</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

@@ -1,6 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_horizontal|center_vertical"
+    android:foregroundGravity="center|center_horizontal"
+    app:layout_anchorGravity="center|center_vertical">
+
+
+    <EditText
+        android:id="@+id/descriptionEditTextUpdate"
+        android:layout_width="332dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:labelFor="@id/descriptionTxtView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <EditText
+        android:id="@+id/dateEditTextUpdate"
+        android:layout_width="329dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="start|top"
+        android:inputType="datetime|date"
+        android:labelFor="@id/uodateDate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
+
+    <TextView
+        android:id="@+id/dueTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:labelFor="@id/dateEditTextUpdate"
+        android:text="@string/due"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573" />
+
+    <Spinner
+        android:id="@+id/assignSpinnerUpdate"
+        android:layout_width="327dp"
+        android:layout_height="52dp"
+        android:labelFor="@id/assignTxtView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.793" />
+
+    <Button
+        android:id="@+id/uodateDate"
+        android:layout_width="182dp"
+        android:layout_height="48dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/update_date"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_menu_my_calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568" />
+
+    <TextView
+        android:id="@+id/descriptionTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:labelFor="@id/descriptionEditTextUpdate"
+        android:text="@string/description"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.366" />
+
+    <Button
+        android:id="@+id/updateTaskButton"
+        android:layout_width="265dp"
+        android:layout_height="54dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/update"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.899" />
+
+    <TextView
+        android:id="@+id/pageTitleUpdate"
+        android:layout_width="320dp"
+        android:layout_height="74dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/updateTask"
+        android:textColor="#2F2E41"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <EditText
+        android:id="@+id/titleEditTextUpdate"
+        android:layout_width="329dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="start|top"
+        android:inputType="text"
+        android:labelFor="@id/titleTxtView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.274" />
+
+    <TextView
+        android:id="@+id/titleTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:labelFor="@id/titleEditTextUpdate"
+        android:text="@string/title"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214" />
+
+    <TextView
+        android:id="@+id/assignTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:labelFor="@id/assignSpinnerUpdate"
+        android:text="@string/assign_to"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722" />
+
+    <CheckBox
+        android:id="@+id/isDone"
+        android:layout_width="105dp"
+        android:layout_height="49dp"
+        android:checked="false"
+        android:fontFamily="@font/mirza"
+        android:text="@string/done"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:foregroundGravity="center"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:theme="@style/Theme.Projectaty"
+        app:icon="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.899" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

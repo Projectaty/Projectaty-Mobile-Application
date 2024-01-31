@@ -3,7 +3,8 @@
     <style name="Theme.Projectaty" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">#066223</item>
-        <item name="colorPrimaryVariant">#fac0ab</item>
+        <item name="colorPrimaryVariant">#000000</item>
+<!--            fac0ab</item>-->
         <item name="colorOnPrimary">#ffffff</item>
         <!-- Secondary brand color -->
         <item name="colorSecondary">#fac0ab</item>
@@ -13,6 +14,5 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Background color -->
         <item name="android:windowBackground">#ffffff</item>
-        <!-- Customize your theme here -->
     </style>
 </resources>

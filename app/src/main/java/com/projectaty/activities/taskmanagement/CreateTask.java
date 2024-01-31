@@ -38,7 +38,6 @@ public class CreateTask extends AppCompatActivity {
         setDateEditText(findViewById(R.id.dateEditText));
         setAsssignSpinner(findViewById(R.id.asssignSpinner));
         setCreateTaskButton(findViewById(R.id.createTaskButton));
-        setWarning(findViewById(R.id.warning));
 
         handle_pick_date(getPickDate());
         handle_create_task(getCreateTaskButton());
@@ -79,6 +78,7 @@ public class CreateTask extends AppCompatActivity {
 //                intent1.putExtra("status", "added");
 //                startActivity(intent1);
             }else{
+                setWarning(findViewById(R.id.warningC));
                 // At least the title should be added
                 getWarning().setVisibility(View.VISIBLE);
             }

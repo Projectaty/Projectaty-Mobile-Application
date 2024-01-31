@@ -35,7 +35,6 @@ public class UpdateDelTask extends AppCompatActivity {
         setAssignSpinnerUpdate(findViewById(R.id.assignSpinnerUpdate));
         setUpdateTaskButton(findViewById(R.id.updateTaskButton));
         setDelete(findViewById(R.id.delete));
-        setWarning(findViewById(R.id.warningUpdate));
 
         handle_update(getUpdateTaskButton());
         handle_delete(getDelete());

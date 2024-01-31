@@ -24,6 +24,13 @@ public class Task {
         this.assignedTo = assignedTo;
     }
 
+    public Task(String sentTheEmailSubmit, String s, int rama, LocalDate localDate) {
+        this.title = sentTheEmailSubmit;
+        this.description = s;
+        this.assignedTo = rama;
+        this.date = localDate;
+    }
+
     /*
     Getters & setters
      */

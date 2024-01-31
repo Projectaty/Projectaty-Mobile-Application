@@ -50,7 +50,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 //            }
             taskTitle.setText(task.getTitle());
             taskdate.setText(task.getDate().toString());
-            assignee.setText(task.getAssignedTo());
+            assignee.setText(task.getAssignedTo()+"");
         }
 
         RelativeLayout relLay = convertView.findViewById(R.id.relLaytask);

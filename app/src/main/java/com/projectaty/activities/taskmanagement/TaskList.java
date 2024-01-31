@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
 import com.projectaty.activities.usermanagement.CreateAccount;
+import com.projectaty.data.TaskAdapter;
+import com.projectaty.model.Task;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskList extends AppCompatActivity {
     Button find;
@@ -21,9 +27,23 @@ public class TaskList extends AppCompatActivity {
     }
 
     private void initialize() {
+        setTaskListView(findViewById(R.id.taskListView));
+
+        List<Task> tasks = new ArrayList<>();
+
+        Task task1 = new Task("Download The Requirements", "Description for Task 1", 1, LocalDate.now());
+        Task task2 = new Task("Sent the Email Submit", "Description for Task 2", 2, LocalDate.now().plusDays(1));
+        Task task3 = new Task("Create ERD", "Description for Task 3", 3, LocalDate.now().plusDays(2));
+
+        tasks.add(task1);
+        tasks.add(task2);
+        tasks.add(task3);
+
+        TaskAdapter taskAdapter = new TaskAdapter(this, tasks);
+        getTaskListView().setAdapter(taskAdapter);
+
         setFind(findViewById(R.id.find));
         setAdd(findViewById(R.id.add));
-        setTaskListView(findViewById(R.id.taskListView));
         handle_add(getAdd());
         hadnle_find(getFind());
     }

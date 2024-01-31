@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Projectaty</string>
+    <string name="warning">Enter a title to proceed</string>
+    <string name="description">Description</string>
+    <string name="due">Due Date</string>
+    <string name="newTask">New Task</string>
+    <string name="title">Title</string>
+    <string name="add">Add a new Task</string>
+    <string name="create">Create a new Task</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="assign_to">Assign To</string>
+    <string name="updateTask">Edit Task</string>
+    <string name="update">Edit Task</string>
+    <string name="done">Done</string>
+    <string name="update_date">Edit Date</string>
+    <string name="task_title">Tasks List</string>
+    <string name="search">Find</string>
+    <string name="keyword">Keyword</string>
+    <string name="searchTitle">Find tasks</string>
+    <string name="month">Month</string>
+    <string name="done1">Done!</string>
+    <string name="in_progress">In Progress...</string>
+    <string name="to_do">TO DO</string>
+    <string-array name="months">
+        <item>All</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

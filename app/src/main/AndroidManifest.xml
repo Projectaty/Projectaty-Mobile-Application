@@ -11,6 +11,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projectaty"
-        tools:targetApi="31" />
+        tools:targetApi="31">
 
+        <activity android:name="com.projectaty.activities.taskmanagement.SearchTask" android:exported="true"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="true"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="true"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="true">
+        </activity>
+    </application>
 </manifest>

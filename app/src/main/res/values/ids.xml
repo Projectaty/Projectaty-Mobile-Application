@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="warning" type="id" />
+    <item name="descriptionEditText" type="id" />
+    <item name="descriptionTxtView" type="id" />
+    <item name="dateEditText" type="id" />
+    <item name="pickDate" type="id" />
+    <item name="dueTxtView" type="id" />
+    <item name="titleEditText" type="id" />
+</resources>

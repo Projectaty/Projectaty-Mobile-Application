@@ -8,4 +8,10 @@
     <string name="create">Create a new Task</string>
     <string name="pick_date">Pick Date</string>
     <string name="assign_to">Assign To</string>
+    <string name="updateTask">Edit Task</string>
+    <string name="update">Edit Task</string>
+    <string name="done">Done</string>
+    <string name="update_date">Edit Date</string>
+    <string name="task_title">Tasks List</string>
+    <string name="search">Find</string>
 </resources>

@@ -86,11 +86,9 @@ public class CreateProject extends AppCompatActivity {
     public EditText getDescriptionEditText() {
         return descriptionEditText;
     }
-
     public void setDescriptionEditText(EditText descriptionEditText) {
         this.descriptionEditText = descriptionEditText;
     }
-
     public EditText getMemberEditText() {
         return memberEditText;
     }

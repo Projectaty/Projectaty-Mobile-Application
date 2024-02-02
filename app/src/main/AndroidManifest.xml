@@ -16,7 +16,13 @@
         <activity android:name="com.projectaty.activities.taskmanagement.SearchTask" android:exported="true"/>
         <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="true"/>
         <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="true"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="true">
+        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="true"/>
+
+        <activity android:name="com.projectaty.activities.projectmanagment.CreateProject" android:exported="true">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
     </application>
 </manifest>

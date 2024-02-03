@@ -86,8 +86,6 @@ public class UpdateDelProject extends AppCompatActivity {
 
         });
     }
-
-
     public EditText getTitleEditTextUpdate() {
         return titleEditTextUpdate;
     }
@@ -99,7 +97,6 @@ public class UpdateDelProject extends AppCompatActivity {
     public EditText getDescriptionEditTextUpdate() {
         return descriptionEditTextUpdate;
     }
-
     public void setDescriptionEditTextUpdate(EditText descriptionEditTextUpdate) {
         this.descriptionEditTextUpdate = descriptionEditTextUpdate;
     }

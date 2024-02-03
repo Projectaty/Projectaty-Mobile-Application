@@ -44,7 +44,6 @@ public class ProjectList extends AppCompatActivity  {
             startActivity(intent);
         });
     }*/
-
     private void handle_add(Button add) {
         add.setOnClickListener(e->{
             Intent intent = new Intent(this, CreateProject.class);

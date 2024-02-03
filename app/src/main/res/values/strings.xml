@@ -30,6 +30,10 @@
     <string name="projectList">Project List</string>
     <string name="addNewProject">Add a new Project</string>
     <string name="addnewproject">Add New Project</string>
+    <string name="updatePrj">Update Project</string>
+    <string name="project">Project</string>
+    <string name="NumMembersUpdate">Number Of Members</string>
+    <string name="updateprj">Update Project</string>
     <string-array name="months">
         <item>All</item>
         <item>January</item>

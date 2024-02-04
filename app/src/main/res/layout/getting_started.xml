@@ -20,7 +20,7 @@
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
-        android:text="Welcome to Projectaty!"
+        android:text="@string/welcome_to_projectaty"
         android:textColor="@android:color/black"
         android:textSize="27sp" />
 
@@ -47,7 +47,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="96dp"
-        android:text="Getting Started"
+        android:text="@string/getting_started"
         android:textSize="20sp" />
 
     <TextView

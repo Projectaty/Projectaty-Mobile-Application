@@ -14,7 +14,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="-154dp"
         android:layout_marginEnd="19dp"
-        android:hint="Enter New Name"
+        android:hint="@string/enter_new_name"
         android:inputType="textPassword"
         android:textSize="20sp" />
 
@@ -25,7 +25,7 @@
         android:layout_below="@id/changeProfilePicButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="154dp"
-        android:hint="Enter New Username"
+        android:hint="@string/enter_new_username"
         android:textSize="20sp" />
 
     <EditText
@@ -37,7 +37,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="34dp"
         android:layout_marginTop="13dp"
-        android:hint="Enter New Password"
+        android:hint="@string/enter_new_password"
         android:inputType="textPassword"
         android:textSize="20sp" />
 
@@ -59,7 +59,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-119dp"
         android:layout_marginEnd="22dp"
-        android:text="Change Profile Picture"
+        android:text="@string/change_profile_picture"
         android:textSize="18sp" />
 
     <Button
@@ -71,7 +71,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="26dp"
-        android:text="Save Changes"
+        android:text="@string/save_changes"
         android:textSize="20sp" />
-
 </RelativeLayout>

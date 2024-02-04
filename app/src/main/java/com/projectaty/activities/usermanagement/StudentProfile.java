@@ -40,12 +40,9 @@ public class StudentProfile extends AppCompatActivity {
         });
 
         // Set OnClickListener for the Update Profile button
-        updateProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        updateProfileButton.setOnClickListener(e->{
                 // Open the UpdateProfile activity when the button is clicked
                 startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
-            }
         });
     }
 }

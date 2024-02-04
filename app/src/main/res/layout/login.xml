@@ -25,7 +25,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
-        android:hint="Enter Username"
+        android:hint="@string/enter_username"
         android:inputType="text"
         android:textSize="24sp" />
     <Button
@@ -40,7 +40,7 @@
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="168dp"
         android:onClick="loginUser"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="24sp" />
     <CheckBox
         android:id="@+id/checkBoxRememberMe"
@@ -53,7 +53,7 @@
         android:layout_marginTop="99dp"
         android:layout_marginEnd="194dp"
         android:layout_marginBottom="254dp"
-        android:text="Remember Me"
+        android:text="@string/remember_me"
         android:textSize="24sp" />
     <EditText
         android:id="@+id/editTextPasswordLogin"
@@ -65,7 +65,7 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:hint="Enter Password"
+        android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:textSize="24sp" />
 </RelativeLayout>

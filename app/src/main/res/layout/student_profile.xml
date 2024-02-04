@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="115dp"
         android:layout_marginTop="61dp"
-        android:text="Update Profile"
+        android:text="@string/update_profile"
         android:textSize="20sp" />
 
     <ImageView
@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="154dp"
         android:layout_marginTop="335dp"
-        android:text="Sondos Aabed"
+        android:text="@string/user_name_ex"
         android:textColor="@color/black"
         android:textSize="20sp" />
 

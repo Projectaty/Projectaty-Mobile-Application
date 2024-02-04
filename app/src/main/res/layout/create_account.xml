@@ -25,7 +25,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
-        android:hint="Enter Name"
+        android:hint="@string/enter_name"
         android:inputType="text"
         android:textSize="24sp" />
     <EditText
@@ -39,7 +39,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
-        android:hint="Enter Username"
+        android:hint="@string/enter_username"
         android:inputType="text"
         android:textSize="24sp" />
 
@@ -53,7 +53,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:hint="Enter Password"
+        android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:textSize="24sp" />
 
@@ -71,7 +71,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
         android:onClick="registerUser"
-        android:text="Register"
+        android:text="@string/register"
         android:textSize="24sp" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
-        android:text="Already have an account? Log in here."
+        android:text="@string/already_have_an_account"
         android:textColor="@android:color/darker_gray"
         android:textSize="20sp" />
 
@@ -101,6 +101,6 @@
         android:layout_marginTop="9dp"
         android:layout_marginEnd="154dp"
         android:fontFamily="@font/mirza"
-        android:text="Log In"
+        android:text="@string/log_in"
         android:textSize="24sp" />
 </RelativeLayout>

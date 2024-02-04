@@ -27,11 +27,8 @@ public class IntroductoryActivity extends AppCompatActivity {
             // User has an account, open Welcome Back activity
             setContentView(R.layout.welcome_back);
             Button loginButton = findViewById(R.id.LoginButton);
-            loginButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            loginButton.setOnClickListener(e->{
                     startActivity(new Intent(IntroductoryActivity.this, LoginActivity.class));
-                }
             });
 
             // Check if the user chose to remember me
@@ -43,11 +40,8 @@ public class IntroductoryActivity extends AppCompatActivity {
             // User doesn't have an account, open Get Started activity
             setContentView(R.layout.getting_started);
             Button createAccountButton = findViewById(R.id.createAccountButton);
-            createAccountButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            createAccountButton.setOnClickListener(e-> {
                     startActivity(new Intent(IntroductoryActivity.this, CreateAccount.class));
-                }
             });
         }
     }

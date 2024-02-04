@@ -36,4 +36,23 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
+    <string name="welcome_back_to_projectaty">Welcome Back to Projectaty!</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_projectaty">Welcome to Projectaty!</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="user_name_ex">Sondos Aabed</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account? Log in here.</string>
+    <string name="log_in">Log In</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="enter_new_name">Enter New Name</string>
+    <string name="enter_new_username">Enter New Username</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="save_changes">Save Changes</string>
 </resources>

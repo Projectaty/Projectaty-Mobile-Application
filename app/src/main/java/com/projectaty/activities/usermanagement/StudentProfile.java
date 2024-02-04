@@ -23,7 +23,7 @@ public class StudentProfile extends AppCompatActivity {
         setContentView(R.layout.student_profile);
 
         // Initialize views
-        nameTextView = findViewById(R.id.nameTextView);
+        nameTextView = findViewById(R.id.nameStudent);
         profileImageView = findViewById(R.id.profileImageView);
         updateProfileButton = findViewById(R.id.updateProfileButton);
 

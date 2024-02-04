@@ -15,6 +15,5 @@
         <!-- Background color -->
         <item name="android:windowBackground">#ffffff</item>
         <item name="android:fontFamily">@font/mirza</item>
-
     </style>
 </resources>

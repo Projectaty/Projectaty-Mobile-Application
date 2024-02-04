@@ -36,4 +36,5 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
 </resources>

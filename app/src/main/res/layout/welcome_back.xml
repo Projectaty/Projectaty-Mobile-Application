@@ -7,43 +7,61 @@
 
     <TextView
         android:id="@+id/textViewLoginPrompt"
-        android:layout_width="187dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="118dp"
-        android:layout_marginTop="91dp"
-        android:layout_marginEnd="106dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="43dp"
         android:layout_marginBottom="16dp"
-        android:text="Welcome Back"
+        android:fontFamily="@font/mirza"
+        android:text="Welcome Back to Projectaty!"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="27sp" />
 
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
-        android:layout_height="236dp"
+        android:layout_height="281dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="211dp"
-        android:layout_marginEnd="26dp"
-        android:src="@drawable/wel1" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/welcome_back" />
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="121dp"
+        android:id="@+id/LoginButton"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="146dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="96dp"
+        android:text="Login"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="274dp"
+        android:layout_height="109dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="76dp"
         android:layout_marginBottom="161dp"
-        android:text="Login" />
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/welcome_about"
+        android:textSize="24sp" />
 
 </RelativeLayout>

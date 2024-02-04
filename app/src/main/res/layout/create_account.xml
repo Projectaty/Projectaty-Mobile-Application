@@ -3,55 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.usermanagement.CreateAccount"
-    >
+    tools:context=".activities.usermanagement.CreateAccount">
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="221dp"
-        android:layout_height="128dp"
+        android:layout_width="276dp"
+        android:layout_height="153dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="57dp"
         android:src="@drawable/logo" />
-
     <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
+        android:id="@+id/editTextname"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="182dp"
+        android:layout_marginTop="190dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/mirza"
+        android:hint="Enter Name"
+        android:inputType="text"
+        android:textSize="24sp" />
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="348dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/mirza"
         android:hint="Enter Username"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
-        android:layout_margin="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:hint="Enter Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="wrap_content"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextPassword"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/mirza"
         android:onClick="registerUser"
-        android:text="Register" />
+        android:text="Register"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textViewLoginPrompt"
@@ -59,13 +80,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonRegister"
         android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="133dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="36dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/mirza"
         android:text="Already have an account? Log in here."
         android:textColor="@android:color/darker_gray"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/buttonGoToLogin"
@@ -73,10 +96,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewLoginPrompt"
         android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-32dp"
-        android:layout_marginEnd="44dp"
-        android:text="Log In" />
-
-
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="154dp"
+        android:fontFamily="@font/mirza"
+        android:text="Log In"
+        android:textSize="24sp" />
 </RelativeLayout>

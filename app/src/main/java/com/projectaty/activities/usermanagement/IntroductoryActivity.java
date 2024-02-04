@@ -26,7 +26,7 @@ public class IntroductoryActivity extends AppCompatActivity {
         if (hasAccount) {
             // User has an account, open Welcome Back activity
             setContentView(R.layout.welcome_back);
-            Button loginButton = findViewById(R.id.loginButton);
+            Button loginButton = findViewById(R.id.LoginButton);
             loginButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

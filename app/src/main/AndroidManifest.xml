@@ -12,26 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projectaty"
         tools:targetApi="31">
-        <activity
-            android:name=".activities.teamsmanagement.SearchMember"
-            android:exported="false" />
-        <activity
-            android:name=".activities.teamsmanagement.TeamDashboard"
-            android:exported="false" />
-        <activity
-            android:name=".activities.teamsmanagement.SearchTeam"
-            android:exported="false" />
-        <activity
-            android:name=".activities.teamsmanagement.CreateTeam"
-            android:exported="true">
+        <activity android:name=".activities.teamsmanagement.SearchMember" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamDashboard" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.SearchTeam" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamList" />
+        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
+        <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.teamsmanagement.TeamList" />
-        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
     </application>
-
 </manifest>

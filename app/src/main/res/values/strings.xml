@@ -21,6 +21,19 @@
     <string name="done1">Done!</string>
     <string name="in_progress">In Progress...</string>
     <string name="to_do">TO DO</string>
+    <string name="projectTxt">Project</string>
+    <string name="newprj">New Project</string>
+    <string name="numberofmembers">Number Of Members</string>
+    <string name="createnewprj">Create New Project</string>
+    <string name="prjnew">New Project</string>
+    <string name="newProject">New Project</string>
+    <string name="projectList">Project List</string>
+    <string name="addNewProject">Add a new Project</string>
+    <string name="addnewproject">Add New Project</string>
+    <string name="updatePrj">Update Project</string>
+    <string name="project">Project</string>
+    <string name="NumMembersUpdate">Number Of Members</string>
+    <string name="updateprj">Update Project</string>
     <string-array name="months">
         <item>All</item>
         <item>January</item>

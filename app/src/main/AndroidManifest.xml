@@ -17,10 +17,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>        
         <activity android:name=".activities.usermanagement.StudentProfile"/>
         <activity android:name=".activities.usermanagement.CreateAccount"/>
         <activity android:name=".activities.usermanagement.LoginActivity"/>
@@ -35,7 +33,7 @@
         <activity android:name=".activities.teamsmanagement.SearchTeam" android:exported="false" />
         <activity android:name=".activities.teamsmanagement.TeamList" />
         <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
-        <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="true">
+        <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="false">
         </activity>
     </application>
 </manifest>

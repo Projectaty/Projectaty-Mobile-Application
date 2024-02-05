@@ -12,17 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projectaty"
         tools:targetApi="31">
-
-        <activity android:name="com.projectaty.activities.taskmanagement.SearchTask" android:exported="true"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="true"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="true"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="true"/>
-
-        <activity android:name="com.projectaty.activities.projectmanagment.CreateProject" android:exported="true">
+        <activity
+            android:name=".activities.usermanagement.IntroductoryActivity"
+            android:exported="true">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>        
+        <activity android:name=".activities.usermanagement.StudentProfile"/>
+        <activity android:name=".activities.usermanagement.CreateAccount"/>
+        <activity android:name=".activities.usermanagement.LoginActivity"/>
+        <activity android:name=".activities.usermanagement.UpdateProfile"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="false"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.SearchTask" android:exported="false"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="false"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="false"/>
+        <activity android:name="com.projectaty.activities.taskmanagement.TasksDashboard" android:exported="true"/>
+        <activity android:name=".activities.teamsmanagement.SearchMember" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamDashboard" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.SearchTeam" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamList" />
+        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
+        <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="false">
         </activity>
     </application>
 </manifest>

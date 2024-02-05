@@ -1,6 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:foregroundGravity="center">
+
+
+    <TextView
+        android:id="@+id/newTeamTitle"
+        android:layout_width="329dp"
+        android:layout_height="74dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/newteam"
+        android:textColor="#2F2E41"
+        android:textSize="48sp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
+
+
+    <ScrollView
+        android:id="@+id/teamScrollView"
+        android:layout_width="329dp"
+        android:layout_height="583dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/newTeamTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:fontFamily="@font/mirza"
+                android:foregroundGravity="center"
+                android:labelFor="@id/teamNameEdtTxt"
+                android:text="@string/teamName"
+                android:textColor="#2F2E41"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.03"/>
+
+            <EditText
+                android:id="@+id/teamNameEdtTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:gravity="start|top"
+                android:inputType="text"
+                android:labelFor="@id/newTeamTxtView"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.12"/>
+
+
+            <!-- Description Section -->
+
+            <TextView
+                android:id="@+id/teamDescriptionTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mirza"
+                android:foregroundGravity="center"
+                android:labelFor="@id/descriptionEdtTxt"
+                android:text="@string/description"
+                android:textColor="#2F2E41"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.22" />
+
+
+            <EditText
+                android:id="@+id/descriptionEdtTxt"
+                android:layout_width="332dp"
+                android:layout_height="80dp"
+                android:ems="10"
+                android:foregroundGravity="center"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:labelFor="@id/teamDescriptionTxtView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.36"/>
+
+            <!-- Project Name Section -->
+            <TextView
+                android:id="@+id/projectNameTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mirza"
+                android:foregroundGravity="center"
+                android:labelFor="@id/projectNameEdtTxt"
+                android:text="@string/projectname"
+                android:textColor="#2F2E41"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.49"/>
+
+            <EditText
+                android:id="@+id/projectNameEdtTxt"
+                android:layout_width="329dp"
+                android:layout_height="47dp"
+                android:ems="10"
+                android:foregroundGravity="center"
+                android:gravity="start|top"
+                android:inputType="text"
+                android:labelFor="@id/addMembersBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.586"/>
+
+            <!-- Members Section -->
+            <TextView
+                android:id="@+id/membersTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mirza"
+                android:foregroundGravity="center"
+                android:labelFor="@id/memberIDEdtTxt"
+                android:text="@string/members"
+                android:textColor="#2F2E41"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.68"/>
+
+            <EditText
+                android:id="@+id/memberIDEdtTxt"
+                android:layout_width="329dp"
+                android:layout_height="47dp"
+                android:ems="10"
+                android:foregroundGravity="center"
+                android:gravity="start|top"
+                android:inputType="numberDecimal"
+                android:labelFor="@id/addMembersBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.78"/>
+
+            <!-- Add Member Button -->
+            <Button
+                android:id="@+id/addMembersBtn"
+                android:layout_width="182dp"
+                android:layout_height="48dp"
+                android:fontFamily="@font/mirza"
+                android:foreground="@color/redish"
+                android:foregroundGravity="center"
+                android:text="@string/addid"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:icon="@android:drawable/ic_input_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.68"/>
+
+            <!-- RecyclerView for Member IDs -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMemberIDs"
+                android:layout_width="320dp"
+                android:layout_height="150dp"
+                android:ems="10"
+                android:fontFamily="@font/mirza"
+                android:foregroundGravity="center"
+                android:gravity="start|top"
+                android:text="@string/assign_to"
+                android:textColor="#2F2E41"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/memberIDEdtTxt"
+                app:layout_constraintVertical_bias="1.0"
+                tools:layout_editor_absoluteX="4dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/createTeam"
+        android:layout_width="255dp"
+        android:layout_height="54dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/creatteam"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"/>
+
+
+    <Button
+        android:id="@+id/discardTeam"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:foregroundGravity="center"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:theme="@style/Theme.Projectaty"
+        app:icon="@android:drawable/ic_menu_delete"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"/>
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:labelFor="@id/teamNameEdtTxt"
+        android:text="@string/warning"
+        android:textColor="#E91E63"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

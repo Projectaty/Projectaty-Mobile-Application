@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/findMemberTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="67dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="50dp"
+        android:fontFamily="@font/mirza"
+        android:gravity="center"
+        android:text="@string/findstudent"
+        android:textColor="#2F2E41"
+        android:textSize="48sp" />
+
+    <TextView
+        android:id="@+id/memberID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/findMemberTitle"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/mirza"
+        android:text="@string/studentid"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/memberIDKey"
+        android:layout_width="329dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/memberID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/memberNameKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/findMemberTitle"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/mirza"
+        android:text="@string/teamName"
+        android:textColor="#2F2E41"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/memberKey"
+        android:layout_width="329dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/memberNameKey"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/searchMemberBtn"
+        android:layout_width="274dp"
+        android:layout_height="64dp"
+        android:layout_below="@+id/memberNameKey"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:icon="?android:attr/actionModeWebSearchDrawable"
+        android:text="@string/search" />
+</RelativeLayout>

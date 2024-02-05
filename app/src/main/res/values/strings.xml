@@ -49,4 +49,44 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
+    <string name="welcome_back_to_projectaty">Welcome Back to Projectaty!</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_projectaty">Welcome to Projectaty!</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="user_name_ex">Sondos Aabed</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account? Log in here.</string>
+    <string name="log_in">Log In</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="enter_new_name">Enter New Name</string>
+    <string name="enter_new_username">Enter New Username</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="newteam">New Team</string>
+    <string name="teamName">Team Name</string>
+    <string name="members">Members</string>
+    <string name="addid">Add</string>
+    <string name="creatteam">Creat New Team</string>
+    <string name="projectname">Project Name</string>
+    <string name="teamlist">Team List</string>
+    <string name="addnewteam">Add New Team</string>
+    <string name="updateteam">Update Team</string>
+    <string name="editteam">Edit Team</string>
+    <string name="findteamtitle">Find Team</string>
+    <string name="findteamname">Team Name</string>
+    <string name="findteamid">Team ID</string>
+    <string name="team_dashboard">Team Dashboard</string>
+    <string name="projects">projects</string>
+    <string name="memberlist">Members</string>
+    <string name="contact">Team Chat</string>
+    <string name="go_to_dashboard">Go to Dashboard</string>
+    <string name="memberid">Member ID</string>
+    <string name="findstudent">Find Student</string>
+    <string name="studentid">Student ID</string>
 </resources>

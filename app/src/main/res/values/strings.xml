@@ -55,4 +55,25 @@
     <string name="enter_new_password">Enter New Password</string>
     <string name="change_profile_picture">Change Profile Picture</string>
     <string name="save_changes">Save Changes</string>
+    <string name="newteam">New Team</string>
+    <string name="teamName">Team Name</string>
+    <string name="members">Members</string>
+    <string name="addid">Add</string>
+    <string name="creatteam">Creat New Team</string>
+    <string name="projectname">Project Name</string>
+    <string name="teamlist">Team List</string>
+    <string name="addnewteam">Add New Team</string>
+    <string name="updateteam">Update Team</string>
+    <string name="editteam">Edit Team</string>
+    <string name="findteamtitle">Find Team</string>
+    <string name="findteamname">Team Name</string>
+    <string name="findteamid">Team ID</string>
+    <string name="team_dashboard">Team Dashboard</string>
+    <string name="projects">projects</string>
+    <string name="memberlist">Members</string>
+    <string name="contact">Team Chat</string>
+    <string name="go_to_dashboard">Go to Dashboard</string>
+    <string name="memberid">Member ID</string>
+    <string name="findstudent">Find Student</string>
+    <string name="studentid">Student ID</string>
 </resources>

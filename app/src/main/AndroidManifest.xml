@@ -30,5 +30,12 @@
         <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="false"/>
         <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="false"/>
         <activity android:name="com.projectaty.activities.taskmanagement.TasksDashboard" android:exported="true"/>
+        <activity android:name=".activities.teamsmanagement.SearchMember" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamDashboard" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.SearchTeam" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.TeamList" />
+        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
+        <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="true">
+        </activity>
     </application>
 </manifest>

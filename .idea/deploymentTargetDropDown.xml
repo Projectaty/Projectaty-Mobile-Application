@@ -2,6 +2,12 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="CreateTeam">
+        <State />
+      </entry>
+      <entry key="UpdateDelTeam">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

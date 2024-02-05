@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_height="match_parent"
+    tools:context=".activities.usermanagement.LoginActivity">
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="241dp"
+        android:layout_height="136dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="74dp"
+        android:src="@drawable/logo" />
+    <EditText
+        android:id="@+id/editTextUsernameLogin"
+        android:layout_width="348dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/mirza"
+        android:hint="@string/enter_username"
+        android:inputType="text"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="168dp"
+        android:onClick="loginUser"
+        android:text="@string/login"
+        android:textSize="24sp" />
+    <CheckBox
+        android:id="@+id/checkBoxRememberMe"
+        android:layout_width="187dp"
+        android:layout_height="66dp"
+        android:layout_above="@id/buttonLogin"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="254dp"
+        android:text="@string/remember_me"
+        android:textSize="24sp" />
+    <EditText
+        android:id="@+id/editTextPasswordLogin"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUsernameLogin"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:textSize="24sp" />
+</RelativeLayout>

@@ -21,6 +21,61 @@
     <string name="done1">Done!</string>
     <string name="in_progress">In Progress...</string>
     <string name="to_do">TO DO</string>
+    <string-array name="months">
+        <item>All</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
+    <string name="welcome_back_to_projectaty">Welcome Back to Projectaty!</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_projectaty">Welcome to Projectaty!</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="user_name_ex">Sondos Aabed</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account? Log in here.</string>
+    <string name="log_in">Log In</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="enter_new_name">Enter New Name</string>
+    <string name="enter_new_username">Enter New Username</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="warning">Enter a title to proceed</string>
+    <string name="description">Description</string>
+    <string name="due">Due Date</string>
+    <string name="newTask">New Task</string>
+    <string name="title">Title</string>
+    <string name="add">Add a new Task</string>
+    <string name="create">Create a new Task</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="assign_to">Assign To</string>
+    <string name="updateTask">Edit Task</string>
+    <string name="update">Edit Task</string>
+    <string name="done">Done</string>
+    <string name="update_date">Edit Date</string>
+    <string name="task_title">Tasks List</string>
+    <string name="search">Find</string>
+    <string name="keyword">Keyword</string>
+    <string name="searchTitle">Find tasks</string>
+    <string name="month">Month</string>
+    <string name="done1">Done!</string>
+    <string name="in_progress">In Progress...</string>
+    <string name="to_do">TO DO</string>
     <string name="newteam">New Team</string>
     <string name="teamName">Team Name</string>
     <string name="members">Members</string>

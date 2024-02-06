@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
-import com.projectaty.data.MemberIDAdapter;
+import com.projectaty.model.MemberIDAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,15 +2,13 @@ package com.projectaty.activities.teamsmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
-import com.projectaty.data.TeamListAdapter;
+import com.projectaty.model.TeamListAdapter;
 import com.projectaty.model.Team;
 
 import java.util.ArrayList;

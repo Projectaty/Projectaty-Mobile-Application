@@ -1,4 +1,4 @@
-package com.projectaty.data;
+package com.projectaty.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;

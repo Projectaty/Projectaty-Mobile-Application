@@ -1,16 +1,16 @@
 package com.projectaty.model;
 
-public class Student {
+public class User {
     private int studentID;
     private String username;
     private String password;
     private String email;
 
-    public Student(){
+    public User(){
 
     }
 
-    public Student(int studentID, String username, String password, String email) {
+    public User(int studentID, String username, String password, String email) {
         this.studentID = studentID;
         this.username = username;
         this.password = password;

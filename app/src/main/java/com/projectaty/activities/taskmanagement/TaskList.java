@@ -8,8 +8,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
-import com.projectaty.activities.usermanagement.CreateAccount;
-import com.projectaty.data.TaskAdapter;
+import com.projectaty.model.TaskAdapter;
 import com.projectaty.model.Task;
 
 import java.time.LocalDate;

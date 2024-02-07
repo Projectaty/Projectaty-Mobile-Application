@@ -8,13 +8,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
-import com.projectaty.activities.taskmanagement.CreateTask;
-import com.projectaty.activities.taskmanagement.SearchTask;
-import com.projectaty.data.TaskAdapter;
 import com.projectaty.model.Project;
-import com.projectaty.model.Task;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

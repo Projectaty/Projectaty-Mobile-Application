@@ -34,6 +34,7 @@
     <string name="project">Project</string>
     <string name="NumMembersUpdate">Number Of Members</string>
     <string name="updateprj">Update Project</string>
+    <string name="searchtitleprj">Find Project</string>
     <string-array name="months">
         <item>All</item>
         <item>January</item>

@@ -30,13 +30,39 @@
         android:hint="Enter New Username" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/idEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameEditText"
         android:layout_marginTop="16dp"
+        android:hint="Enter New ID" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEditText"
+        android:layout_marginTop="16dp"
+        android:hint="Enter New Email" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="16dp"
         android:hint="Enter New Password"
         android:inputType="textPassword" />
+
+    <!-- Add the Delete Account button -->
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/saveChangesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Delete Account" />
 
     <Button
         android:id="@+id/saveChangesButton"

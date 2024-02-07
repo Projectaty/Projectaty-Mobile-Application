@@ -3,38 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.usermanagement.CreateAccount"
-    >
+    tools:context=".activities.usermanagement.CreateAccount">
+
+
     <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="221dp"
-        android:layout_height="128dp"
+        android:id="@+id/imageViewProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/logo" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circular_background"
+        android:src="@drawable/profile" />
+
+    <Button
+        android:id="@+id/buttonChoosePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Choose Photo" />
 
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/buttonChoosePhoto"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="182dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:hint="Enter Username"
         android:inputType="text" />
+
+    <!-- ID Field -->
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUsername"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter ID"
+        android:inputType="text" />
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextId"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextUsername"
+        android:layout_below="@id/editTextEmail"
         android:layout_margin="16dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginBottom="16dp"
         android:hint="Enter Password"
         android:inputType="textPassword" />
 
@@ -46,9 +77,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="registerUser"
         android:text="Register" />
@@ -60,9 +91,8 @@
         android:layout_below="@id/buttonRegister"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="133dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
         android:text="Already have an account? Log in here."
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp" />
@@ -74,9 +104,8 @@
         android:layout_below="@id/textViewLoginPrompt"
         android:layout_alignParentEnd="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-32dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="-43dp"
+        android:layout_marginEnd="40dp"
         android:text="Log In" />
-
 
 </RelativeLayout>

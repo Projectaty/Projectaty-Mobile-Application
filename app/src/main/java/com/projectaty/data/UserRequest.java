@@ -1,4 +1,4 @@
 package com.projectaty.data;
 
-public class UserQuery {
+public class UserRequest {
 }

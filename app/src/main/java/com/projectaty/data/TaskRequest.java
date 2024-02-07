@@ -1,4 +1,5 @@
 package com.projectaty.data;
 
-public class ProjectQuery {
+public class TaskRequest {
+
 }

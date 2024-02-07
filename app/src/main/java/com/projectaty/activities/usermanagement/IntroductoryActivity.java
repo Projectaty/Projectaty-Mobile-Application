@@ -1,8 +1,6 @@
 package com.projectaty.activities.usermanagement;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +15,14 @@ public class IntroductoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        /*
+        Check if first time users go to getting started
+        otherwise go to welcome back
+         */
         if (!Prefrences.isFirstTime(this)) {
             setContentView(R.layout.welcome_back);
             Button loginButton = findViewById(R.id.LoginButton);
-            loginButton.setOnClickListener(e->{
-                    startActivity(new Intent(IntroductoryActivity.this, LoginActivity.class));
-            });
+            loginButton.setOnClickListener(e-> startActivity(new Intent(IntroductoryActivity.this, LoginActivity.class)));
             if (Prefrences.isRememberMe(this)) {
                 startActivity(new Intent(IntroductoryActivity.this, StudentProfile.class));
             }
@@ -31,9 +30,7 @@ public class IntroductoryActivity extends AppCompatActivity {
             Prefrences.setNotFirstTime(this);
             setContentView(R.layout.getting_started);
             Button createAccountButton = findViewById(R.id.createAccountButton);
-            createAccountButton.setOnClickListener(e-> {
-                    startActivity(new Intent(IntroductoryActivity.this, CreateAccount.class));
-            });
+            createAccountButton.setOnClickListener(e-> startActivity(new Intent(IntroductoryActivity.this, CreateAccount.class)));
         }
     }
 }

@@ -48,7 +48,7 @@ public class MemberIDAdapter extends RecyclerView.Adapter<MemberIDAdapter.Member
         }
 
         public void bind(String memberID) {
-            textViewMemberID.setText("Member ID: " + memberID);
+            textViewMemberID.setText(R.string.member_id + memberID);
         }
     }
 }

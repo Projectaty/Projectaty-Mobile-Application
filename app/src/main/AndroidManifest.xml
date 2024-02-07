@@ -13,6 +13,24 @@
         android:theme="@style/Theme.Projectaty"
         tools:targetApi="31">
         <activity
+            android:name=".activities.projectmanagment.ProjectDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".activities.taskmanagement.SearchTask"
+            android:exported="true" />
+        <activity
+            android:name=".activities.taskmanagement.UpdateDelTask"
+            android:exported="true" />
+        <activity
+            android:name=".activities.taskmanagement.CreateTask"
+            android:exported="true" />
+        <activity
+            android:name=".activities.taskmanagement.TaskList"
+            android:exported="true" />
+        <activity
+            android:name=".activities.projectmanagment.CreateProject"
+            android:exported="true">
+          
             android:name=".activities.usermanagement.IntroductoryActivity"
             android:exported="true">
             <intent-filter>
@@ -36,4 +54,5 @@
         <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="false">
         </activity>
     </application>
+
 </manifest>

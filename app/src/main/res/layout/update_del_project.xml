@@ -72,7 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.285" />
-
     <EditText
         android:id="@+id/descriptionEditTextUpdate"
         android:layout_width="332dp"

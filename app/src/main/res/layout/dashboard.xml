@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundGravity="center"
-    android:onClick="addTeam">
+    android:foregroundGravity="center">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addBtn"
-        android:layout_width="64dp"
+        android:layout_width="65dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="52dp"
         android:clickable="true"
         android:onClick="addProject"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Team"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toEndOf="@+id/User"
-        app:layout_constraintTop_toBottomOf="@+id/prjRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
+        app:layout_constraintVertical_bias="0.916"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="MissingConstraints" />
 
@@ -41,8 +41,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/StaggerdPrjView"
-        android:layout_width="348dp"
-        android:layout_height="484dp"
+        android:layout_width="356dp"
+        android:layout_height="473dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="140dp"
         android:dividerHeight="0.5dp"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
 
-        />
+        tools:listitem="@layout/card_prj" />
 
     <Button
         android:id="@+id/Team"
@@ -68,7 +68,8 @@
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintVertical_bias="0.92"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/User"
@@ -80,18 +81,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918" />
+        app:layout_constraintVertical_bias="0.918"
+        />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="160dp"
-        android:layout_height="92dp"
+        android:layout_width="154dp"
+        android:layout_height="86dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/prjRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/StaggerdPrjView"
         app:layout_constraintEnd_toStartOf="@+id/prjList"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
 

@@ -2,6 +2,7 @@ package com.projectaty.activities.projectmanagment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
+import com.projectaty.model.Project;
+
+import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -27,6 +31,14 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+        setContentView(R.layout.dashboard);
+
+        ArrayList<Project> projects = new ArrayList<>();
+
+        RecyclerView rc = findViewById(R.id.StaggerdPrjView);
+        rc.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+
+
 
         initialize();
     }

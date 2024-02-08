@@ -40,9 +40,9 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/prjRecyclerView"
-        android:layout_width="346dp"
-        android:layout_height="449dp"
+        android:id="@+id/StaggerdPrjView"
+        android:layout_width="348dp"
+        android:layout_height="484dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="140dp"
         android:dividerHeight="0.5dp"

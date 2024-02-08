@@ -9,10 +9,10 @@ public class URLs {
     private static final String UPDATE_TASK_URL = "";
     private static final String DELETE_TASK_URL = "";
 
-    private static final String GET_USERS_URL = "";
-    private static final String ADD_USER_URL = "";
-    private static final String UPDATE_USER_URL = "";
-    private static final String DELETE_USER_URL = "";
+    private static final String GET_USERS_URL = "/students/<int:id>";
+    private static final String ADD_USER_URL = "/studentsI";
+    private static final String UPDATE_USER_URL = "/studentsU";
+    private static final String DELETE_USER_URL = "/students/<int:student_id>";
 
     private static final String GET_TEAMS_URL = "";
     private static final String ADD_TEAM_URL = "";

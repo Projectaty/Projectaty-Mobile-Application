@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lang">EN 🌍</string>
     <string name="warning">"يرجى إدخال عنوان "</string>
     <string name="description">وصف</string>
     <string name="due">الموعد النهائي</string>
@@ -63,6 +64,9 @@
     <string name="findstudent">البحث عن طالب\\ة</string>
     <string name="studentid">الرقم الجامعي</string>
     <string name="member_id">رقم العضو المنتسب</string>
+    <string name="choose_photo">اختيار صورة</string>
+    <string name="enter_id">ادخال الرقم الجامعي</string>
+    <string name="enter_email">ادخال الايميل</string>
     <string-array name="months">
         <item>كل الأشهر</item>
         <item>يناير</item>

@@ -55,6 +55,7 @@
         android:layout_marginBottom="254dp"
         android:text="@string/remember_me"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/editTextPasswordLogin"
         android:layout_width="349dp"

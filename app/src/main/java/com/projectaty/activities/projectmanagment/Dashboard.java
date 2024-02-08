@@ -12,7 +12,7 @@ import com.projectaty.R;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
 
-public class ProjectDashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     Button Team;
     Button User;
@@ -24,7 +24,7 @@ public class ProjectDashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.dashboard);
 
         initialize();
     }

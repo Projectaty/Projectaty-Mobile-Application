@@ -10,33 +10,40 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Update Profile" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="61dp"
+        android:text="@string/update_profile"
+        android:textSize="20sp" />
 
-    <!-- Profile Image View -->
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/updateProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="172dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="418dp"
         android:background="@drawable/circular_background"
         android:src="@drawable/profile" />
 
-    <!-- Name TextView -->
     <TextView
-        android:id="@+id/nameTextView"
+        android:id="@+id/nameStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profileImageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text=""
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="335dp"
+        android:text="@string/user_name_ex"
         android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <!-- ID TextView -->
     <TextView

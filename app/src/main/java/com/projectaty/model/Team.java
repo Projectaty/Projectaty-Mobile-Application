@@ -5,7 +5,7 @@ public class Team {
     private int projectID;
     private int memberID;
 
-    public Team(){
+    public Team() {
 
     }
 

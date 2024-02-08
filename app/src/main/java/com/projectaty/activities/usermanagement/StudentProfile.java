@@ -1,4 +1,5 @@
 package com.projectaty.activities.usermanagement;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ public class StudentProfile extends AppCompatActivity {
 
     private TextView nameTextView, idTextView, usernameTextView, emailTextView;
     private ImageView profileImageView;
-    private Button updateProfileButton, logoutButton; // Add logoutButton
+    private Button updateProfileButton, logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class StudentProfile extends AppCompatActivity {
         setContentView(R.layout.student_profile);
 
         // Initialize views
-        nameTextView = findViewById(R.id.nameTextView);
+        nameTextView = findViewById(R.id.nameStudent);
         idTextView = findViewById(R.id.idTextView);
         usernameTextView = findViewById(R.id.usernameTextView);
         emailTextView = findViewById(R.id.emailTextView);
@@ -37,7 +38,7 @@ public class StudentProfile extends AppCompatActivity {
         String userEmail = sharedPreferences.getString("userEmail", "");
         String userProfilePhotoPath = sharedPreferences.getString("userProfilePhotoPath", "");
 
-        // Set user data to the respective TextViews
+        // Set user name to the TextView
         nameTextView.setText(userName);
         idTextView.setText(userId);
         usernameTextView.setText(sharedPreferences.getString("username", ""));
@@ -47,12 +48,9 @@ public class StudentProfile extends AppCompatActivity {
         // profileImageView.setImageResource(R.drawable.profile);
 
         // Set OnClickListener for the Update Profile button
-        updateProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        updateProfileButton.setOnClickListener(e->{
                 // Open the UpdateProfile activity when the button is clicked
                 startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
-            }
         });
 
         // Set OnClickListener for the Log Out button

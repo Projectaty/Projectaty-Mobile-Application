@@ -7,43 +7,61 @@
 
     <TextView
         android:id="@+id/textViewLoginPrompt"
-        android:layout_width="wrap_content"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="76dp"
         android:layout_marginBottom="16dp"
-        android:text="Welcome to Projectaty"
+        android:fontFamily="@font/mirza"
+        android:text="@string/welcome_to_projectaty"
         android:textColor="@android:color/black"
         android:textSize="27sp" />
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="236dp"
+        android:layout_width="322dp"
+        android:layout_height="227dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/wel2" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="34dp"
+        android:src="@drawable/getting_started" />
 
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="163dp"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="125dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="198dp"
-        android:text="Create Account" />
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="96dp"
+        android:text="@string/getting_started"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="274dp"
+        android:layout_height="109dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginBottom="185dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/welcome_about"
+        android:textSize="24sp" />
 
 </RelativeLayout>

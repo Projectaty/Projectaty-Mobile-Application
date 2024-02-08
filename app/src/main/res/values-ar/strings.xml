@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="warning">"يرجى إدخال عنوان "</string>
+    <string name="description">وصف</string>
+    <string name="due">الموعد النهائي</string>
+    <string name="newTask">" مهمة جديدة"</string>
+    <string name="title">العنوان</string>
+    <string name="add">اضافة مهمة جديدة</string>
+    <string name="create">انشاء المهمة</string>
+    <string name="pick_date">تحديد تاريخ</string>
+    <string name="assign_to">تكليف ل</string>
+    <string name="updateTask">تعديل المهمة</string>
+    <string name="done">منجزة</string>
+    <string name="update_date">تعديل التاريخ</string>
+    <string name="task_title">قائمة المهام</string>
+    <string name="search">بحث</string>
+    <string name="keyword">كلمة</string>
+    <string name="searchTitle">البحث عن مهام</string>
+    <string name="month">التاريخ</string>
+    <string name="done1">تم انجازه!</string>
+    <string name="in_progress">قيد العمل...</string>
+    <string name="to_do">مهام غير منجزة</string>
+    <string name="projectTxt">مشروع</string>
+    <string name="newprj">مشروع جديد</string>
+    <string name="numberofmembers">عدد الأعضاء</string>
+    <string name="createnewprj">انشاء مشروع جديد</string>
+    <string name="prjnew">مشروع جديد</string>
+    <string name="projectList">قائمة المشاريع</string>
+    <string name="addNewProject">اضافة مشروع جديد</string>
+    <string name="updatePrj">تعديل المشروع</string>
+    <string name="searchtitleprj">بحث عن مشروع</string>
+    <string name="welcome_about">"  التطبيق الوحيد لادارة مشاريع طلاب بيرزيت!"</string>
+    <string name="welcome_back_to_projectaty">مرحباً بك مجدداً في تطبيق Projectaty</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="welcome_to_projectaty">مرحباً بك  الى Projectaty</string>
+    <string name="getting_started">انشاء حساب</string>
+    <string name="user_name_ex">سندس عابد</string>
+    <string name="update_profile">تعديل الملف الشخصي</string>
+    <string name="enter_name">ادخال اسم</string>
+    <string name="enter_username">ادخال اسم المستخدم\\ة</string>
+    <string name="enter_password">ادخال كلمة السر</string>
+    <string name="register">تسجيل</string>
+    <string name="already_have_an_account">لديك حساب؟ تسجيل الدخول هنا</string>
+    <string name="remember_me">تذكرّني</string>
+    <string name="change_profile_picture">تغيير الصورة الشخصية</string>
+    <string name="save_changes">حفظ التعديلات</string>
+    <string name="newteam">فريق جديد</string>
+    <string name="members">أعضاء الفريق</string>
+    <string name="addid">اضافة</string>
+    <string name="creatteam">انشاء فريق جديد</string>
+    <string name="projectname">اسم المشروع</string>
+    <string name="teamlist">قائمة الفرق</string>
+    <string name="addnewteam">اضافة فريق جديد</string>
+    <string name="updateteam">تحديث الفريق</string>
+    <string name="editteam">تعديل الفريق</string>
+    <string name="findteamtitle">البحث عن فريق</string>
+    <string name="findteamname">اسم الفريق</string>
+    <string name="findteamid">رقم التعريفي بالفريق</string>
+    <string name="team_dashboard">لوحة تحكم الفريق</string>
+    <string name="projects">المشاريع</string>
+    <string name="memberlist">قائمة الأعضاء</string>
+    <string name="go_to_dashboard">الرئيسية</string>
+    <string name="findstudent">البحث عن طالب\\ة</string>
+    <string name="studentid">الرقم الجامعي</string>
+    <string name="member_id">رقم العضو المنتسب</string>
+    <string-array name="months">
+        <item>كل الأشهر</item>
+        <item>يناير</item>
+        <item>فبراير</item>
+        <item>مارس</item>
+        <item>إبريل</item>
+        <item>مايو</item>
+        <item>يونيو</item>
+        <item>يوليو</item>
+        <item>أغسطس</item>
+        <item>سبتمبر</item>
+        <item>أكتوبر</item>
+        <item>نوفمبر</item>
+        <item>ديسمبر</item>
+    </string-array>
+</resources>

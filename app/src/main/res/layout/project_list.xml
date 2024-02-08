@@ -56,7 +56,7 @@
         android:id="@+id/add"
         android:layout_width="274dp"
         android:layout_height="64dp"
-        android:text="@string/addnewproject"
+        android:text="@string/newprj"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

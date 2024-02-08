@@ -1,6 +1,8 @@
 package com.projectaty.activities.projectmanagment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,9 @@ import android.widget.ListView;
 import com.projectaty.R;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
+import com.projectaty.model.Project;
+
+import java.util.ArrayList;
 
 public class ProjectDashboard extends AppCompatActivity {
 
@@ -24,13 +29,22 @@ public class ProjectDashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.dashboard);
+
+        ArrayList<Project> projects = new ArrayList<>();
+
+        RecyclerView rc = findViewById(R.id.StaggerdPrjView);
+        rc.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+
+
 
         initialize();
     }
 
+
+
     private void initialize(){
-        setProject(findViewById(R.id.prjRecyclerView));
+
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
 

@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.071" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/prjRecyclerView"
+        android:id="@+id/StaggerdPrjView"
         android:layout_width="348dp"
         android:layout_height="484dp"
         android:layout_marginEnd="32dp"

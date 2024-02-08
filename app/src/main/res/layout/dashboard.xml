@@ -7,28 +7,44 @@
     android:foregroundGravity="center"
     android:onClick="addTeam">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBtn"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="36dp"
+        android:clickable="true"
+        android:onClick="addProject"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Team"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toEndOf="@+id/User"
+        app:layout_constraintTop_toBottomOf="@+id/prjRecyclerView"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/prjList"
-        android:layout_width="250dp"
-        android:layout_height="59dp"
+        android:layout_width="169dp"
+        android:layout_height="69dp"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
-        android:text="@string/projectaty"
+        android:text="@string/app_name"
         android:textColor="#2F2E41"
-        android:textSize="48sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.867"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.061" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/StaggerdPrjView"
         android:layout_width="348dp"
         android:layout_height="484dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="140dp"
         android:dividerHeight="0.5dp"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
@@ -41,48 +57,42 @@
 
         />
 
-
-    <Button
-        android:id="@+id/add"
-        android:layout_width="120dp"
-        android:layout_height="64dp"
-        android:onClick="addProject"
-        android:text="@string/projectsButton"
-        app:icon="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
-
     <Button
         android:id="@+id/Team"
-        android:layout_width="120dp"
-        android:layout_height="64dp"
-        android:onClick="addTeam"
-        android:text="@string/teambutton"
-        app:icon="@android:drawable/ic_input_add"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
+        android:onClick="teams"
+        android:text="@string/teams"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.92" />
 
     <Button
         android:id="@+id/User"
-        android:layout_width="120dp"
-        android:layout_height="64dp"
-        android:onClick="addProfile"
-        android:text="@string/userbutton"
-        app:icon="@android:drawable/ic_input_add"
+        android:layout_width="131dp"
+        android:layout_height="55dp"
+        android:onClick="profile"
+        android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.918" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/prjRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/prjList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

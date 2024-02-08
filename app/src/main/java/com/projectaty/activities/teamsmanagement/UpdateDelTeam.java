@@ -27,7 +27,6 @@ public class UpdateDelTeam extends AppCompatActivity {
     private Button updateTeamButton;
     private Button deleteTeam;
     private Button updateMembersBtn;
-    private CheckBox isDoneUpdate;
     private RecyclerView recyclerViewMemberIDsUpdate;
     private MemberIDAdapter memberIDAdapter;
     private List<String> memberIDsList;
@@ -41,13 +40,10 @@ public class UpdateDelTeam extends AppCompatActivity {
 
     private void initilaize() {
         teamNameEdtTxtUpdate = findViewById(R.id.teamNameEdtTxtUpdate);
-        memberIDUpdateEdtTxt = findViewById(R.id.memberIDUpdateEdtTxt);
-        projectNameUpdateEdtTxt = findViewById(R.id.projectNameUpdateEdtTxt);
         descriptionUpdateEditText = findViewById(R.id.descriptionUpdateEditText);
         updateTeamButton = findViewById(R.id.updateTeamButton);
         deleteTeam = findViewById(R.id.deleteTeam);
         updateMembersBtn = findViewById(R.id.updateMembersBtn);
-        isDoneUpdate = findViewById(R.id.isDoneUpdate);
         recyclerViewMemberIDsUpdate = findViewById(R.id.recyclerViewMemberIDs);
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
 
@@ -198,13 +194,4 @@ public class UpdateDelTeam extends AppCompatActivity {
     public void setWarningUpdate(EditText warningUpdate) {
         this.warningUpdate = warningUpdate;
     }
-
-    public CheckBox getIsDoneUpdate() {
-        return isDoneUpdate;
-    }
-
-    public void setIsDoneUpdate(CheckBox isDoneUpdate) {
-        this.isDoneUpdate = isDoneUpdate;
-    }
-
 }

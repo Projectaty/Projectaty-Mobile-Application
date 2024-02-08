@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
@@ -17,18 +18,19 @@ import com.projectaty.model.Project;
 
 import java.util.ArrayList;
 
-public class ProjectDashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
 
     Button Team;
     Button User;
-    Button project;
-    ListView prjRecyclerView;
+    FloatingActionButton project;
+    RecyclerView prjRecyclerView;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.dashboard);
         setContentView(R.layout.dashboard);
 
         ArrayList<Project> projects = new ArrayList<>();
@@ -41,14 +43,11 @@ public class ProjectDashboard extends AppCompatActivity {
         initialize();
     }
 
-
-
     private void initialize(){
-
+        setProject(findViewById(R.id.addBtn));
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
-
-
+        setPrjRecyclerView(findViewById(R.id.prjRecyclerView));
     }
 
 
@@ -56,11 +55,11 @@ public class ProjectDashboard extends AppCompatActivity {
         Intent intent=new Intent(this , CreateProject.class);
         startActivity(intent);
     }
-    public void addTeam (View view){
+    public void teams (View view){
         Intent intent=new Intent(this , TeamList.class);
         startActivity(intent);
     }
-    public void addProfile (View view){
+    public void profile (View view){
         Intent intent=new Intent(this , StudentProfile.class);
         startActivity(intent);
     }
@@ -82,19 +81,19 @@ public class ProjectDashboard extends AppCompatActivity {
         User = user;
     }
 
-    public Button getProject() {
+    public FloatingActionButton getProject() {
         return project;
     }
 
-    public void setProject(Button project) {
+    public void setProject(FloatingActionButton project) {
         this.project = project;
     }
 
-    public ListView getPrjRecyclerView() {
+    public RecyclerView getPrjRecyclerView() {
         return prjRecyclerView;
     }
 
-    public void setPrjRecyclerView(ListView prjRecyclerView) {
+    public void setPrjRecyclerView(RecyclerView prjRecyclerView) {
         this.prjRecyclerView = prjRecyclerView;
     }
 }

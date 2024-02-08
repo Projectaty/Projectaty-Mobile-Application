@@ -6,12 +6,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
+import com.projectaty.config.LangugaeManager;
 import com.projectaty.config.Prefrences;
 
 public class IntroductoryActivity extends AppCompatActivity {
     /*
         Custom Introductory Activity Based on user prefrences
      */
+    Button lang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class IntroductoryActivity extends AppCompatActivity {
             loginButton.setOnClickListener(e-> startActivity(new Intent(IntroductoryActivity.this, LoginActivity.class)));
             if (Prefrences.isRememberMe(this)) {
                 startActivity(new Intent(IntroductoryActivity.this, StudentProfile.class));
+                finish();
             }
         } else {
             Prefrences.setNotFirstTime(this);
@@ -32,5 +35,23 @@ public class IntroductoryActivity extends AppCompatActivity {
             Button createAccountButton = findViewById(R.id.createAccountButton);
             createAccountButton.setOnClickListener(e-> startActivity(new Intent(IntroductoryActivity.this, CreateAccount.class)));
         }
+        setLang(findViewById(R.id.btnlang));
+        getLang().setOnClickListener(e->{
+            String currentLang = Prefrences.getPrefLang(this);
+            String newLang = (currentLang.equals("ar")) ? "en" : "ar";
+
+            LangugaeManager.setLocale(this, newLang);
+            Prefrences.setLanguage(this, newLang);
+            startActivity(new Intent(IntroductoryActivity.this, IntroductoryActivity.class));
+            finish();
+        });
+    }
+
+    public Button getLang() {
+        return lang;
+    }
+
+    public void setLang(Button lang) {
+        this.lang = lang;
     }
 }

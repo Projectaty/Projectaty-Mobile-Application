@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Add the Update Profile button -->
+
     <Button
         android:id="@+id/updateProfileButton"
         android:layout_width="wrap_content"
@@ -11,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="71dp"
         android:text="@string/update_profile"
         android:textSize="20sp" />
 
@@ -24,10 +26,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="119dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="418dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="405dp"
         android:background="@drawable/circular_background"
         android:src="@drawable/profile" />
 
@@ -43,5 +45,54 @@
         android:text="@string/user_name_ex"
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <!-- ID TextView -->
+    <TextView
+        android:id="@+id/idTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameStudent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Username TextView -->
+    <TextView
+        android:id="@+id/usernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Email TextView -->
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Log Out Button -->
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="186dp"
+        android:layout_height="61dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="285dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="281dp"
+        android:text="Log Out" />
 
 </RelativeLayout>

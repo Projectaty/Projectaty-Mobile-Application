@@ -9,37 +9,40 @@
 
     <TextView
         android:id="@+id/newTeamTitle"
-        android:layout_width="329dp"
-        android:layout_height="74dp"
+        android:layout_width="338dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
         android:text="@string/updateteam"
         android:textColor="#2F2E41"
-        android:textSize="48sp"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/updateTeamScrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        tools:ignore="MissingConstraints" />
 
 
     <ScrollView
         android:id="@+id/updateTeamScrollView"
-        android:layout_width="329dp"
-        android:layout_height="583dp"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        android:layout_width="342dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/deleteTeam"
+        app:layout_constraintStart_toStartOf="@+id/newTeamTitle"
+        app:layout_constraintTop_toBottomOf="@+id/newTeamTitle"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
+            <!-- Description Section -->
 
             <TextView
                 android:id="@+id/newTeamTxtView"
@@ -48,32 +51,25 @@
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
                 android:labelFor="@id/teamNameEdtTxtUpdate"
-                android:text="@string/teamName"
+                android:text="@string/findteamname"
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.03"/>
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
-            <CheckBox
-                android:id="@+id/isDoneUpdate"
-                android:layout_width="105dp"
-                android:layout_height="49dp"
-                android:checked="false"
-                android:fontFamily="@font/mirza"
-                android:text="@string/done"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.99"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.03"/>
+            <!-- Project Name Section -->
+
+            <!-- Members Section -->
+
+            <!-- Add Member Button -->
+
+            <!-- RecyclerView for Member IDs -->
 
             <EditText
                 android:id="@+id/teamNameEdtTxtUpdate"
@@ -83,16 +79,13 @@
                 android:gravity="start|top"
                 android:inputType="text"
                 android:labelFor="@id/newTeamTxtView"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.12"/>
-
-
-            <!-- Description Section -->
+                app:layout_constraintVertical_bias="0.108"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/teamDescriptionUpdateTxtView"
@@ -105,15 +98,14 @@
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.22" />
+                app:layout_constraintVertical_bias="0.215"
+                tools:ignore="MissingConstraints" />
 
-            <!-- Project Name Section -->
             <EditText
                 android:id="@+id/descriptionUpdateEditText"
                 android:layout_width="332dp"
@@ -124,79 +116,28 @@
                 android:inputType="textMultiLine"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.36"/>
+                app:layout_constraintVertical_bias="0.343" />
 
-            <TextView
-                android:id="@+id/projectNameUpdateTxtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mirza"
-                android:foregroundGravity="center"
-                android:labelFor="@id/projectNameUpdateEdtTxt"
-                android:text="@string/projectname"
-                android:textColor="#2F2E41"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.49"/>
-
-            <EditText
-                android:id="@+id/projectNameUpdateEdtTxt"
-                android:layout_width="329dp"
-                android:layout_height="47dp"
-                android:ems="10"
-                android:foregroundGravity="center"
-                android:gravity="start|top"
-                android:inputType="datetime|date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.586"/>
-
-            <!-- Members Section -->
             <TextView
                 android:id="@+id/membersUpdateTxtView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
-                android:labelFor="@id/memberIDUpdateEdtTxt"
                 android:text="@string/members"
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.68"/>
+                app:layout_constraintVertical_bias="0.548" />
 
-            <EditText
-                android:id="@+id/memberIDUpdateEdtTxt"
-                android:layout_width="329dp"
-                android:layout_height="47dp"
-                android:ems="10"
-                android:foregroundGravity="center"
-                android:gravity="start|top"
-                android:inputType="datetime|date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.78"/>
-
-            <!-- Add Member Button -->
             <Button
                 android:id="@+id/updateMembersBtn"
                 android:layout_width="182dp"
@@ -210,16 +151,15 @@
                 app:icon="@android:drawable/ic_input_add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.96"
+                app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.68"/>
+                app:layout_constraintVertical_bias="0.56" />
 
-            <!-- RecyclerView for Member IDs -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMemberIDsUpdate"
-                android:layout_width="320dp"
-                android:layout_height="150dp"
+                android:layout_width="327dp"
+                android:layout_height="180dp"
                 android:ems="10"
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
@@ -229,9 +169,10 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/memberIDUpdateEdtTxt"
-                app:layout_constraintVertical_bias="1.0"
-                tools:layout_editor_absoluteX="4dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/updateMembersBtn"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -239,38 +180,40 @@
 
     <Button
         android:id="@+id/updateTeamButton"
-        android:layout_width="255dp"
-        android:layout_height="54dp"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="27dp"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
         android:text="@string/editteam"
         android:textSize="18sp"
         android:textStyle="bold"
         app:icon="@android:drawable/ic_menu_edit"
-        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"/>
-
+        app:layout_constraintStart_toEndOf="@+id/deleteTeam"
+        app:layout_constraintTop_toBottomOf="@+id/updateTeamScrollView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/deleteTeam"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
+        android:layout_width="93dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="27dp"
         android:foregroundGravity="center"
         android:gravity="center|center_horizontal|center_vertical"
         android:theme="@style/Theme.Projectaty"
         app:icon="@android:drawable/ic_menu_delete"
-        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintEnd_toStartOf="@+id/updateTeamButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"/>
+        app:layout_constraintTop_toBottomOf="@+id/updateTeamScrollView"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/warningUpdate"
@@ -284,6 +227,10 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
 

@@ -34,7 +34,6 @@ public class Dashboard extends AppCompatActivity {
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
 
-
     }
 
 
@@ -42,11 +41,11 @@ public class Dashboard extends AppCompatActivity {
         Intent intent=new Intent(this , CreateProject.class);
         startActivity(intent);
     }
-    public void addTeam (View view){
+    public void teams (View view){
         Intent intent=new Intent(this , TeamList.class);
         startActivity(intent);
     }
-    public void addProfile (View view){
+    public void profile (View view){
         Intent intent=new Intent(this , StudentProfile.class);
         startActivity(intent);
     }

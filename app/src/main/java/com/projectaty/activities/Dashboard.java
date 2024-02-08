@@ -9,7 +9,7 @@ import com.projectaty.R;
 public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard);
+        setContentView(R.layout.project_list);
 
     }
 

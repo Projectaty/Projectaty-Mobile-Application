@@ -2,6 +2,8 @@ package com.projectaty.activities.usermanagement;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,8 @@ public class UpdateProfile extends AppCompatActivity {
 
     private EditText usernameEditText, idEditText, emailEditText, passwordEditText;
     private ImageView profileImageView;
+    private Uri selectedImageUri;
+    private static final int PICK_IMAGE = 1;
     private Button changeProfilePicButton, saveChangesButton, deleteAccountButton;
 
     @Override
@@ -26,7 +30,6 @@ public class UpdateProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_profile);
 
-        // Initialize views
         usernameEditText = findViewById(R.id.usernameEditText);
         idEditText = findViewById(R.id.idEditText);
         emailEditText = findViewById(R.id.emailEditText);
@@ -36,18 +39,16 @@ public class UpdateProfile extends AppCompatActivity {
         saveChangesButton = findViewById(R.id.saveChangesButton);
         deleteAccountButton = findViewById(R.id.deleteAccountButton);
 
-        // Set OnClickListener for changeProfilePicButton to handle changing profile picture
         changeProfilePicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic to change profile picture
-                // You can open a file picker or camera intent here
-                // and set the selected image to profileImageView
-                Toast.makeText(UpdateProfile.this, "Change Profile Picture", Toast.LENGTH_SHORT).show();
+                // Open gallery to choose photo
+                Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE);
             }
         });
 
-        // Set OnClickListener for saveChangesButton to handle saving profile changes
+
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,13 +56,28 @@ public class UpdateProfile extends AppCompatActivity {
             }
         });
 
-        // Set OnClickListener for deleteAccountButton to handle deleting the account
+
         deleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showConfirmationDialog();
             }
         });
+
+
+        loadUserData();
+    }
+
+    private void loadUserData() {
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        usernameEditText.setText(preferences.getString("username", ""));
+        idEditText.setText(preferences.getString("id", ""));
+        emailEditText.setText(preferences.getString("email", ""));
+        passwordEditText.setText(preferences.getString("password", ""));
+        String profileImageUri = preferences.getString("profile_photo_uri", "");
+        if (!profileImageUri.isEmpty()) {
+            profileImageView.setImageURI(Uri.parse(profileImageUri));
+        }
     }
 
     private void saveChanges() {
@@ -69,13 +85,16 @@ public class UpdateProfile extends AppCompatActivity {
         String newId = idEditText.getText().toString();
         String newEmail = emailEditText.getText().toString();
         String newPassword = passwordEditText.getText().toString();
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("username", newUsername);
+        editor.putString("id", newId);
+        editor.putString("email", newEmail);
+        editor.putString("password", newPassword);
 
-        // Display a toast message indicating that changes are saved
+        editor.apply();
+
         Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
-
-        // Assuming you want to navigate back to the profile after saving changes
-        startActivity(new Intent(this, StudentProfile.class));
-        finish(); // Finish the current activity to prevent user from coming back to update profile
     }
 
     private void showConfirmationDialog() {
@@ -85,22 +104,37 @@ public class UpdateProfile extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Implement logic to delete the account
-                // This can include deleting user data from database, clearing preferences, etc.
+
+                deleteUserData();
                 Toast.makeText(UpdateProfile.this, "Account Deleted", Toast.LENGTH_SHORT).show();
-                // Redirect to the login screen or any appropriate screen after account deletion
+
                 startActivity(new Intent(UpdateProfile.this, LoginActivity.class));
-                finish(); // Finish the current activity
+                finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Do nothing, simply dismiss the dialog
                 dialog.dismiss();
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void deleteUserData() {
+
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            selectedImageUri = data.getData();
+            profileImageView.setImageURI(selectedImageUri);
+        }
     }
 }

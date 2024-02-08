@@ -23,7 +23,7 @@ public class UserRequest {
     }
 
     public void addStudent(int studentId, String username, String password, String email, String profilePic) {
-        String url = "http://127.0.0.1:5000/studentsI";
+        String url = URLs.ADD_USER_URL;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("StudentID", studentId);
@@ -53,7 +53,7 @@ public class UserRequest {
     }
 
     public void deleteStudent(int studentId) {
-        String url = "http://127.0.0.1:5000/students/" + studentId;
+        String url = URLs.DELETE_USER_URL + studentId;
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
                 new Response.Listener<String>() {
                     @Override
@@ -72,7 +72,7 @@ public class UserRequest {
     }
 
     public void updateStudent(int studentId, String username, String password, String email, String profilePic) {
-        String url = "http://127.0.0.1:5000/studentsU";
+        String url = URLs.UPDATE_USER_URL;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("StudentID", studentId);
@@ -102,7 +102,7 @@ public class UserRequest {
     }
 
     public void getAllStudents() {
-        String url = "http://127.0.0.1:5000/studentsS";
+        String url = URLs.GET_USERS_URL;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -126,7 +126,7 @@ public class UserRequest {
     }
 
     public void getStudentById(int studentId, StudentByIdListener listener) {
-        String url = "http://127.0.0.1:5000/students/" + studentId;
+        String url = URLs.GET_ONE_USER_URL + studentId;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override

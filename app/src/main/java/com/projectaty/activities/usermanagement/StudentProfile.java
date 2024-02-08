@@ -22,8 +22,8 @@ public class StudentProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_profile);
-
-        nameTextView = findViewById(R.id.nameTextView);
+        // Initialize views
+        nameTextView = findViewById(R.id.nameStudent);
         idTextView = findViewById(R.id.idTextView);
         usernameTextView = findViewById(R.id.usernameTextView);
         emailTextView = findViewById(R.id.emailTextView);
@@ -48,12 +48,10 @@ public class StudentProfile extends AppCompatActivity {
             profileImageView.setImageResource(R.drawable.profile);
         }
 
-        updateProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StudentProfile.this, UpdateProfile.class);
-                startActivity(intent);
-            }
+        // Set OnClickListener for the Update Profile button
+        updateProfileButton.setOnClickListener(e->{
+                // Open the UpdateProfile activity when the button is clicked
+                startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
         });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {

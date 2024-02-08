@@ -11,11 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
+import com.projectaty.activities.projectmanagment.Dashboard;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextUsernameLogin, editTextPasswordLogin;
     private CheckBox checkBoxRememberMe;
+    private Button buttonGoToCreateAcc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +27,15 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsernameLogin = findViewById(R.id.editTextUsernameLogin);
         editTextPasswordLogin = findViewById(R.id.editTextPasswordLogin);
         checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
+        buttonGoToCreateAcc = findViewById(R.id.buttonGoToCreateAcc);
 
         Button buttonLogin = findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginUser();
-            }
+        buttonLogin.setOnClickListener(v -> loginUser());
+        buttonGoToCreateAcc.setOnClickListener(e->{
+            Intent intent = new Intent(this, CreateAccount.class);
+            startActivity(intent);
+            finish();
         });
-
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
         boolean rememberMe = preferences.getBoolean("rememberMe", false);
         if (rememberMe) {
@@ -69,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void start() {
-        Intent intent = new Intent(this, StudentProfile.class);
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         finish();
     }

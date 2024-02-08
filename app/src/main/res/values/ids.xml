@@ -10,4 +10,6 @@
     <item name="descriptionEditTextUpdate" type="id" />
     <item name="dateEditTextUpdate" type="id" />
     <item name="uodateDate" type="id" />
+    <item name="PrjEditText" type="id"/>
+    <item name="numberofmembers" type="id"/>
 </resources>

@@ -1,0 +1,41 @@
+<!--
+    Inspired by:
+    https://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview
+
+    -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@color/white"
+    android:id="@+id/teamLayout">
+
+    <ImageView
+        android:id="@+id/teamImg"
+        android:layout_width="68dp"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/team" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/teamImg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/teamItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:text="@string/findteamname"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

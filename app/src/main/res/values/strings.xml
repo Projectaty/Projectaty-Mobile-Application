@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Projectaty</string>
+    <string name="lang">العربية 🌍</string>
+    <string name="app_name" translatable="false">Projectaty</string>
     <string name="warning">Enter a title to proceed</string>
     <string name="description">Description</string>
     <string name="due">Due Date</string>
@@ -10,7 +11,6 @@
     <string name="pick_date">Pick Date</string>
     <string name="assign_to">Assign To</string>
     <string name="updateTask">Edit Task</string>
-    <string name="update">Edit Task</string>
     <string name="done">Done</string>
     <string name="update_date">Edit Date</string>
     <string name="task_title">Tasks List</string>
@@ -21,6 +21,15 @@
     <string name="done1">Done!</string>
     <string name="in_progress">In Progress...</string>
     <string name="to_do">TO DO</string>
+    <string name="projectTxt">Project</string>
+    <string name="newprj">New Project</string>
+    <string name="numberofmembers">Number Of Members</string>
+    <string name="createnewprj">Create New Project</string>
+    <string name="prjnew">New Project</string>
++    <string name="projectList">Project List</string>
+    <string name="addNewProject">Add a new Project</string>
+    <string name="updatePrj">Update Project</string>
+    <string name="searchtitleprj">Find Project</string>
     <string-array name="months">
         <item>All</item>
         <item>January</item>
@@ -36,4 +45,45 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
+    <string name="welcome_back_to_projectaty">Welcome Back to Projectaty!</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_projectaty">Welcome to Projectaty!</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="user_name_ex">Sondos Aabed</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account? Log in here.</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="newteam">New Team</string>
+    <string name="members">Members</string>
+    <string name="addid">Add</string>
+    <string name="creatteam">Creat New Team</string>
+    <string name="projectname">Project Name</string>
+    <string name="teamlist">Team List</string>
+    <string name="addnewteam">Add New Team</string>
+    <string name="updateteam">Update Team</string>
+    <string name="editteam">Edit Team</string>
+    <string name="findteamtitle">Find Team</string>
+    <string name="findteamname">Team Name</string>
+    <string name="findteamid">Team ID</string>
+    <string name="team_dashboard">Team Dashboard</string>
+    <string name="projects">projects</string>
+    <string name="memberlist">Members</string>
+    <string name="go_to_dashboard">Go to Dashboard</string>
+    <string name="findstudent">Find Student</string>
+    <string name="studentid">Student ID</string>
+    <string name="member_id">Member ID: </string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="enter_id">Enter ID</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="teams">👥 Teams</string>
+    <string name="profile">👤 Profile</string>
+    <string name="don_t_have_an_account">Don\'t Have an account?</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

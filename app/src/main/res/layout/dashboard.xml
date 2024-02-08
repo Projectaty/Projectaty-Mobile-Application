@@ -63,13 +63,13 @@
         android:layout_height="55dp"
         android:onClick="teams"
         android:text="@string/teams"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92"
-        android:textSize="18sp"/>
+        app:layout_constraintVertical_bias="0.92" />
 
     <Button
         android:id="@+id/User"
@@ -77,14 +77,13 @@
         android:layout_height="55dp"
         android:onClick="profile"
         android:text="@string/profile"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918"
-        />
+        app:layout_constraintVertical_bias="0.918" />
 
     <ImageView
         android:id="@+id/imageView"

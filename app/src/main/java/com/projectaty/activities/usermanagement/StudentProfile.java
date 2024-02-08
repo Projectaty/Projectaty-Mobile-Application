@@ -9,20 +9,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.android.volley.VolleyError;
 import com.projectaty.R;
+import com.projectaty.data.UserRequest;
+
 
 public class StudentProfile extends AppCompatActivity {
 
     private TextView nameTextView, idTextView, usernameTextView, emailTextView;
     private ImageView profileImageView;
     private Button updateProfileButton, logoutButton;
+    private UserRequest userRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_profile);
-        // Initialize views
+
         nameTextView = findViewById(R.id.nameStudent);
         idTextView = findViewById(R.id.idTextView);
         usernameTextView = findViewById(R.id.usernameTextView);
@@ -32,38 +37,59 @@ public class StudentProfile extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String userName = sharedPreferences.getString("username", "");
-        String userId = sharedPreferences.getString("id", "");
-        String userEmail = sharedPreferences.getString("email", "");
-        String userProfilePhotoPath = sharedPreferences.getString("profile_photo_uri", "");
+        String studentId = sharedPreferences.getString("student_id", "");
 
-        nameTextView.setText(userName);
-        idTextView.setText(userId);
-        usernameTextView.setText(sharedPreferences.getString("username", ""));
-        emailTextView.setText(userEmail);
-
-        if (!userProfilePhotoPath.isEmpty()) {
-            profileImageView.setImageURI(Uri.parse(userProfilePhotoPath));
+        userRequest = new UserRequest(this);
+        if (!studentId.isEmpty()) {
+            getStudentData(studentId);
         } else {
-            profileImageView.setImageResource(R.drawable.profile);
+            Toast.makeText(this, "Student ID not found", Toast.LENGTH_SHORT).show();
         }
 
-        // Set OnClickListener for the Update Profile button
-        updateProfileButton.setOnClickListener(e->{
+        updateProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 // Open the UpdateProfile activity when the button is clicked
                 startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
+            }
         });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-
-                startActivity(new Intent(StudentProfile.this, LoginActivity.class));
-                finish();
+                logout();
             }
         });
+    }
+
+    private void getStudentData(String studentId) {
+        userRequest.getStudentById(Integer.parseInt(studentId), new UserRequest.StudentByIdListener() {
+            @Override
+            public void onSuccess(int studentId, String username, String password, String email, String profilePic) {
+                idTextView.setText(String.valueOf(studentId));
+                usernameTextView.setText(username);
+                emailTextView.setText(email);
+                if (!profilePic.isEmpty()) {
+                    profileImageView.setImageURI(Uri.parse(profilePic));
+                } else {
+                    profileImageView.setImageResource(R.drawable.profile);
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                Toast.makeText(StudentProfile.this, "Failed to load student data", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void logout() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        startActivity(new Intent(StudentProfile.this, LoginActivity.class));
+        finish();
     }
 }

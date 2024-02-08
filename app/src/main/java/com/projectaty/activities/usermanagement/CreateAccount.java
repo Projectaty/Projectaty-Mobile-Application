@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.projectaty.R;
 
 public class CreateAccount extends AppCompatActivity {
@@ -22,6 +21,7 @@ public class CreateAccount extends AppCompatActivity {
     private Button buttonGoToLogin, buttonChoosePhoto;
     private static final int PICK_IMAGE = 1;
     private Uri selectedImageUri;
+    private ImageView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ public class CreateAccount extends AppCompatActivity {
         textViewLoginPrompt = findViewById(R.id.textViewLoginPrompt);
         buttonGoToLogin = findViewById(R.id.buttonGoToLogin);
         buttonChoosePhoto = findViewById(R.id.buttonChoosePhoto);
+        view = findViewById(R.id.imageViewProfile);
 
-        // Check if user has account to show login prompt
         if (hasAccount()) {
             textViewLoginPrompt.setVisibility(View.VISIBLE);
             buttonGoToLogin.setVisibility(View.VISIBLE);
@@ -60,9 +60,9 @@ public class CreateAccount extends AppCompatActivity {
         buttonChoosePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Open gallery to choose photo
                 Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivityForResult(gallery, PICK_IMAGE);
+
             }
         });
     }
@@ -72,6 +72,7 @@ public class CreateAccount extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
             selectedImageUri = data.getData();
+            view.setImageURI(selectedImageUri);
         }
     }
 
@@ -87,7 +88,7 @@ public class CreateAccount extends AppCompatActivity {
         editor.putString("username", username);
         editor.putString("email", email);
         editor.putString("password", password);
-        // Save the selected image URI if available
+
         if (selectedImageUri != null) {
             editor.putString("profile_photo_uri", selectedImageUri.toString());
         }

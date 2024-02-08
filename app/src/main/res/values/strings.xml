@@ -90,5 +90,5 @@
     <string name="memberid">Member ID</string>
     <string name="findstudent">Find Student</string>
     <string name="studentid">Student ID</string>
-    <string name="member_id">"Member ID: "</string>
+    <string name="member_id">Member ID: </string>
 </resources>

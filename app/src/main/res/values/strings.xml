@@ -79,12 +79,9 @@
     <string name="findstudent">Find Student</string>
     <string name="studentid">Student ID</string>
     <string name="member_id">Member ID: </string>
-    <string name="projectDash">Projectaty</string>
-    <string name="projectaty">Projectaty</string>
-    <string name="projectsButton">Projects</string>
-    <string name="teambutton">Team</string>
-    <string name="userbutton">User</string>
     <string name="choose_photo">Choose Photo</string>
     <string name="enter_id">Enter ID</string>
     <string name="enter_email">Enter Email</string>
+    <string name="teams">👥 Teams</string>
+    <string name="profile">👤 Profile</string>
 </resources>

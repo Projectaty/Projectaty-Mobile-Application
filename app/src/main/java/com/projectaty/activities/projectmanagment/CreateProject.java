@@ -4,12 +4,10 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
-import com.projectaty.activities.taskmanagement.CreateTask;
 
 import java.util.Calendar;
 
@@ -38,7 +36,7 @@ public class CreateProject extends AppCompatActivity {
         setPickDate(findViewById(R.id.pickDate));
         setCreateTaskButton(findViewById(R.id.createPrjButton));
         setMemberEditText(findViewById(R.id.editTextNumber));
-        setFloatingActionButton(findViewById(R.id.floatingActionButton));
+        setFloatingActionButton(findViewById(R.id.addBtn));
         handle_pick_date(getPickDate());
 
     }

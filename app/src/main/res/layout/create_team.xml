@@ -15,14 +15,14 @@
         android:foregroundGravity="center"
         android:text="@string/newteam"
         android:textColor="#2F2E41"
-        android:textSize="48sp"
-        tools:ignore="MissingConstraints"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.076"
+        tools:ignore="MissingConstraints" />
 
 
     <ScrollView
@@ -219,8 +219,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/memberIDEdtTxt"
-                app:layout_constraintVertical_bias="1.0"
-                tools:layout_editor_absoluteX="4dp" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="-18dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

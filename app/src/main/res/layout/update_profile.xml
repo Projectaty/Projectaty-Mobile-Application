@@ -81,8 +81,8 @@
         android:layout_below="@id/idEditText"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="72dp" />
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="99dp" />
 
     <Button
         android:id="@+id/deleteAccountButton"

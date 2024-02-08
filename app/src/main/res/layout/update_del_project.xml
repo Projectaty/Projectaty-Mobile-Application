@@ -16,7 +16,7 @@
         android:foregroundGravity="center"
         android:text="@string/updatePrj"
         android:textColor="#2F2E41"
-        android:textSize="48sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"

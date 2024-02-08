@@ -5,32 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".activities.usermanagement.CreateAccount">
     <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="276dp"
-        android:layout_height="153dp"
+        android:id="@+id/imageViewProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="57dp"
-        android:src="@drawable/logo" />
-    <EditText
-        android:id="@+id/editTextname"
-        android:layout_width="348dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circular_background"
+        android:src="@drawable/profile" />
+
+    <Button
+        android:id="@+id/buttonChoosePhoto"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/imageViewProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/mirza"
-        android:hint="@string/enter_name"
-        android:inputType="text"
-        android:textSize="24sp" />
+        android:layout_marginTop="8dp"
+        android:text="Choose Photo" />
+
     <EditText
         android:id="@+id/editTextUsername"
-        android:layout_width="348dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -43,9 +38,33 @@
         android:inputType="text"
         android:textSize="24sp" />
 
+    <!-- ID Field -->
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUsername"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter ID"
+        android:inputType="text" />
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextId"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress" />
+
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="349dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
         android:layout_centerInParent="true"

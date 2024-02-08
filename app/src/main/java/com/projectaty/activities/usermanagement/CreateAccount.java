@@ -2,11 +2,11 @@ package com.projectaty.activities.usermanagement;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +21,7 @@ public class CreateAccount extends AppCompatActivity {
     private TextView textViewLoginPrompt;
     private Button buttonGoToLogin, buttonChoosePhoto;
     private static final int PICK_IMAGE = 1;
-    private String selectedImagePath;
+    private Uri selectedImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class CreateAccount extends AppCompatActivity {
         buttonGoToLogin = findViewById(R.id.buttonGoToLogin);
         buttonChoosePhoto = findViewById(R.id.buttonChoosePhoto);
 
+        // Check if user has account to show login prompt
         if (hasAccount()) {
             textViewLoginPrompt.setVisibility(View.VISIBLE);
             buttonGoToLogin.setVisibility(View.VISIBLE);
@@ -70,8 +71,7 @@ public class CreateAccount extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
-            selectedImagePath = data.getDataString();
-            // You can handle the selected image path here, such as displaying it or saving it.
+            selectedImageUri = data.getData();
         }
     }
 
@@ -82,19 +82,18 @@ public class CreateAccount extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
 
-        if (!hasAccount()) {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("id", id);
-            editor.putString("username", username);
-            editor.putString("email", email);
-            editor.putString("password", password);
-            // You might also want to save the selectedImagePath if the user chose a photo
-            editor.putString("profile_photo_path", selectedImagePath);
-            editor.apply();
-            start();
-        } else {
-            Toast.makeText(this, "You already have an account. Please log in.", Toast.LENGTH_SHORT).show();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("id", id);
+        editor.putString("username", username);
+        editor.putString("email", email);
+        editor.putString("password", password);
+        // Save the selected image URI if available
+        if (selectedImageUri != null) {
+            editor.putString("profile_photo_uri", selectedImageUri.toString());
         }
+        editor.apply();
+
+        start();
     }
 
     private boolean hasAccount() {

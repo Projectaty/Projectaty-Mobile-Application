@@ -6,17 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.projectaty.R;
 
 public class CreateAccount extends AppCompatActivity {
 
-    private EditText editTextUsername, editTextPassword;
+    private EditText editTextUsername, editTextPassword, editTextId, editTextEmail;
     private TextView textViewLoginPrompt;
-    private Button buttonGoToLogin;
+    private Button buttonGoToLogin, buttonChoosePhoto;
+    private static final int PICK_IMAGE = 1;
+    private String selectedImagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +30,19 @@ public class CreateAccount extends AppCompatActivity {
 
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
+        editTextId = findViewById(R.id.editTextId);
+        editTextEmail = findViewById(R.id.editTextEmail);
 
         textViewLoginPrompt = findViewById(R.id.textViewLoginPrompt);
         buttonGoToLogin = findViewById(R.id.buttonGoToLogin);
+        buttonChoosePhoto = findViewById(R.id.buttonChoosePhoto);
 
         if (hasAccount()) {
-            // If the user already has an account, show the login prompt and button
             textViewLoginPrompt.setVisibility(View.VISIBLE);
             buttonGoToLogin.setVisibility(View.VISIBLE);
-
             buttonGoToLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Go to the login screen
                     goToLogin();
                 }
             });
@@ -47,47 +52,63 @@ public class CreateAccount extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Register the user
                 registerUser();
+            }
+        });
+
+        buttonChoosePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open gallery to choose photo
+                Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            selectedImagePath = data.getDataString();
+            // You can handle the selected image path here, such as displaying it or saving it.
+        }
+    }
+
     public void registerUser() {
+        String id = editTextId.getText().toString();
         String username = editTextUsername.getText().toString();
+        String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
 
         if (!hasAccount()) {
-            // If the user doesn't have an account, register them
             SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("id", id);
             editor.putString("username", username);
+            editor.putString("email", email);
             editor.putString("password", password);
+            // You might also want to save the selectedImagePath if the user chose a photo
+            editor.putString("profile_photo_path", selectedImagePath);
             editor.apply();
-
             start();
         } else {
-            // If the user already has an account, show a message or take appropriate action
-            // For simplicity, let's just show a toast message
             Toast.makeText(this, "You already have an account. Please log in.", Toast.LENGTH_SHORT).show();
         }
     }
 
     private boolean hasAccount() {
-        // Check if the user already has an account
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
         return preferences.contains("username") && preferences.contains("password");
     }
 
     private void start() {
-
         Intent intent = new Intent(this, StudentProfile.class);
         startActivity(intent);
         finish();
     }
 
     private void goToLogin() {
-        // Go to the login screen
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();

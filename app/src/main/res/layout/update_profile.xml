@@ -1,66 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="356dp"
-        android:layout_height="75dp"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/usernameEditText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="-154dp"
-        android:layout_marginEnd="19dp"
-        android:hint="@string/enter_new_name"
+        android:layout_marginTop="-134dp"
+        android:layout_marginEnd="30dp"
         android:inputType="textPassword"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/usernameEditText"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
+        android:layout_width="341dp"
+        android:layout_height="62dp"
         android:layout_below="@id/changeProfilePicButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="154dp"
-        android:hint="@string/enter_new_username"
+        android:layout_marginTop="162dp"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="356dp"
-        android:layout_height="75dp"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/usernameEditText"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="13dp"
-        android:hint="@string/enter_new_password"
+        android:layout_marginTop="73dp"
         android:inputType="textPassword"
         android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="150dp"
-        android:layout_height="160dp"
+        android:layout_width="121dp"
+        android:layout_height="126dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/circular_background"
         android:src="@drawable/profile" />
 
+    <!-- Add the Delete Account button -->
+
     <Button
         android:id="@+id/changeProfilePicButton"
-        android:layout_width="182dp"
-        android:layout_height="65dp"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/profileImageView"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-119dp"
-        android:layout_marginEnd="22dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-120dp"
+        android:layout_marginEnd="25dp"
         android:text="@string/change_profile_picture"
-        android:textSize="18sp" />
+        android:textSize="15sp"
+        app:icon="@android:drawable/ic_menu_edit" />
+
+    <EditText
+        android:id="@+id/idEditText"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameEditText"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEditText"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="72dp" />
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeProfilePicButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="33dp"
+        android:text="Delete Account"
+        app:icon="@android:drawable/ic_menu_delete" />
 
     <Button
         android:id="@+id/saveChangesButton"
@@ -69,8 +102,9 @@
         android:layout_below="@id/passwordEditText"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/save_changes"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:icon="@android:drawable/ic_menu_save" />
 </RelativeLayout>

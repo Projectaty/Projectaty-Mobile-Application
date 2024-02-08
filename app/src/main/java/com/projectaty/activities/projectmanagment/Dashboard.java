@@ -18,26 +18,15 @@ import com.projectaty.model.Project;
 import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
-
     Button Team;
     Button User;
     FloatingActionButton project;
     RecyclerView prjRecyclerView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-
-        ArrayList<Project> projects = new ArrayList<>();
-
-        RecyclerView rc = findViewById(R.id.StaggerdPrjView);
-        rc.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-
-
-
         initialize();
     }
 
@@ -45,14 +34,26 @@ public class Dashboard extends AppCompatActivity {
         setProject(findViewById(R.id.addBtn));
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
-        setPrjRecyclerView(findViewById(R.id.prjRecyclerView));
+        RecyclerView rc = findViewById(R.id.StaggerdPrjView);
+        rc.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        ArrayList<Project> projects = new ArrayList<>();
+
     }
 
-
+    /*
+        On click Handlers
+     */
     public void addProject (View view){
         Intent intent=new Intent(this , CreateProject.class);
         startActivity(intent);
     }
+
+    public void editProject (View view, int projId){
+        /* Open update for that spcifif project using it's ID  */
+        Intent intent=new Intent(this , UpdateDelProject.class);
+        startActivity(intent);
+    }
+
     public void teams (View view){
         Intent intent=new Intent(this , TeamList.class);
         startActivity(intent);

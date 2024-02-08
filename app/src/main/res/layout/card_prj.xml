@@ -65,6 +65,7 @@
             android:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="32dp"
             android:clickable="true"
+            android:onClick="editProject"
             android:src="@android:drawable/ic_menu_edit"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"

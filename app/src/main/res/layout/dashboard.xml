@@ -72,8 +72,8 @@
 
     <Button
         android:id="@+id/User"
-        android:layout_width="130dp"
-        android:layout_height="49dp"
+        android:layout_width="131dp"
+        android:layout_height="55dp"
         android:onClick="profile"
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"

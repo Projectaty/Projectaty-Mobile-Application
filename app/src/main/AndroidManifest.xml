@@ -32,6 +32,7 @@
         <activity android:name=".activities.projectmanagment.CreateProject" android:exported="false"/>
         <activity android:name=".activities.projectmanagment.SearchProject" android:exported="false" />
         <activity android:name=".activities.projectmanagment.UpdateDelProject" android:exported="false"/>
+        <activity android:name=".activities.projectmanagment.Dashboard" android:exported="false"/>
 
         <!--   Activities Related  to the tasks managmnet sub module   -->
         <activity android:name=".activities.taskmanagement.TaskList" android:exported="false"/>

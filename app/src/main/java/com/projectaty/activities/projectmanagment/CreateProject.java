@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
 
 import java.util.Calendar;
@@ -17,7 +18,7 @@ public class CreateProject extends AppCompatActivity {
     EditText descriptionEditText;
     EditText dateEditText;
     EditText memberEditText;
-    Button floatingActionButton;
+    FloatingActionButton floatingActionButton;
     Button pickDate;
     Button createTaskButton;
 
@@ -95,11 +96,11 @@ public class CreateProject extends AppCompatActivity {
         this.memberEditText = memberEditText;
     }
 
-    public Button getFloatingActionButton() {
+    public FloatingActionButton getFloatingActionButton() {
         return floatingActionButton;
     }
 
-    public void setFloatingActionButton(Button floatingActionButton) {
+    public void setFloatingActionButton(FloatingActionButton floatingActionButton) {
         this.floatingActionButton = floatingActionButton;
     }
 

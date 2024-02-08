@@ -87,7 +87,6 @@
         android:id="@+id/logoutButton"
         android:layout_width="186dp"
         android:layout_height="61dp"
-        android:layout_below="@id/emailTextView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

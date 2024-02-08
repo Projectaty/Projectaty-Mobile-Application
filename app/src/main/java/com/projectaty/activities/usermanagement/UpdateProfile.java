@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
+import com.projectaty.config.Prefrences;
 
 public class UpdateProfile extends AppCompatActivity {
 
@@ -29,7 +30,9 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_profile);
-
+        initialize();
+    }
+    private void initialize(){
         usernameEditText = findViewById(R.id.usernameEditText);
         idEditText = findViewById(R.id.idEditText);
         emailEditText = findViewById(R.id.emailEditText);
@@ -39,45 +42,31 @@ public class UpdateProfile extends AppCompatActivity {
         saveChangesButton = findViewById(R.id.saveChangesButton);
         deleteAccountButton = findViewById(R.id.deleteAccountButton);
 
-        changeProfilePicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        changeProfilePicButton.setOnClickListener(e->{
                 // Open gallery to choose photo
                 Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivityForResult(gallery, PICK_IMAGE);
-            }
         });
 
-
-        saveChangesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveChanges();
-            }
-        });
-
-
-        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showConfirmationDialog();
-            }
-        });
-
+        saveChangesButton.setOnClickListener(e-> saveChanges());
+        deleteAccountButton.setOnClickListener(e-> showConfirmationDialog());
 
         loadUserData();
     }
 
     private void loadUserData() {
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        usernameEditText.setText(preferences.getString("username", ""));
-        idEditText.setText(preferences.getString("id", ""));
-        emailEditText.setText(preferences.getString("email", ""));
-        passwordEditText.setText(preferences.getString("password", ""));
-        String profileImageUri = preferences.getString("profile_photo_uri", "");
+        /*
+        Load the data from the query Update
+
+        usernameEditText.setText();
+        idEditText.setText();
+        emailEditText.setText();
+        passwordEditText.setText();
+        String profileImageUri = ;
         if (!profileImageUri.isEmpty()) {
             profileImageView.setImageURI(Uri.parse(profileImageUri));
         }
+        */
     }
 
     private void saveChanges() {
@@ -86,14 +75,10 @@ public class UpdateProfile extends AppCompatActivity {
         String newEmail = emailEditText.getText().toString();
         String newPassword = passwordEditText.getText().toString();
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("username", newUsername);
-        editor.putString("id", newId);
-        editor.putString("email", newEmail);
-        editor.putString("password", newPassword);
 
-        editor.apply();
-
+        /*
+            update query use the object
+         */
         Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
     }
 
@@ -104,11 +89,10 @@ public class UpdateProfile extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-                deleteUserData();
+                deleteUserData(Prefrences.getStudentid(UpdateProfile.this)); //geting the id from the prefrence
                 Toast.makeText(UpdateProfile.this, "Account Deleted", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(UpdateProfile.this, LoginActivity.class));
+                startActivity(new Intent(UpdateProfile.this, CreateAccount.class));
                 finish();
             }
         });
@@ -122,11 +106,11 @@ public class UpdateProfile extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void deleteUserData() {
-
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
+    private void deleteUserData(int userId) {
+     /*
+        Make a delete Query ddelet by ID
+        and when delet must logout
+      */
     }
 
     @Override

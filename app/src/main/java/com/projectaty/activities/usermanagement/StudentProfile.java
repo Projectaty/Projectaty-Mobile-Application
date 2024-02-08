@@ -13,7 +13,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.VolleyError;
 import com.projectaty.R;
+import com.projectaty.config.Prefrences;
 import com.projectaty.data.UserRequest;
+
+import java.util.prefs.Preferences;
 
 
 public class StudentProfile extends AppCompatActivity {
@@ -27,6 +30,10 @@ public class StudentProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_profile);
+        initialize();
+    }
+
+    private void initialize(){
 
         nameTextView = findViewById(R.id.nameStudent);
         idTextView = findViewById(R.id.idTextView);
@@ -36,30 +43,21 @@ public class StudentProfile extends AppCompatActivity {
         updateProfileButton = findViewById(R.id.updateProfileButton);
         logoutButton = findViewById(R.id.logoutButton);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String studentId = sharedPreferences.getString("student_id", "");
-
         userRequest = new UserRequest(this);
-        if (!studentId.isEmpty()) {
-            getStudentData(studentId);
+        int studentId = Prefrences.getStudentid(this);
+
+        if (studentId != 0) {
+            getStudentData(String.valueOf(studentId));
         } else {
             Toast.makeText(this, "Student ID not found", Toast.LENGTH_SHORT).show();
         }
 
-        updateProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        updateProfileButton.setOnClickListener(e-> {
                 // Open the UpdateProfile activity when the button is clicked
                 startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
-            }
         });
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
+        logoutButton.setOnClickListener(e-> { logout();});
     }
 
     private void getStudentData(String studentId) {
@@ -84,11 +82,7 @@ public class StudentProfile extends AppCompatActivity {
     }
 
     private void logout() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
-
+        Prefrences.clear(this);
         startActivity(new Intent(StudentProfile.this, LoginActivity.class));
         finish();
     }

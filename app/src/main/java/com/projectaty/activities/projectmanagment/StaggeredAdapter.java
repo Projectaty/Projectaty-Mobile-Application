@@ -35,7 +35,7 @@ public class StaggeredAdapter
     public void onBindViewHolder(ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
 
-        TextView txt = (TextView) cardView.findViewById(R.id.txtName);
+        TextView txt = (TextView) cardView.findViewById(R.id.viewName);
         txt.setText(Projects[position]);
 
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,6 @@ public class StaggeredAdapter
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

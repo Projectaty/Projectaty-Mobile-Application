@@ -53,11 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         String storedPassword = preferences.getString("password", "");
 
         if (enteredUsername.equals(storedUsername) && enteredPassword.equals(storedPassword)) {
-            // Username and password are correct
-            // Retrieve the actual user's name from SharedPreferences
             String storedName = preferences.getString("userName", "");
 
-            // Save the user's name to SharedPreferences if it's not empty
             if (!storedName.isEmpty()) {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("rememberMe", checkBoxRememberMe.isChecked());
@@ -67,11 +64,9 @@ public class LoginActivity extends AppCompatActivity {
 
             start();
         } else {
-            // Incorrect username or password
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void start() {
         Intent intent = new Intent(this, StudentProfile.class);

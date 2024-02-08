@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!--  User Permissions  -->
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -12,36 +13,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projectaty"
         tools:targetApi="31">
-        <activity
-            android:name=".activities.projectmanagment.ProjectDashboard"
-            android:exported="false" />
-        <activity
-            android:name=".activities.projectmanagment.CreateProject"
-            android:exported="true"/>
-        <activity
-            android:name=".activities.usermanagement.IntroductoryActivity"
-            android:exported="true">
+
+        <!--   Activities Related  to the user managmnet sub module   -->
+        <activity android:name=".activities.usermanagement.IntroductoryActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>        
+        </activity>
         <activity android:name=".activities.usermanagement.StudentProfile"/>
         <activity android:name=".activities.usermanagement.CreateAccount"/>
         <activity android:name=".activities.usermanagement.LoginActivity"/>
         <activity android:name=".activities.usermanagement.UpdateProfile"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.TaskList" android:exported="false"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.SearchTask" android:exported="false"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.UpdateDelTask" android:exported="false"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.CreateTask" android:exported="false"/>
-        <activity android:name="com.projectaty.activities.taskmanagement.TasksDashboard" android:exported="true"/>
+
+        <!--   Activities Related  to the Project managmnet sub module   -->
+        <activity android:name=".activities.projectmanagment.ProjectList" android:exported="false" />
+        <activity android:name=".activities.projectmanagment.CreateProject" android:exported="false"/>
+        <activity android:name=".activities.projectmanagment.SearchProject" android:exported="false" />
+        <activity android:name=".activities.projectmanagment.UpdateDelProject" android:exported="false"/>
+
+        <!--   Activities Related  to the tasks managmnet sub module   -->
+        <activity android:name=".activities.taskmanagement.TaskList" android:exported="false"/>
+        <activity android:name=".activities.taskmanagement.SearchTask" android:exported="false"/>
+        <activity android:name=".activities.taskmanagement.UpdateDelTask" android:exported="false"/>
+        <activity android:name=".activities.taskmanagement.CreateTask" android:exported="false"/>
+        <activity android:name=".activities.taskmanagement.TasksDashboard" android:exported="true"/>
+
+        <!--   Activities Related  to the teams managmnet sub module   -->
         <activity android:name=".activities.teamsmanagement.SearchMember" android:exported="false" />
         <activity android:name=".activities.teamsmanagement.TeamDashboard" android:exported="false" />
         <activity android:name=".activities.teamsmanagement.SearchTeam" android:exported="false" />
-        <activity android:name=".activities.teamsmanagement.TeamList" />
-        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" />
+        <activity android:name=".activities.teamsmanagement.TeamList" android:exported="false" />
+        <activity android:name=".activities.teamsmanagement.UpdateDelTeam" android:exported="false" />
         <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="false">
         </activity>
     </application>
-
 </manifest>

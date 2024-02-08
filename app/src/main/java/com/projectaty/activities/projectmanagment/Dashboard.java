@@ -2,32 +2,31 @@ package com.projectaty.activities.projectmanagment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
+import com.projectaty.model.Project;
+
+import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
-
     Button Team;
     Button User;
     FloatingActionButton project;
     RecyclerView prjRecyclerView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-
         initialize();
     }
 
@@ -35,14 +34,26 @@ public class Dashboard extends AppCompatActivity {
         setProject(findViewById(R.id.addBtn));
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
-        setPrjRecyclerView(findViewById(R.id.prjRecyclerView));
+        RecyclerView rc = findViewById(R.id.StaggerdPrjView);
+        rc.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        ArrayList<Project> projects = new ArrayList<>();
+
     }
 
-
+    /*
+        On click Handlers
+     */
     public void addProject (View view){
         Intent intent=new Intent(this , CreateProject.class);
         startActivity(intent);
     }
+
+    public void editProject (View view, int projId){
+        /* Open update for that spcifif project using it's ID  */
+        Intent intent=new Intent(this , UpdateDelProject.class);
+        startActivity(intent);
+    }
+
     public void teams (View view){
         Intent intent=new Intent(this , TeamList.class);
         startActivity(intent);

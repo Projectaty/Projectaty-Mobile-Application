@@ -1,8 +1,5 @@
 package com.projectaty.activities.usermanagement;
-import android.app.LocaleManager;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -45,8 +42,8 @@ public class IntroductoryActivity extends AppCompatActivity {
 
             LangugaeManager.setLocale(this, newLang);
             Prefrences.setLanguage(this, newLang);
-
-            recreate();
+            startActivity(new Intent(IntroductoryActivity.this, IntroductoryActivity.class));
+            finish();
         });
     }
 

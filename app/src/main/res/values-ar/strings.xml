@@ -69,6 +69,8 @@
     <string name="enter_email">ادخال الايميل</string>
     <string name="teams">👥 الفرق</string>
     <string name="profile">👤 الملف الشخصي</string>
+    <string name="don_t_have_an_account">لا يوجد لديك حساب؟</string>
+    <string name="sign_up">إنشاء حساب جديد</string>
     <string-array name="months">
         <item>كل الأشهر</item>
         <item>يناير</item>

@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 public class Prefrences {
     private static final String FIRST_TIME = "IS_FIRST_TIME";
     private static final String REMEMBER = "REMEMBER_ME";
-    private static final String LANGUAGE = "ar";
+    private static final String LANGUAGE = "LANGUAGE";
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
 
@@ -23,6 +23,22 @@ public class Prefrences {
         preferences = getPreferences(context);
         editor = preferences.edit();
         editor.putBoolean(FIRST_TIME, false);
+        editor.apply();
+    }
+
+    /*
+        Set langauge Prefrences
+     */
+
+    public static String getPrefLang(Context context) {
+        preferences = getPreferences(context);
+        return preferences.getString(LANGUAGE, "ar");
+    }
+
+    public static void setLanguage(Context context, String lang) {
+        preferences = getPreferences(context);
+        editor = preferences.edit();
+        editor.putString(LANGUAGE, lang);
         editor.apply();
     }
 

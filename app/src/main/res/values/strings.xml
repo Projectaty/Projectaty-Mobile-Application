@@ -84,4 +84,6 @@
     <string name="enter_email">Enter Email</string>
     <string name="teams">👥 Teams</string>
     <string name="profile">👤 Profile</string>
+    <string name="don_t_have_an_account">Don\'t Have an account?</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

@@ -1,4 +1,3 @@
-<!-- res/layout/your_layout.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +13,7 @@
         android:foregroundGravity="center"
         android:text="@string/projectList"
         android:textColor="#2F2E41"
-        android:textSize="48sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
@@ -57,7 +56,7 @@
         android:id="@+id/add"
         android:layout_width="274dp"
         android:layout_height="64dp"
-        android:text="@string/addnewproject"
+        android:text="@string/newprj"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

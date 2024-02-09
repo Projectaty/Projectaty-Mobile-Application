@@ -2,8 +2,10 @@ package com.projectaty.activities.usermanagement;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,36 +14,56 @@ import com.projectaty.R;
 
 public class StudentProfile extends AppCompatActivity {
 
-    private TextView nameTextView;
+    private TextView nameTextView, idTextView, usernameTextView, emailTextView;
     private ImageView profileImageView;
-    private Button updateProfileButton;
+    private Button updateProfileButton, logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_profile);
-
         // Initialize views
         nameTextView = findViewById(R.id.nameStudent);
+        idTextView = findViewById(R.id.idTextView);
+        usernameTextView = findViewById(R.id.usernameTextView);
+        emailTextView = findViewById(R.id.emailTextView);
         profileImageView = findViewById(R.id.profileImageView);
         updateProfileButton = findViewById(R.id.updateProfileButton);
+        logoutButton = findViewById(R.id.logoutButton);
 
-        // Load user data from SharedPreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String userName = sharedPreferences.getString("userName", "");
+        String userName = sharedPreferences.getString("username", "");
+        String userId = sharedPreferences.getString("id", "");
+        String userEmail = sharedPreferences.getString("email", "");
+        String userProfilePhotoPath = sharedPreferences.getString("profile_photo_uri", "");
 
-        // Set user name to the TextView
         nameTextView.setText(userName);
+        idTextView.setText(userId);
+        usernameTextView.setText(sharedPreferences.getString("username", ""));
+        emailTextView.setText(userEmail);
 
-        // Set OnClickListener for profileImageView to handle photo profile upload
-        profileImageView.setOnClickListener(v -> {
-            // Handle profile photo upload logic
-        });
+        if (!userProfilePhotoPath.isEmpty()) {
+            profileImageView.setImageURI(Uri.parse(userProfilePhotoPath));
+        } else {
+            profileImageView.setImageResource(R.drawable.profile);
+        }
 
         // Set OnClickListener for the Update Profile button
         updateProfileButton.setOnClickListener(e->{
                 // Open the UpdateProfile activity when the button is clicked
                 startActivity(new Intent(StudentProfile.this, UpdateProfile.class));
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+
+                startActivity(new Intent(StudentProfile.this, LoginActivity.class));
+                finish();
+            }
         });
     }
 }

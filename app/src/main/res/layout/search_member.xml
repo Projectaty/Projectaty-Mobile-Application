@@ -9,13 +9,13 @@
         android:layout_width="wrap_content"
         android:layout_height="67dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/mirza"
         android:gravity="center"
         android:text="@string/findstudent"
         android:textColor="#2F2E41"
-        android:textSize="48sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/memberID"
@@ -53,7 +53,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/mirza"
-        android:text="@string/teamName"
+        android:text="@string/findteamname"
         android:textColor="#2F2E41"
         android:textSize="24sp"
         android:textStyle="bold" />

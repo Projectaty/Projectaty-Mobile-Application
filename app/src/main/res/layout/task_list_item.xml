@@ -37,7 +37,7 @@
             android:id="@+id/taskTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/update"
+            android:text="@string/updateTask"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

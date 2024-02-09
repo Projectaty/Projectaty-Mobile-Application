@@ -9,11 +9,12 @@ public class URLs {
     /*
     Student Managemnt Requets URls
      */
-    public static final String GET_USERS_URL = localHost +"user/students/";
-    public static final String GET_ONE_USER_URL = localHost +"user/students/";
+    public static final String GET_USERS_URL = localHost +"user/studentsS/";
+    public static final String GET_ONE_USER_URL = localHost +"user/studentsS/";
+    public static final String GET_USER_BY_NAME_AND_PASSWORD_URL = localHost +"user/studentsS/";
     public static final String ADD_USER_URL = localHost +"user/studentsI";
     public static final String UPDATE_USER_URL = localHost +"user/studentsU";
-    public static final String DELETE_USER_URL = localHost +"user/students/";
+    public static final String DELETE_USER_URL = localHost +"user/studentsD/";
 
     /*
     Tasks Managemnt Requets URls

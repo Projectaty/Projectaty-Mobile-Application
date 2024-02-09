@@ -41,8 +41,6 @@ public class UpdateDelTeam extends AppCompatActivity {
 
     private void initilaize() {
         teamNameEdtTxtUpdate = findViewById(R.id.teamNameEdtTxtUpdate);
-        memberIDUpdateEdtTxt = findViewById(R.id.memberIDUpdateEdtTxt);
-        projectNameUpdateEdtTxt = findViewById(R.id.projectNameUpdateEdtTxt);
         descriptionUpdateEditText = findViewById(R.id.descriptionUpdateEditText);
         updateTeamButton = findViewById(R.id.updateTeamButton);
         deleteTeam = findViewById(R.id.deleteTeam);

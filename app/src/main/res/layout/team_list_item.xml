@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:foregroundGravity="center_vertical|center|center_horizontal"
-            android:text="@string/teamName"
+            android:text="@string/findteamname"
             android:textAlignment="gravity"
             android:textColor="@color/black"
             android:textSize="18sp" />

@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".activities.usermanagement.IntroductoryActivity">
 
+    <Button
+        android:id="@+id/btnlang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/lang"
+        android:textSize="24sp"/>
+
     <TextView
         android:id="@+id/textViewLoginPrompt"
         android:layout_width="311dp"
@@ -20,6 +32,8 @@
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|center_horizontal|center_vertical"
         android:text="@string/welcome_back_to_projectaty"
         android:textColor="@android:color/black"
         android:textSize="27sp" />

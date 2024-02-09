@@ -21,6 +21,54 @@
     <string name="done1">Done!</string>
     <string name="in_progress">In Progress...</string>
     <string name="to_do">TO DO</string>
+    <string name="projectTxt">Project</string>
+    <string name="newprj">New Project</string>
+    <string name="numberofmembers">Number Of Members</string>
+    <string name="createnewprj">Create New Project</string>
+    <string name="prjnew">New Project</string>
+    <string name="newProject">New Project</string>
+    <string name="projectList">Project List</string>
+    <string name="addNewProject">Add a new Project</string>
+    <string name="addnewproject">Add New Project</string>
+    <string name="updatePrj">Update Project</string>
+    <string name="project">Project</string>
+    <string name="NumMembersUpdate">Number Of Members</string>
+    <string name="updateprj">Update Project</string>
+    <string name="searchtitleprj">Find Project</string>
+    <string-array name="months">
+        <item>All</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string name="welcome_about">Projectaty is the GOTO project managemnet app for BZU students. </string>
+    <string name="welcome_back_to_projectaty">Welcome Back to Projectaty!</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_projectaty">Welcome to Projectaty!</string>
+    <string name="getting_started">Getting Started</string>
+    <string name="user_name_ex">Sondos Aabed</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account? Log in here.</string>
+    <string name="log_in">Log In</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="enter_new_name">Enter New Name</string>
+    <string name="enter_new_username">Enter New Username</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="save_changes">Save Changes</string>
     <string name="newteam">New Team</string>
     <string name="teamName">Team Name</string>
     <string name="members">Members</string>
@@ -42,19 +90,5 @@
     <string name="memberid">Member ID</string>
     <string name="findstudent">Find Student</string>
     <string name="studentid">Student ID</string>
-    <string-array name="months">
-        <item>All</item>
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </string-array>
+    <string name="member_id">"Member ID: "</string>
 </resources>

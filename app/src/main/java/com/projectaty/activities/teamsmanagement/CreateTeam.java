@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
-import com.projectaty.data.MemberIDAdapter;
+import com.projectaty.model.MemberIDAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class CreateTeam extends AppCompatActivity {
     private EditText memberIDEdtTxt;
     private EditText projectNameEdtTxt;
     private EditText descriptionEdtTxt;
+    private CheckBox isPrivateTeam;
     private Button createTeam;
     private Button discardTeam;
     private Button addMembersBtn;
@@ -44,6 +46,7 @@ public class CreateTeam extends AppCompatActivity {
         memberIDEdtTxt = findViewById(R.id.memberIDEdtTxt);
         projectNameEdtTxt = findViewById(R.id.projectNameEdtTxt);
         descriptionEdtTxt = findViewById(R.id.descriptionEdtTxt);
+        isPrivateTeam = findViewById(R.id.isPrivateTeam);
         createTeam = findViewById(R.id.createTeam);
         discardTeam = findViewById(R.id.discardTeam);
         addMembersBtn = findViewById(R.id.addMembersBtn);
@@ -215,6 +218,14 @@ public class CreateTeam extends AppCompatActivity {
 
     public void setWarning(EditText warning) {
         this.warning = warning;
+    }
+
+    public CheckBox getIsPrivateTeam() {
+        return isPrivateTeam;
+    }
+
+    public void setIsPrivateTeam(CheckBox isPrivateTeam) {
+        this.isPrivateTeam = isPrivateTeam;
     }
 
 }

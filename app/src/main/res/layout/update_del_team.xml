@@ -61,12 +61,12 @@
                 app:layout_constraintVertical_bias="0.03"/>
 
             <CheckBox
-                android:id="@+id/isDoneUpdate"
+                android:id="@+id/isPrivateTeamUpdate"
                 android:layout_width="105dp"
                 android:layout_height="49dp"
                 android:checked="false"
                 android:fontFamily="@font/mirza"
-                android:text="@string/done"
+                android:text="Private"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

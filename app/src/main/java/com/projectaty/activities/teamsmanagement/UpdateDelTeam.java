@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
-import com.projectaty.data.MemberIDAdapter;
+import com.projectaty.model.MemberIDAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class UpdateDelTeam extends AppCompatActivity {
     private Button updateTeamButton;
     private Button deleteTeam;
     private Button updateMembersBtn;
-    private CheckBox isDoneUpdate;
+    private CheckBox isPrivateTeamUpdate;
     private RecyclerView recyclerViewMemberIDsUpdate;
     private MemberIDAdapter memberIDAdapter;
     private List<String> memberIDsList;
@@ -47,7 +47,7 @@ public class UpdateDelTeam extends AppCompatActivity {
         updateTeamButton = findViewById(R.id.updateTeamButton);
         deleteTeam = findViewById(R.id.deleteTeam);
         updateMembersBtn = findViewById(R.id.updateMembersBtn);
-        isDoneUpdate = findViewById(R.id.isDoneUpdate);
+        isPrivateTeamUpdate = findViewById(R.id.isPrivateTeamUpdate);
         recyclerViewMemberIDsUpdate = findViewById(R.id.recyclerViewMemberIDs);
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
 
@@ -199,12 +199,12 @@ public class UpdateDelTeam extends AppCompatActivity {
         this.warningUpdate = warningUpdate;
     }
 
-    public CheckBox getIsDoneUpdate() {
-        return isDoneUpdate;
+    public CheckBox getIsPrivateTeamUpdate() {
+        return isPrivateTeamUpdate;
     }
 
-    public void setIsDoneUpdate(CheckBox isDoneUpdate) {
-        this.isDoneUpdate = isDoneUpdate;
+    public void setIsPrivateTeamUpdate(CheckBox isPrivateTeamUpdate) {
+        this.isPrivateTeamUpdate = isPrivateTeamUpdate;
     }
 
 }

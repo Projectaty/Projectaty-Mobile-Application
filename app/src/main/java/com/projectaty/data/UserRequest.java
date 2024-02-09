@@ -155,4 +155,50 @@ public class UserRequest {
 
         requestQueue.add(jsonObjectRequest);
     }
+
+    public interface StudentByNameAndPasswordListener {
+        void onSuccess(int studentId, String username, String password, String email, String profilePic);
+        void onError(VolleyError error);
+    }
+
+
+    public void getStudentByNameAndPassword(String username, String password, StudentByNameAndPasswordListener listener) {
+        String url = URLs.GET_USER_BY_NAME_AND_PASSWORD_URL;
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("username", username);
+            jsonObject.put("password", password);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            int id = response.getInt("StudentID");
+                            String name = response.getString("username");
+                            String password = response.getString("password");
+                            String email = response.getString("email");
+                            String profilePic = response.getString("profile_pic");
+
+                            listener.onSuccess(id, name, password, email, profilePic);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            listener.onError(new VolleyError("Error parsing JSON response"));
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, "Error: " + error.toString());
+                        listener.onError(error);
+                    }
+                });
+
+        requestQueue.add(jsonObjectRequest);
+    }
+
 }

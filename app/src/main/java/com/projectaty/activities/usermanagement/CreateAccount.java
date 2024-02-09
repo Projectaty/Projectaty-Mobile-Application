@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.projectaty.R;
+import com.projectaty.data.UserRequest;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -63,12 +64,13 @@ public class CreateAccount extends AppCompatActivity {
         String username = editTextUsername.getText().toString();
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
-        /*
-            Here out the data into an object User
-            this object you will sent it to the flask
-         */
-        if (selectedImageUri != null) {
+        if (!id.isEmpty() && !username.isEmpty() && !email.isEmpty() && !password.isEmpty() && selectedImageUri != null) {
+            UserRequest userRequest = new UserRequest(this);
+            userRequest.addStudent(Integer.parseInt(id), username, password, email, selectedImageUri.toString());
+        } else {
+            Toast.makeText(getApplicationContext(), "Please fill in all required fields and select an image", Toast.LENGTH_SHORT).show();
         }
+
         start();
     }
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
+import com.projectaty.activities.taskmanagement.TasksDashboard;
 import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
 import com.projectaty.model.Project;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 public class Dashboard extends AppCompatActivity {
     Button Team;
     Button User;
+
+    Button editButton;
     FloatingActionButton project;
     RecyclerView prjRecyclerView;
 
@@ -48,8 +51,7 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void editProject (View view, int projId){
-        /* Open update for that spcifif project using it's ID  */
+    public void editPrj (View view, int projId){
         Intent intent=new Intent(this , UpdateDelProject.class);
         startActivity(intent);
     }
@@ -60,6 +62,11 @@ public class Dashboard extends AppCompatActivity {
     }
     public void profile (View view){
         Intent intent=new Intent(this , StudentProfile.class);
+        startActivity(intent);
+    }
+
+    public void goToTasks (View view){
+        Intent intent=new Intent(this , TasksDashboard.class);
         startActivity(intent);
     }
 

@@ -71,6 +71,8 @@
     <string name="profile">👤 الملف الشخصي</string>
     <string name="don_t_have_an_account">لا يوجد لديك حساب؟</string>
     <string name="sign_up">إنشاء حساب جديد</string>
+    <string name="project_name">اسم المشروع</string>
+    <string name="deadline">الموعد النهائي</string>
     <string-array name="months">
         <item>كل الأشهر</item>
         <item>يناير</item>

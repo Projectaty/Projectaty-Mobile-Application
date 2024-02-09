@@ -73,6 +73,8 @@
     <string name="sign_up">إنشاء حساب جديد</string>
     <string name="project_name">اسم المشروع</string>
     <string name="deadline">الموعد النهائي</string>
+    <string name="private_">خاص</string>
+    <string name="teamname">اسم الفريق</string>
     <string-array name="months">
         <item>كل الأشهر</item>
         <item>يناير</item>

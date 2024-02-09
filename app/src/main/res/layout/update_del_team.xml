@@ -27,15 +27,15 @@
 
     <ScrollView
         android:id="@+id/updateTeamScrollView"
-        android:layout_width="329dp"
-        android:layout_height="583dp"
-        tools:ignore="MissingConstraints"
+        android:layout_width="336dp"
+        android:layout_height="493dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.6"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -48,17 +48,17 @@
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
                 android:labelFor="@id/teamNameEdtTxtUpdate"
-                android:text="@string/teamName"
+                android:text="@string/teamname"
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.03"/>
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
             <CheckBox
                 android:id="@+id/isPrivateTeamUpdate"
@@ -66,14 +66,17 @@
                 android:layout_height="49dp"
                 android:checked="false"
                 android:fontFamily="@font/mirza"
-                android:text="Private"
+                android:text="@string/private_"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.99"
+                app:layout_constraintHorizontal_bias="0.974"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.03"/>
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <!-- Description Section -->
 
             <EditText
                 android:id="@+id/teamNameEdtTxtUpdate"
@@ -83,17 +86,15 @@
                 android:gravity="start|top"
                 android:inputType="text"
                 android:labelFor="@id/newTeamTxtView"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.12"/>
+                app:layout_constraintTop_toBottomOf="@+id/newTeamTxtView"
+                app:layout_constraintVertical_bias="0.025"
+                tools:ignore="MissingConstraints" />
 
-
-            <!-- Description Section -->
-
+            <!-- Project Name Section -->
             <TextView
                 android:id="@+id/teamDescriptionUpdateTxtView"
                 android:layout_width="wrap_content"
@@ -105,15 +106,16 @@
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="MissingConstraints"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.22" />
+                app:layout_constraintTop_toBottomOf="@+id/teamNameEdtTxtUpdate"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
-            <!-- Project Name Section -->
+            <!-- Members Section -->
+
             <EditText
                 android:id="@+id/descriptionUpdateEditText"
                 android:layout_width="332dp"
@@ -122,47 +124,13 @@
                 android:foregroundGravity="center"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/membersUpdateTxtView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.36"/>
+                app:layout_constraintTop_toBottomOf="@+id/teamDescriptionUpdateTxtView"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/projectNameUpdateTxtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mirza"
-                android:foregroundGravity="center"
-                android:labelFor="@id/projectNameUpdateEdtTxt"
-                android:text="@string/projectname"
-                android:textColor="#2F2E41"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.49"/>
-
-            <EditText
-                android:id="@+id/projectNameUpdateEdtTxt"
-                android:layout_width="329dp"
-                android:layout_height="47dp"
-                android:ems="10"
-                android:foregroundGravity="center"
-                android:gravity="start|top"
-                android:inputType="datetime|date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.586"/>
-
-            <!-- Members Section -->
             <TextView
                 android:id="@+id/membersUpdateTxtView"
                 android:layout_width="wrap_content"
@@ -176,10 +144,14 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.68"/>
+                app:layout_constraintVertical_bias="0.371" />
+
+            <!-- Add Member Button -->
+
+            <!-- RecyclerView for Member IDs -->
 
             <EditText
                 android:id="@+id/memberIDUpdateEdtTxt"
@@ -191,12 +163,11 @@
                 android:inputType="datetime|date"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.78"/>
+                app:layout_constraintTop_toBottomOf="@+id/membersUpdateTxtView"
+                app:layout_constraintVertical_bias="0.074" />
 
-            <!-- Add Member Button -->
             <Button
                 android:id="@+id/updateMembersBtn"
                 android:layout_width="182dp"
@@ -208,18 +179,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:icon="@android:drawable/ic_input_add"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/memberIDUpdateEdtTxt"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.96"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.948"
+                app:layout_constraintStart_toEndOf="@+id/membersUpdateTxtView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.68"/>
+                app:layout_constraintVertical_bias="0.956" />
 
-            <!-- RecyclerView for Member IDs -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMemberIDsUpdate"
-                android:layout_width="320dp"
-                android:layout_height="150dp"
+                android:layout_width="308dp"
+                android:layout_height="158dp"
                 android:ems="10"
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
@@ -230,8 +200,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/memberIDUpdateEdtTxt"
-                app:layout_constraintVertical_bias="1.0"
-                tools:layout_editor_absoluteX="4dp" />
+                app:layout_constraintVertical_bias="0.108"
+                tools:layout_editor_absoluteX="15dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

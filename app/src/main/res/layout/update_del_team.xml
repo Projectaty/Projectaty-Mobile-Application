@@ -48,7 +48,7 @@
                 android:fontFamily="@font/mirza"
                 android:foregroundGravity="center"
                 android:labelFor="@id/teamNameEdtTxtUpdate"
-                android:text="@string/teamname"
+                android:text="Team Name"
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"

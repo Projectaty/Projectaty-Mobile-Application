@@ -2,22 +2,40 @@ package com.projectaty.model;
 
 public class Team {
     private int teamID;
-    private int projectID;
-    private int memberID;
+    private String description;
+    private String teamName;
+    private boolean isPrivate;
 
     public Team() {
 
     }
 
-    public Team(int teamID, int projectID, int memberID) {
+    public Team(int teamID, String teamName, String description, boolean isPrivate) {
         this.teamID = teamID;
-        this.projectID = projectID;
-        this.memberID = memberID;
+        this.teamName = teamName;
+        this.description = description;
+        this.isPrivate = isPrivate;
     }
 
     /*
     Getters & setters
      */
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
 
     public int getTeamID() {
         return teamID;
@@ -27,19 +45,11 @@ public class Team {
         this.teamID = teamID;
     }
 
-    public int getProjectID() {
-        return projectID;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProjectID(int projectID) {
-        this.projectID = projectID;
-    }
-
-    public int getMemberID() {
-        return memberID;
-    }
-
-    public void setMemberID(int memberID) {
-        this.memberID = memberID;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

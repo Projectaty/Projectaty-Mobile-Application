@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/prjRecyclerView"
         android:layout_width="348dp"
         android:layout_height="484dp"
@@ -56,6 +56,7 @@
         android:id="@+id/add"
         android:layout_width="274dp"
         android:layout_height="64dp"
+        android:onClick="addPrjList"
         android:text="@string/newprj"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"

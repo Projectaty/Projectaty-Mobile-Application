@@ -86,4 +86,6 @@
     <string name="profile">👤 Profile</string>
     <string name="don_t_have_an_account">Don\'t Have an account?</string>
     <string name="sign_up">Sign Up</string>
+    <string name="project_name">Project Name</string>
+    <string name="deadline">Deadline</string>
 </resources>

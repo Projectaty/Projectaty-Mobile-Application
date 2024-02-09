@@ -24,9 +24,11 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:onClick="goToTasks"
-            android:text="Project Name"
+            android:text="@string/project_name"
             android:textColor="@color/black"
             android:textSize="30sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
@@ -34,28 +36,33 @@
             android:id="@+id/viewdate"
             android:layout_width="269dp"
             android:layout_height="28dp"
+            android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:text="Deadline"
+            android:text="@string/deadline"
             android:textColor="@color/design_default_color_error"
             android:textSize="18sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.295"
+            card_view:layout_constraintEnd_toStartOf="@+id/editButton"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/viewName"
             card_view:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="49dp"
+            android:layout_height="46dp"
+            android:background="@color/white"
             android:onClick="editPrj"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.733"
+            card_view:layout_constraintStart_toEndOf="@+id/viewName"
             card_view:layout_constraintTop_toTopOf="parent"
             card_view:srcCompat="@android:drawable/ic_menu_edit"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="349dp" />
+            tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

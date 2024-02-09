@@ -8,17 +8,17 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addBtn"
-        android:layout_width="65dp"
-        android:layout_height="64dp"
+        android:layout_width="58dp"
+        android:layout_height="66dp"
         android:layout_marginBottom="52dp"
         android:clickable="true"
         android:onClick="addProject"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Team"
-        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toEndOf="@+id/User"
         app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
-        app:layout_constraintVertical_bias="0.916"
+        app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="MissingConstraints" />
 
@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/User"
-        android:layout_width="131dp"
+        android:layout_width="148dp"
         android:layout_height="55dp"
         android:onClick="profile"
         android:text="@string/profile"

@@ -15,8 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.VolleyError;
 import com.projectaty.R;
 import com.projectaty.config.Prefrences;
+import com.projectaty.data.UserRequest;
 
 public class UpdateProfile extends AppCompatActivity {
 
@@ -32,7 +34,8 @@ public class UpdateProfile extends AppCompatActivity {
         setContentView(R.layout.update_profile);
         initialize();
     }
-    private void initialize(){
+
+    private void initialize() {
         usernameEditText = findViewById(R.id.usernameEditText);
         idEditText = findViewById(R.id.idEditText);
         emailEditText = findViewById(R.id.emailEditText);
@@ -42,43 +45,50 @@ public class UpdateProfile extends AppCompatActivity {
         saveChangesButton = findViewById(R.id.saveChangesButton);
         deleteAccountButton = findViewById(R.id.deleteAccountButton);
 
-        changeProfilePicButton.setOnClickListener(e->{
-                // Open gallery to choose photo
-                Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE);
+        changeProfilePicButton.setOnClickListener(e -> {
+            // Open gallery to choose photo
+            Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, PICK_IMAGE);
         });
 
-        saveChangesButton.setOnClickListener(e-> saveChanges());
-        deleteAccountButton.setOnClickListener(e-> showConfirmationDialog());
+        saveChangesButton.setOnClickListener(e -> saveChanges());
+        deleteAccountButton.setOnClickListener(e -> showConfirmationDialog());
 
         loadUserData();
     }
 
     private void loadUserData() {
-        /*
-        Load the data from the query Update
+        int userId = Prefrences.getStudentid(this);
+        UserRequest userRequest = new UserRequest(this);
+        userRequest.getStudentById(userId, new UserRequest.StudentByIdListener() {
+            @Override
+            public void onSuccess(int studentId, String username, String password, String email, String profilePic) {
+                usernameEditText.setText(username);
+                idEditText.setText(String.valueOf(studentId));
+                emailEditText.setText(email);
+                passwordEditText.setText(password);
+                if (profilePic != null && !profilePic.isEmpty()) {
+                    selectedImageUri = Uri.parse(profilePic);
+                    profileImageView.setImageURI(selectedImageUri);
+                }
+            }
 
-        usernameEditText.setText();
-        idEditText.setText();
-        emailEditText.setText();
-        passwordEditText.setText();
-        String profileImageUri = ;
-        if (!profileImageUri.isEmpty()) {
-            profileImageView.setImageURI(Uri.parse(profileImageUri));
-        }
-        */
+            @Override
+            public void onError(VolleyError error) {
+                Toast.makeText(UpdateProfile.this, "Error loading user data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
     private void saveChanges() {
         String newUsername = usernameEditText.getText().toString();
         String newId = idEditText.getText().toString();
         String newEmail = emailEditText.getText().toString();
         String newPassword = passwordEditText.getText().toString();
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        UserRequest userRequest = new UserRequest(this);
+        userRequest.updateStudent(Integer.parseInt(newId), newUsername, newPassword, newEmail, selectedImageUri.toString());
 
-        /*
-            update query use the object
-         */
         Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show();
     }
 
@@ -107,10 +117,8 @@ public class UpdateProfile extends AppCompatActivity {
     }
 
     private void deleteUserData(int userId) {
-     /*
-        Make a delete Query ddelet by ID
-        and when delet must logout
-      */
+        UserRequest userRequest = new UserRequest(this);
+        userRequest.deleteStudent(userId);
     }
 
     @Override

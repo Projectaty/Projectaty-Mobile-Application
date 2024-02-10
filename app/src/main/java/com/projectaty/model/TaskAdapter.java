@@ -24,8 +24,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         Inspired by:
             https://stackoverflow.com/questions/8166497/custom-adapter-for-list-view
      */
-    public TaskAdapter(Context context, List<Task> books) {
-        super(context, 0, books);
+    public TaskAdapter(Context context, List<Task> tasks) {
+        super(context, 0, tasks);
     }
 
     @NonNull
@@ -37,10 +37,10 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_list_item, parent, false);
         }
 
-        ImageView isDoneimg = convertView.findViewById(R.id.isDoneimg);
         TextView taskdate = convertView.findViewById(R.id.taskdate);
         TextView taskTitle = convertView.findViewById(R.id.taskTitle);
         TextView assignee = convertView.findViewById(R.id.assignee);
+        ImageView isDoneimg = convertView.findViewById(R.id.isDoneimg);
 
         if (task != null) {
 //            if(task.getStatus().equals("done")){
@@ -59,6 +59,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         relLay.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), UpdateDelTask.class);
             intent.putExtra("taskID", position);
+            intent.putExtra("projectID",task.getProjectID());
+            intent.putExtra("status",task.getStatus() );
             getContext().startActivity(intent);
         });
         return convertView;

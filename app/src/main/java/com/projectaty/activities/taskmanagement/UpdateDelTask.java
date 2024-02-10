@@ -1,16 +1,27 @@
 package com.projectaty.activities.taskmanagement;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.projectaty.R;
+import com.projectaty.data.TaskRequest;
+import com.projectaty.data.VolleySingleton;
+import com.projectaty.model.Task;
 
+import org.json.JSONException;
+
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class UpdateDelTask extends AppCompatActivity {
@@ -48,26 +59,68 @@ public class UpdateDelTask extends AppCompatActivity {
         /*
             Handlers
          */
-        handle_update(getUpdateTaskButton(), taskidint);
-        handle_delete(getDelete(), taskidint);
+        int projectID  =getIntent().getIntExtra("projectID", 0);
+        String status = getIntent().getStringExtra("status");
+        handle_update(getUpdateTaskButton(), taskidint, status, projectID);
+        handle_delete(getDelete(), taskidint, status, projectID);
         handle_edit_date(getUodateDate());
     }
 
     private void setOldValues(int taskidint) {
         /* Make volley request and fill the data into the textfeilds */
+        TaskRequest.getTaskByID(
+                VolleySingleton.getInstance(this),
+                new TaskRequest.TaskResponseCallback() {
+                    @Override
+                    public void onSuccess(Object response) {
+                        Task task = (Task) response;
+                        getTitleEditTextUpdate().setText(task.getTitle());
+                        getDescriptionEditTextUpdate().setText(task.getDescription());
+                        getDateEditTextUpdate().setText(task.getDate()+"");
+                        // TODO set the selected item
+//                        getAssignSpinnerUpdate(). task.getAssignedTo()+""
+                        // Status **
+                    }
 
+                    @Override
+                    public void onError(String errorMessage) {
+                        Log.d("error", errorMessage);
+                    }
+                }
+                , taskidint
+        );
     }
 
 
     /*
     Buttons Handlers
      */
-    private void handle_delete(Button delete, int taskId) {
+    private void handle_delete(Button delete, int taskId, String status, int projectID) {
         delete.setOnClickListener(e->{
             /*
                 Make a voelly Request to delet by ID
              */
+            TaskRequest.deleteTaskByID(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            String res = (String) response;
+                            if (res.equals("deleted")) {
+                                Toast.makeText(UpdateDelTask.this, "Task deleted successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(UpdateDelTask.this, TaskList.class);
+                                intent.putExtra("projectID", projectID);
+                                intent.putExtra("status", status);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
 
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }
+                    , taskId);
         });
     }
 
@@ -96,11 +149,64 @@ public class UpdateDelTask extends AppCompatActivity {
         });
     }
 
-    private void handle_update(Button updateTaskButton, int taskidint) {
-        updateTaskButton.setOnClickListener(e->{
+    private void handle_update(Button updateTaskButton, int taskidint, String status, int projectID) {
+        updateTaskButton.setOnClickListener(e-> {
+            String title = getTitleEditTextUpdate().getText().toString().trim();
+            String description = getDescriptionEditTextUpdate().getText().toString().trim();
+
             /*
-                Make  a volley request to update the data
+            Handling the date as a string
              */
+            String dateStr = getDateEditTextUpdate().getText().toString().trim();
+            int year;
+            int month;
+            int day;
+            LocalDate date;
+
+            if (!dateStr.isEmpty()) {
+                String[] dateElements = dateStr.split("-");
+                year = Integer.parseInt(dateElements[2]);
+                month = Integer.parseInt(dateElements[1]);
+                day = Integer.parseInt(dateElements[0]);
+                date = LocalDate.of(year, month, day);
+            } else {
+                date = null;
+            }
+
+            String assignee = getAssignSpinnerUpdate().getSelectedItem().toString().trim();
+
+            if (!title.isEmpty()) { /* Make  a volley request to update the data */
+                Task newTask = new Task(projectID, title, description, status, Integer.parseInt(assignee), date);
+                try {
+                    TaskRequest.updateTaskByID(VolleySingleton.getInstance(this),
+                            new TaskRequest.TaskResponseCallback() {
+                                @Override
+                                public void onSuccess(Object response) {
+                                    String res = (String) response;
+                                    if (res.equals("updated")) {
+                                        Toast.makeText(UpdateDelTask.this, "Task updated successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(UpdateDelTask.this, TaskList.class);
+                                        intent.putExtra("projectID", 0);
+                                        intent.putExtra("status", status);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onError(String errorMessage) {
+                                    Log.d("error", errorMessage);
+                                }
+                            }
+                            , taskidint, new Gson().toJson(newTask));
+                } catch (JSONException ex) {
+                    throw new RuntimeException(ex);
+                }
+            } else {
+                setWarning(findViewById(R.id.warningC));
+                // At least the title should be added
+                getWarning().setVisibility(View.VISIBLE);
+            }
         });
     }
     /*

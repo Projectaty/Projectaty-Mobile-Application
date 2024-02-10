@@ -2,14 +2,21 @@ package com.projectaty.activities.taskmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.projectaty.R;
+import com.projectaty.data.TaskRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.TaskAdapter;
 import com.projectaty.model.Task;
+
+import org.json.JSONException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,13 +37,13 @@ public class TaskList extends AppCompatActivity {
         String status = getIntent().getStringExtra("status");
         String keyword= getIntent().getStringExtra("keyword");
         String month = getIntent().getStringExtra("month");
+        Boolean isSearch  = getIntent().getBooleanExtra("isSearch", false);
 
         setFind(findViewById(R.id.find));
         setAdd(findViewById(R.id.add));
         setTaskListView(findViewById(R.id.taskListView));
 
-        TaskAdapter taskAdapter = new TaskAdapter(this, getTasksData(projectID, status, keyword, month));
-        getTaskListView().setAdapter(taskAdapter);
+        getTasksData(projectID, status,isSearch, keyword, month);
 
         /*
             Button Handlers
@@ -46,24 +53,81 @@ public class TaskList extends AppCompatActivity {
         hadnle_find(getFind(), status,  projectID);
     }
 
-    private List<Task> getTasksData(int projectID, String status, String keyword, String month) {
+    private List<Task> getTasksData(int projectID, String status,Boolean isSearch,  String keyword, String month) {
         /* Make a volley request to show tasks within a specific status fpr specific id  */
         List<Task> tasks = new ArrayList<>();
         if(status.equals("todo")){
-            //gettodo
-        }else if(status.equals("done")){
-            // getDone
-        }else{
-            // in progress
-        }
+           TaskRequest.getTODO(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
 
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        }else if(status.equals("done")){
+            TaskRequest.getDone(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        }else if(status.equals("inprogress")){
+            TaskRequest.getINProgress(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        } if(isSearch){
+            //String keyword, String month
+            TaskRequest.findByKeyOrMonth(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID, keyword, month
+            );
+        }
         return tasks;
     }
 
-    /*
-    Buttons Handlers
+    private void updateTaskAdapter(List<Task> tasks) {
+        TaskAdapter taskAdapter = new TaskAdapter(this, tasks);
+        getTaskListView().setAdapter(taskAdapter);
+    }
 
-     */
+    /*
+        Buttons Handlers */
     private void hadnle_find(Button find, String status, int projectID) {
         find.setOnClickListener(e->{
             Intent intent = new Intent(this, SearchTask.class);

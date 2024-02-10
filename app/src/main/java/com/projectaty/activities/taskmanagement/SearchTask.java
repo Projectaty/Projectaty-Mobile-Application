@@ -48,7 +48,8 @@ public class SearchTask extends AppCompatActivity {
 
             Intent intent = new Intent(this, TaskList.class);
             intent.putExtra("projectID",projectID );
-            intent.putExtra("status","done" );
+            intent.putExtra("status",status );
+            intent.putExtra("isSearch",true);
             intent.putExtra("keyword",keyword);
             intent.putExtra("month",month );
             startActivity(intent);

@@ -19,8 +19,9 @@ public class URLs {
     private static final String UPDATE_TEAM_URL = "";
     private static final String DELETE_TEAM_URL = "";
 
-    private static final String GET_PROJECTS_URL = "";
-    private static final String ADD_PROJECT_URL = "";
-    private static final String UPDATE_PROJECT_URL = "";
-    private static final String DELETE_PROJECT_URL = "";
+    public static final String GET_PROJECTS_URL = "project/all/";
+    public static final String ADD_PROJECT_URL = "project/add/";
+    public static final String UPDATE_PROJECT_URL = "project/update/";
+    public static final String DELETE_PROJECT_URL = "project/delete/";
+    public static final String GET_ONE_PROJECT_URL = "project/<int:ProjectID>";
 }

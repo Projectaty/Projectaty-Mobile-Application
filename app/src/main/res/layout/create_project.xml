@@ -25,6 +25,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212" />
 
+    <TextView
+        android:id="@+id/pageProjectTitle"
+        android:layout_width="320dp"
+        android:layout_height="74dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/newproject"
+        android:textColor="#2F2E41"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
+
     <EditText
         android:id="@+id/descriptionEditText"
         android:layout_width="332dp"

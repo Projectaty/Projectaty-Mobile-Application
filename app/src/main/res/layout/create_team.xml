@@ -72,7 +72,7 @@
 
             <CheckBox
                 android:id="@+id/isPrivateTeam"
-                android:layout_width="105dp"
+                android:layout_width="wrap_content"
                 android:layout_height="49dp"
                 android:layout_marginTop="4dp"
                 android:checked="false"
@@ -80,7 +80,7 @@
                 android:text="@string/private_"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.986"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toEndOf="@+id/newTeamTxtView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,11 +112,12 @@
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/descriptionEdtTxt"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
 
             <EditText
                 android:id="@+id/descriptionEdtTxt"
@@ -128,10 +129,12 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:labelFor="@id/teamDescriptionTxtView"
-                app:layout_constraintBottom_toTopOf="@+id/membersTxtView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3" />
 
             <TextView
                 android:id="@+id/membersTxtView"
@@ -144,8 +147,12 @@
                 android:textColor="#2F2E41"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/memberIDEdtTxt"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.466"/>
 
             <EditText
                 android:id="@+id/memberIDEdtTxt"
@@ -156,10 +163,12 @@
                 android:gravity="start|top"
                 android:inputType="numberDecimal"
                 android:labelFor="@id/addMembersBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="296dp" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6"/>
 
             <Button
                 android:id="@+id/addMembersBtn"
@@ -173,10 +182,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:icon="@android:drawable/ic_input_add"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.894"
-                app:layout_constraintStart_toEndOf="@+id/membersTxtView"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionEdtTxt" />
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.46" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMemberIDs"
@@ -192,9 +203,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/memberIDEdtTxt"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -62,7 +62,7 @@
 
             <CheckBox
                 android:id="@+id/isPrivateTeamUpdate"
-                android:layout_width="105dp"
+                android:layout_width="wrap_content"
                 android:layout_height="49dp"
                 android:checked="false"
                 android:fontFamily="@font/mirza"
@@ -94,7 +94,6 @@
                 app:layout_constraintVertical_bias="0.025"
                 tools:ignore="MissingConstraints" />
 
-            <!-- Project Name Section -->
             <TextView
                 android:id="@+id/teamDescriptionUpdateTxtView"
                 android:layout_width="wrap_content"
@@ -110,11 +109,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/teamNameEdtTxtUpdate"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.26" />
 
-            <!-- Members Section -->
 
             <EditText
                 android:id="@+id/descriptionUpdateEditText"
@@ -124,12 +121,12 @@
                 android:foregroundGravity="center"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                app:layout_constraintBottom_toTopOf="@+id/membersUpdateTxtView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/teamDescriptionUpdateTxtView"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.39" />
 
             <TextView
                 android:id="@+id/membersUpdateTxtView"
@@ -147,11 +144,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.371" />
+                app:layout_constraintVertical_bias="0.571" />
 
-            <!-- Add Member Button -->
-
-            <!-- RecyclerView for Member IDs -->
 
             <EditText
                 android:id="@+id/memberIDUpdateEdtTxt"
@@ -179,12 +173,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:icon="@android:drawable/ic_input_add"
-                app:layout_constraintBottom_toTopOf="@+id/memberIDUpdateEdtTxt"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.948"
-                app:layout_constraintStart_toEndOf="@+id/membersUpdateTxtView"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.956" />
+                app:layout_constraintVertical_bias="0.571" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewMemberIDsUpdate"
@@ -200,7 +194,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/memberIDUpdateEdtTxt"
-                app:layout_constraintVertical_bias="0.108"
+                app:layout_constraintVertical_bias="0.48"
                 tools:layout_editor_absoluteX="15dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

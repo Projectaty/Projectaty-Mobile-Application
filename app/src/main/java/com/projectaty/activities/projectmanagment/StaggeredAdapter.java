@@ -1,5 +1,6 @@
 package com.projectaty.activities.projectmanagment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,53 +13,68 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
 import com.projectaty.activities.taskmanagement.TasksDashboard;
+import com.projectaty.model.Project;
 
-public class StaggeredAdapter
-        extends RecyclerView.Adapter<StaggeredAdapter.ViewHolder> {
+import java.util.ArrayList;
 
-    private String[] Projects;
+public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.ViewHolder> {
 
-    public StaggeredAdapter(String[] projects) {
-        Projects = projects;
+    private ArrayList<Project> projects;
+    private Context context;
+
+    public StaggeredAdapter(ArrayList<Project> projects, Context context) {
+        this.projects = projects;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        CardView cardView = (CardView) LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_prj, parent, false);
+        return new ViewHolder(cardView);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_prj,
-                parent,
-                false);
-
-        return new ViewHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
 
-        TextView txt = (TextView) cardView.findViewById(R.id.viewName);
-        txt.setText(Projects[position]);
+        TextView projectName = cardView.findViewById(R.id.viewName);
+        projectName.setText(projects.get(position).getTitle());
 
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), TasksDashboard.class);
-                v.getContext().startActivity(intent);
-            }
-        });
+        TextView projectDate = cardView.findViewById(R.id.viewdate);
+        projectDate.setText(projects.get(position).getDeadline() + "");
+
+        setCardClickListener(cardView, position);
     }
 
     @Override
     public int getItemCount() {
-        return Projects.length;
+        return projects.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardView cardView;
+        private final CardView cardView;
+
         public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;
         }
     }
 
+    private void setCardClickListener(CardView cardView, final int position) {
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToTasksDashboard(position);
+            }
+        });
+    }
+
+    private void navigateToTasksDashboard(int position) {
+        Intent intent = new Intent(context, TasksDashboard.class);
+        intent.putExtra("projectID", position);
+        context.startActivity(intent);
+    }
 }

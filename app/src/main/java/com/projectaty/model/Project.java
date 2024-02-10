@@ -1,12 +1,14 @@
 package com.projectaty.model;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 public class Project {
     private int projectID;
     private String title;
     private String description;
-    private Date deadline;
+    private LocalDate deadline;
     private String privacySetting;
     private int creatorID;
 
@@ -14,7 +16,7 @@ public class Project {
 
     }
 
-    public Project(int projectID, String title, String description, Date deadline, String privacySetting, int creatorID) {
+    public Project(int projectID, String title, String description, LocalDate deadline, String privacySetting, int creatorID) {
         this.projectID = projectID;
         this.title = title;
         this.description = description;
@@ -50,11 +52,11 @@ public class Project {
         this.description = description;
     }
 
-    public Date getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 

@@ -7,7 +7,7 @@ public class Task {
     private int projectID;
     private String title;
     private String description;
-    private boolean status;
+    private String status;
     private int assignedTo;
     private LocalDate date;
 
@@ -15,20 +15,13 @@ public class Task {
 
     }
 
-    public Task(int taskID, int projectID, String title, String description, boolean status, int assignedTo) {
+    public Task(int taskID, int projectID, String title, String description, String status, int assignedTo) {
         this.taskID = taskID;
         this.projectID = projectID;
         this.title = title;
         this.description = description;
         this.status = status;
         this.assignedTo = assignedTo;
-    }
-
-    public Task(String sentTheEmailSubmit, String s, int rama, LocalDate localDate) {
-        this.title = sentTheEmailSubmit;
-        this.description = s;
-        this.assignedTo = rama;
-        this.date = localDate;
     }
 
     /*
@@ -64,7 +57,7 @@ public class Task {
     public void setAssignedTo(int assignedTo) {
         this.assignedTo = assignedTo;
     }
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
     public LocalDate getDate() {

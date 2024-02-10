@@ -43,10 +43,12 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         TextView assignee = convertView.findViewById(R.id.assignee);
 
         if (task != null) {
-//            if(task.getStatus()){
+//            if(task.getStatus().equals("done")){
 //                isDoneimg.setImageDrawable(R.drawable.done);
-//            }else{
+//            }else  if(task.getStatus().equals("todo")){
 //                isDoneimg.setImageDrawable(R.drawable.notDone);
+//            }else {
+//                // in progress
 //            }
             taskTitle.setText(task.getTitle());
             taskdate.setText(task.getDate().toString());
@@ -55,9 +57,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
         RelativeLayout relLay = convertView.findViewById(R.id.relLaytask);
         relLay.setOnClickListener(v -> {
-//            String jsonString = new Gson().toJson(book);
             Intent intent = new Intent(getContext(), UpdateDelTask.class);
-//            intent.putExtra("item", jsonStringTask);
+            intent.putExtra("taskID", position);
             getContext().startActivity(intent);
         });
         return convertView;

@@ -57,14 +57,6 @@ public class TaskList extends AppCompatActivity {
             // in progress
         }
 
-        Task task1 = new Task("Download The Requirements", "Description for Task 1", 1, LocalDate.now());
-        Task task2 = new Task("Sent the Email Submit", "Description for Task 2", 2, LocalDate.now().plusDays(1));
-        Task task3 = new Task("Create ERD", "Description for Task 3", 3, LocalDate.now().plusDays(2));
-
-        tasks.add(task1);
-        tasks.add(task2);
-        tasks.add(task3);
-
         return tasks;
     }
 

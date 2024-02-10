@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.projectaty.R;
+import com.projectaty.activities.projectmanagment.Dashboard;
 import com.projectaty.data.UserRequest;
 
 public class CreateAccount extends AppCompatActivity {
@@ -75,7 +76,7 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private void start() {
-        Intent intent = new Intent(this, StudentProfile.class);
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         finish();
     }

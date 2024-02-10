@@ -14,14 +14,25 @@ public class Task {
     public Task(){
 
     }
+    public Task( int projectID, String title, String description, String status, int assignedTo,
+                LocalDate date) {
+        this.projectID = projectID;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.assignedTo = assignedTo;
+        this.date = date;
+    }
 
-    public Task(int taskID, int projectID, String title, String description, String status, int assignedTo) {
+    public Task(int taskID, int projectID, String title, String description, String status, int assignedTo,
+    LocalDate date) {
         this.taskID = taskID;
         this.projectID = projectID;
         this.title = title;
         this.description = description;
         this.status = status;
         this.assignedTo = assignedTo;
+        this.date = date;
     }
 
     /*

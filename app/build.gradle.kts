@@ -48,4 +48,6 @@ dependencies {
     implementation ("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation ("com.android.support.constraint:constraint-layout:1.1.3")
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.android.volley:volley:1.2.1")
+
 }

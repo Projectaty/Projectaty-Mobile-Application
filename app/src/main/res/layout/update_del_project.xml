@@ -177,22 +177,38 @@
 
 
     <TextView
-        android:id="@+id/assignTxtView"
+        android:id="@+id/PrivacySettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
-        android:labelFor="@id/assignSpinnerUpdate"
-        android:text="@string/numberofmembers"
+        android:labelFor="@id/PrivacySettings"
+        android:text="@string/privacy"
         android:textColor="#2F2E41"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintVertical_bias="0.745" />
+
+    <EditText
+        android:id="@+id/PrivacyEditTextUpdate"
+        android:layout_width="329dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:gravity="start|top"
+        android:inputType="datetime|date"
+        android:labelFor="@id/pickDate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811" />
 
     <Button
         android:id="@+id/delete"
@@ -227,15 +243,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212" />
-
-    <EditText
-        android:id="@+id/editTextNumberUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/assignTxtView"
-        app:layout_constraintTop_toBottomOf="@+id/assignTxtView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

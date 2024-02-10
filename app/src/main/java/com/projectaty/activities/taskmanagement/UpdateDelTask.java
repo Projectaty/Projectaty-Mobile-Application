@@ -27,6 +27,13 @@ public class UpdateDelTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_del_task);
+        initialize();
+    }
+
+    private void initialize(){
+        String taskID = getIntent().getStringExtra("taskID");
+        int taskidint = Integer.parseInt(taskID);
+
         setTitleEditTextUpdate(findViewById(R.id.titleEditTextUpdate));
         setDescriptionEditTextUpdate(findViewById(R.id.descriptionEditTextUpdate));
         setUodateDate(findViewById(R.id.uodateDate));
@@ -36,15 +43,30 @@ public class UpdateDelTask extends AppCompatActivity {
         setUpdateTaskButton(findViewById(R.id.updateTaskButton));
         setDelete(findViewById(R.id.delete));
 
-        handle_update(getUpdateTaskButton());
-        handle_delete(getDelete());
+        setOldValues(taskidint);
+
+        /*
+            Handlers
+         */
+        handle_update(getUpdateTaskButton(), taskidint);
+        handle_delete(getDelete(), taskidint);
         handle_edit_date(getUodateDate());
     }
+
+    private void setOldValues(int taskidint) {
+        /* Make volley request and fill the data into the textfeilds */
+
+    }
+
+
     /*
     Buttons Handlers
      */
-    private void handle_delete(Button delete) {
+    private void handle_delete(Button delete, int taskId) {
         delete.setOnClickListener(e->{
+            /*
+                Make a voelly Request to delet by ID
+             */
 
         });
     }
@@ -74,9 +96,11 @@ public class UpdateDelTask extends AppCompatActivity {
         });
     }
 
-    private void handle_update(Button updateTaskButton) {
+    private void handle_update(Button updateTaskButton, int taskidint) {
         updateTaskButton.setOnClickListener(e->{
-
+            /*
+                Make  a volley request to update the data
+             */
         });
     }
     /*

@@ -26,9 +26,36 @@ public class TaskList extends AppCompatActivity {
     }
 
     private void initialize() {
+        int projectID = getIntent().getIntExtra("projectID",0);
+        String status = getIntent().getStringExtra("status");
+        String keyword= getIntent().getStringExtra("keyword");
+        String month = getIntent().getStringExtra("month");
+
+        setFind(findViewById(R.id.find));
+        setAdd(findViewById(R.id.add));
         setTaskListView(findViewById(R.id.taskListView));
 
+        TaskAdapter taskAdapter = new TaskAdapter(this, getTasksData(projectID, status, keyword, month));
+        getTaskListView().setAdapter(taskAdapter);
+
+        /*
+            Button Handlers
+            - based on status, and to a specific project ID
+         */
+        handle_add(getAdd(), status,  projectID);
+        hadnle_find(getFind(), status,  projectID);
+    }
+
+    private List<Task> getTasksData(int projectID, String status, String keyword, String month) {
+        /* Make a volley request to show tasks within a specific status fpr specific id  */
         List<Task> tasks = new ArrayList<>();
+        if(status.equals("todo")){
+            //gettodo
+        }else if(status.equals("done")){
+            // getDone
+        }else{
+            // in progress
+        }
 
         Task task1 = new Task("Download The Requirements", "Description for Task 1", 1, LocalDate.now());
         Task task2 = new Task("Sent the Email Submit", "Description for Task 2", 2, LocalDate.now().plusDays(1));
@@ -38,28 +65,27 @@ public class TaskList extends AppCompatActivity {
         tasks.add(task2);
         tasks.add(task3);
 
-        TaskAdapter taskAdapter = new TaskAdapter(this, tasks);
-        getTaskListView().setAdapter(taskAdapter);
-
-        setFind(findViewById(R.id.find));
-        setAdd(findViewById(R.id.add));
-        handle_add(getAdd());
-        hadnle_find(getFind());
+        return tasks;
     }
+
     /*
     Buttons Handlers
 
      */
-    private void hadnle_find(Button find) {
+    private void hadnle_find(Button find, String status, int projectID) {
         find.setOnClickListener(e->{
             Intent intent = new Intent(this, SearchTask.class);
+            intent.putExtra("projectID",projectID);
+            intent.putExtra("status",status );
             startActivity(intent);
         });
     }
 
-    private void handle_add(Button add) {
+    private void handle_add(Button add, String status, int projectID) {
         add.setOnClickListener(e->{
             Intent intent = new Intent(this, CreateTask.class);
+            intent.putExtra("projectID",projectID );
+            intent.putExtra("status",status );
             startActivity(intent);
         });
     }
@@ -67,7 +93,6 @@ public class TaskList extends AppCompatActivity {
     /*
     Getters & setters
      */
-
     public Button getFind() {
         return find;
     }

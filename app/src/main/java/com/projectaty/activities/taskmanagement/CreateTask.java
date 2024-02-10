@@ -39,13 +39,16 @@ public class CreateTask extends AppCompatActivity {
         setAsssignSpinner(findViewById(R.id.asssignSpinner));
         setCreateTaskButton(findViewById(R.id.createTaskButton));
 
+        int projectID  =getIntent().getIntExtra("projectID", 0);
+        String status = getIntent().getStringExtra("status");
+
         handle_pick_date(getPickDate());
-        handle_create_task(getCreateTaskButton());
+        handle_create_task(getCreateTaskButton(), projectID, status);
     }
     /*
     Buttons Handlers
      */
-    private void handle_create_task(Button createTaskButton) {
+    private void handle_create_task(Button createTaskButton, int projectID, String status) {
         createTaskButton.setOnClickListener(e->{
             String title = getTitleEditText().getText().toString().trim();
             String description = getDescriptionEditText().getText().toString().trim();

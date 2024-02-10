@@ -32,7 +32,7 @@ public class TaskRequest {
                 response -> {
                     callback.onSuccess("added");
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
@@ -44,7 +44,7 @@ public class TaskRequest {
                 response -> {
                     callback.onSuccess("updated");
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
@@ -63,7 +63,7 @@ public class TaskRequest {
                 response -> {
                     callback.onSuccess("deleted");
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
@@ -73,16 +73,16 @@ public class TaskRequest {
                     List<Task> tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
     public static void getTODO(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_TODO+ projectid, null,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_TODO+ (projectid+1), null,
                 response -> {
                     List<Task> tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
@@ -92,7 +92,7 @@ public class TaskRequest {
                     List<Task> tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
@@ -102,26 +102,24 @@ public class TaskRequest {
                     List<Task> tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
-                error -> callback.onError(error.getMessage()));
+                error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
-    private static List<Task> parseItems(JSONObject response ) {
+    private static List<Task> parseItems(JSONObject tasksArray ) {
 
         List<Task> tasks = new ArrayList<>();
         try {
-            JSONArray tasksArray = response.names();
-
             for (int i = 0; i < tasksArray.length(); i++) {
-                JSONObject taskObject = tasksArray.getJSONObject(i);
-                int ProjectID = taskObject.optInt("ProjectID",0);
-                int TaskID = taskObject.optInt("TaskID",0);
+                JSONObject taskObject = tasksArray.getJSONObject(String.valueOf(i));
+                int ProjectID = taskObject.optInt("ProjectID", 0);
+                int TaskID = taskObject.optInt("TaskID", 0);
                 String title = taskObject.optString("Title", "");
-                String Description = taskObject.optString("Description", "");
-                String status = taskObject.optString("Status","");
-                int assigneTo = taskObject.optInt("AssignedTo", 0);
+                String description = taskObject.optString("Description", "");
+                String status = taskObject.optString("Status", "");
+                int assignedTo = taskObject.optInt("AssignedTo", 0);
                 LocalDate date = LocalDate.parse(taskObject.optString("Date", ""));
 
-                Task task = new Task(TaskID,ProjectID, title, Description, status, assigneTo,date );
+                Task task = new Task(TaskID, ProjectID, title, description, status, assignedTo, date);
                 tasks.add(task);
             }
         } catch (JSONException e) {

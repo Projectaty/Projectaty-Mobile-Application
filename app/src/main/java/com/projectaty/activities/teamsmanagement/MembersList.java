@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.projectaty.R;
-import com.projectaty.data.MemberIDAdapter;
-import com.projectaty.data.TeamListAdapter;
+import com.projectaty.model.MemberIDAdapter;
 import com.projectaty.model.Team;
 
 import java.util.ArrayList;

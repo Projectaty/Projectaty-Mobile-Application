@@ -47,5 +47,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation ("com.android.support.constraint:constraint-layout:1.1.3")
-
+    implementation("com.google.code.gson:gson:2.10.1")
 }

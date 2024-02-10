@@ -91,8 +91,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="285dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="281dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="107dp"
         android:text="Log Out" />
 
 </RelativeLayout>

@@ -7,6 +7,9 @@ import android.preference.PreferenceManager;
 public class Prefrences {
     private static final String FIRST_TIME = "IS_FIRST_TIME";
     private static final String REMEMBER = "REMEMBER_ME";
+    private static final String USERNAME = "USERNAME";
+    private static final String PASSWORD = "PASSWORD";
+    private static final String STUDENTID = "STUDENTID";
     private static final String LANGUAGE = "LANGUAGE";
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
@@ -26,6 +29,31 @@ public class Prefrences {
         editor.apply();
     }
 
+    /*
+        Set user to be remebered
+     */
+
+    public static void setUsername(Context context, String username) {
+        preferences = getPreferences(context);
+        editor = preferences.edit();
+        editor.putString(USERNAME, username);
+        editor.apply();
+    }
+    public static String getUsername(Context context) {
+        preferences = getPreferences(context);
+        return preferences.getString(USERNAME, "");
+    }
+
+    public static void setPassword(Context context, String password) {
+        preferences = getPreferences(context);
+        editor = preferences.edit();
+        editor.putString(PASSWORD, password);
+        editor.apply();
+    }
+    public static String getPassword(Context context) {
+        preferences = getPreferences(context);
+        return preferences.getString(PASSWORD, "");
+    }
     /*
         Set langauge Prefrences
      */
@@ -49,11 +77,24 @@ public class Prefrences {
         preferences = getPreferences(context);
         return preferences.getBoolean(REMEMBER, false);
     }
+    public static void setStudentID(Context context, int studentId) {
+        preferences = getPreferences(context);
+        editor = preferences.edit();
+        editor.putInt(STUDENTID, studentId);
+        editor.apply();
+    }
 
-    public static void setRemember(Context context) {
+    public static int getStudentid(Context context) {
+        preferences = getPreferences(context);
+        return preferences.getInt(STUDENTID, 0);
+    }
+
+    public static void setRemember(Context context, String password, String username) {
         preferences = getPreferences(context);
         editor = preferences.edit();
         editor.putBoolean(REMEMBER, false);
+        editor.putString(PASSWORD,password);
+        editor.putString(USERNAME,username);
         editor.apply();
     }
 
@@ -63,5 +104,9 @@ public class Prefrences {
             editor = preferences.edit();
         }
         return preferences;
+    }
+
+    public static void clear(Context context) {
+        setStudentID(context,0);
     }
 }

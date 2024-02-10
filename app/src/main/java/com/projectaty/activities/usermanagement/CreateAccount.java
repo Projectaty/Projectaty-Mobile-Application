@@ -7,21 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.projectaty.R;
+import com.projectaty.data.UserRequest;
 
 public class CreateAccount extends AppCompatActivity {
 
     private EditText editTextUsername, editTextPassword, editTextId, editTextEmail;
     private TextView textViewLoginPrompt;
-    private Button buttonGoToLogin, buttonChoosePhoto;
+    private Button buttonGoToLogin, buttonChoosePhoto,  buttonRegister;
     private static final int PICK_IMAGE = 1;
     private Uri selectedImageUri;
+    private ImageView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,34 +37,16 @@ public class CreateAccount extends AppCompatActivity {
         textViewLoginPrompt = findViewById(R.id.textViewLoginPrompt);
         buttonGoToLogin = findViewById(R.id.buttonGoToLogin);
         buttonChoosePhoto = findViewById(R.id.buttonChoosePhoto);
+        view = findViewById(R.id.imageViewProfile);
+        buttonGoToLogin.setVisibility(View.VISIBLE);
+        buttonGoToLogin.setOnClickListener(e-> goToLogin());
 
-        // Check if user has account to show login prompt
-        if (hasAccount()) {
-            textViewLoginPrompt.setVisibility(View.VISIBLE);
-            buttonGoToLogin.setVisibility(View.VISIBLE);
-            buttonGoToLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    goToLogin();
-                }
-            });
-        }
+        buttonRegister = findViewById(R.id.buttonRegister);
+        buttonRegister.setOnClickListener(o-> registerUser());
 
-        Button buttonRegister = findViewById(R.id.buttonRegister);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerUser();
-            }
-        });
-
-        buttonChoosePhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open gallery to choose photo
-                Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE);
-            }
+        buttonChoosePhoto.setOnClickListener(e->{
+            Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, PICK_IMAGE);
         });
     }
 
@@ -72,6 +55,7 @@ public class CreateAccount extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
             selectedImageUri = data.getData();
+            view.setImageURI(selectedImageUri);
         }
     }
 
@@ -80,25 +64,14 @@ public class CreateAccount extends AppCompatActivity {
         String username = editTextUsername.getText().toString();
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("id", id);
-        editor.putString("username", username);
-        editor.putString("email", email);
-        editor.putString("password", password);
-        // Save the selected image URI if available
-        if (selectedImageUri != null) {
-            editor.putString("profile_photo_uri", selectedImageUri.toString());
+        if (!id.isEmpty() && !username.isEmpty() && !email.isEmpty() && !password.isEmpty() && selectedImageUri != null) {
+            UserRequest userRequest = new UserRequest(this);
+            userRequest.addStudent(Integer.parseInt(id), username, password, email, selectedImageUri.toString());
+        } else {
+            Toast.makeText(getApplicationContext(), "Please fill in all required fields and select an image", Toast.LENGTH_SHORT).show();
         }
-        editor.apply();
 
         start();
-    }
-
-    private boolean hasAccount() {
-        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        return preferences.contains("username") && preferences.contains("password");
     }
 
     private void start() {

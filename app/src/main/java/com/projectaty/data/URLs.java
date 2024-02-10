@@ -19,10 +19,14 @@ public class URLs {
     /*
     Tasks Managemnt Requets URls
     */
-    public static final String GET_TASKS_URL = "";
-    public static final String ADD_TASK_URL = "";
-    public static final String UPDATE_TASK_URL = "";
-    public static final String DELETE_TASK_URL = "";
+    public static final String GET_TASKS_URL = localHost +"task/all";
+    public static final String ADD_TASK_URL = localHost +"task/add";
+    public static final String UPDATE_TASK_URL = localHost +"task/update/"; //follows a task_id
+    public static final String DELETE_TASK_URL = localHost +"task/delete/"; //follows a task_id
+    public static final String GET_DONE = localHost +"task/done/"; //follows a proj. id
+    public static final String GET_TODO = localHost +"task/todo/";  //follows a proj. id parameter
+    public static final String GET_INPROGRESS = localHost +"task/inprogress/";  //follows a proj. id
+    public static final String FIND_BY_KEYorMONTH = localHost +"task/find/";  //follows a proj. id
 
     /*
     Teams Managemnt Requets URls

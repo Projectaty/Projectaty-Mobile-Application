@@ -2,6 +2,7 @@ package com.projectaty.activities.usermanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onError(VolleyError error) {
                 Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                Log.d("loginErr", error.toString());
             }
         });
     }

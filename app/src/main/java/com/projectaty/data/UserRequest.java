@@ -163,7 +163,7 @@ public class UserRequest {
 
 
     public void getStudentByNameAndPassword(String username, String password, StudentByNameAndPasswordListener listener) {
-        String url = URLs.GET_USER_BY_NAME_AND_PASSWORD_URL;
+        String url = URLs.GET_USER_BY_NAME_AND_PASSWORD_URL+username+"/"+password;
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("username", username);
@@ -172,21 +172,27 @@ public class UserRequest {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            int id = response.getInt("StudentID");
-                            String name = response.getString("username");
-                            String password = response.getString("password");
-                            String email = response.getString("email");
-                            String profilePic = response.getString("profile_pic");
+                            if(response.getString("message").equals("login")) {
+                                try {
+                                    int id = response.getInt("StudentID");
+                                    String name = response.getString("username");
+                                    String password = response.getString("password");
+                                    String email = response.getString("email");
+                                    String profilePic = response.getString("profile_pic");
 
-                            listener.onSuccess(id, name, password, email, profilePic);
+                                    listener.onSuccess(id, name, password, email, profilePic);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    listener.onError(new VolleyError("Error parsing JSON response"));
+                                }
+                            }
                         } catch (JSONException e) {
-                            e.printStackTrace();
-                            listener.onError(new VolleyError("Error parsing JSON response"));
+                            throw new RuntimeException(e);
                         }
                     }
                 },

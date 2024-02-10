@@ -5,7 +5,7 @@ public class URLs {
         Centralized URLs
      */
 
-    public static final String localHost = "http://127.0.0.1:5000/";
+    public static final String localHost = "http://10.0.2.2:5000/";
     /*
     Student Managemnt Requets URls
      */
@@ -20,7 +20,6 @@ public class URLs {
     /*
     Tasks Managemnt Requets URls
     */
-    public static final String GET_TASKS_URL = localHost +"task/all";
     public static final String GET_TASKS_BY_ID = localHost +"task/";
     public static final String POST_TASK = localHost +"task/add";
     public static final String PUT_TASK_BY_ID = localHost +"task/update/"; //follows a task_id

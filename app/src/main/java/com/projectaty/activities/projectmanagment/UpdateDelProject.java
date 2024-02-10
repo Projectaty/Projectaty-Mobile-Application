@@ -1,7 +1,5 @@
 package com.projectaty.activities.projectmanagment;
 
-import static com.projectaty.R.id.titlePrjUpdate;
-
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,15 +10,16 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
-import com.projectaty.activities.taskmanagement.UpdateDelTask;
+import com.projectaty.data.ProjectRequest;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class UpdateDelProject extends AppCompatActivity {
     EditText titleEditTextUpdate;
     EditText descriptionEditTextUpdate;
     EditText dateEditTextUpdate;
-    EditText memberEditTextUpdate;
+    EditText PrivacyEditText;
     Button uodateDate;
     Button updatePrjButton;
     Button delete;
@@ -33,6 +32,7 @@ public class UpdateDelProject extends AppCompatActivity {
 
 
         initialize();
+        
         handle_delete(getDelete());
         handle_edit_date(getUodateDate());
         handle_update(getUpdatePrjButton());
@@ -47,14 +47,25 @@ public class UpdateDelProject extends AppCompatActivity {
         setUodateDate(findViewById(R.id.uodateDate));
         setIsDone(findViewById(R.id.isDone));
         setDateEditTextUpdate(findViewById(R.id.dateEditTextUpdate));
-        setMemberEditTextUpdate(findViewById(R.id.editTextNumberUpdate));
+        setPrivacyEditText(findViewById(R.id.PrivacyEditTextUpdate));
         setDelete(findViewById(R.id.delete));
     }
 
     private void handle_delete(Button delete) {
         delete.setOnClickListener(e->{
 
+
+
+
+
+
         });
+    }
+
+
+    private void deleteProjectData(int projectId) {
+        ProjectRequest projectRequest = new ProjectRequest(this);
+        projectRequest.deleteProject(projectId);
     }
 
     private void handle_edit_date(Button uodateDate) {
@@ -81,8 +92,34 @@ public class UpdateDelProject extends AppCompatActivity {
             datePickerDialog.show();
         });
     }
-    private void handle_update(Button updateTaskButton) {
-        updateTaskButton.setOnClickListener(e->{
+    private void handle_update(Button updateProjectButton) {
+        updateProjectButton.setOnClickListener(e->{
+
+
+            String Title = getTitleEditTextUpdate().getText().toString().trim();
+            String Description = getDescriptionEditTextUpdate().getText().toString().trim();
+
+
+            String dateStr = getDateEditTextUpdate().getText().toString().trim();
+            int year;
+            int month;
+            int day;
+            LocalDate date;
+
+            if(!dateStr.isEmpty()){
+                String[] dateElements = dateStr.split("-");
+                year= Integer.parseInt(dateElements[2]);
+                month = Integer.parseInt(dateElements[1]);
+                day = Integer.parseInt(dateElements[0]);
+                date = LocalDate.of(year, month, day);
+            }else{
+                date = null;
+            }
+
+            boolean PrivacyText = Boolean.parseBoolean(getPrivacyEditText().getText().toString());
+
+
+
 
         });
     }
@@ -109,13 +146,6 @@ public class UpdateDelProject extends AppCompatActivity {
         this.dateEditTextUpdate = dateEditTextUpdate;
     }
 
-    public EditText getMemberEditTextUpdate() {
-        return memberEditTextUpdate;
-    }
-
-    public void setMemberEditTextUpdate(EditText memberEditTextUpdate) {
-        this.memberEditTextUpdate = memberEditTextUpdate;
-    }
 
     public Button getUodateDate() {
         return uodateDate;
@@ -155,5 +185,13 @@ public class UpdateDelProject extends AppCompatActivity {
 
     public void setWarning(EditText warning) {
         this.warning = warning;
+    }
+
+    public EditText getPrivacyEditText() {
+        return PrivacyEditText;
+    }
+
+    public void setPrivacyEditText(EditText privacyEditText) {
+        PrivacyEditText = privacyEditText;
     }
 }

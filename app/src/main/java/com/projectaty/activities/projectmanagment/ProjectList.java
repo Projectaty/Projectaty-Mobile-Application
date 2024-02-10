@@ -65,7 +65,7 @@ public class ProjectList extends AppCompatActivity  {
     public void addPrjList (View view) {
 
 
-        String url = "";
+        String url = "project/all/";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONObject>() {

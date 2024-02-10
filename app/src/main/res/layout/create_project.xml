@@ -185,7 +185,7 @@
         app:layout_constraintVertical_bias="0.616" />
 
     <EditText
-        android:id="@+id/PrivacyEditText"
+        android:id="@+id/PrivacyEditTextUpdate"
         android:layout_width="329dp"
         android:layout_height="47dp"
         android:ems="10"

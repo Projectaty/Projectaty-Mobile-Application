@@ -9,19 +9,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.time.LocalDate;
 import java.util.Calendar;
-import android.util.Log;
-import com.android.volley.VolleyError;
+
+import com.projectaty.data.ProjectRequest;
+
 
 public class CreateProject extends AppCompatActivity {
 
@@ -52,8 +49,10 @@ public class CreateProject extends AppCompatActivity {
         setDateEditText(findViewById(R.id.dateEditText));
         setPickDate(findViewById(R.id.pickDate));
         setCreateTaskButton(findViewById(R.id.createPrjButton));
-        setPrivacyEditText(findViewById(R.id.PrivacyEditText));
+        setPrivacyEditText(findViewById(R.id.PrivacyEditTextUpdate));
         setFloatingActionButton(findViewById(R.id.addBtn));
+
+
         handle_pick_date(getPickDate());
 
     }
@@ -86,14 +85,35 @@ public class CreateProject extends AppCompatActivity {
     public void AddProjectOnClick(View view) {
         String Title = titleEditText.getText().toString();
         String Description = descriptionEditText.getText().toString();
-        String Date = dateEditText.getText().toString();
-        String PrivacyText = PrivacyEditText.getText().toString();
 
+        String dateStr = getDateEditText().getText().toString().trim();
+        int year;
+        int month;
+        int day;
+        LocalDate date;
 
-        addProjects( Title, Description, Date,PrivacyText);
+        if(!dateStr.isEmpty()){
+            String[] dateElements = dateStr.split("-");
+            year= Integer.parseInt(dateElements[2]);
+            month = Integer.parseInt(dateElements[1]);
+            day = Integer.parseInt(dateElements[0]);
+            date = LocalDate.of(year, month, day);
+        }else{
+            date = null;
+        }
+
+        boolean PrivacyText = Boolean.parseBoolean(PrivacyEditText.getText().toString());
+
+        if (!Title.isEmpty() && !Description.isEmpty() && !dateStr.isEmpty()) {
+            ProjectRequest projectRequest = new ProjectRequest(this);
+            projectRequest.addProjects( Title, Description, Integer.parseInt(dateStr), PrivacyText);
+        } else {
+            Toast.makeText(getApplicationContext(), "Fill all required fields!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    private void addProjects(String Title, String Description, String Deadline, String Privacy) {
+   /* private void addProjects(String Title, String Description, String Deadline, String Privacy) {
 
         String url = "";
 
@@ -142,7 +162,7 @@ public class CreateProject extends AppCompatActivity {
         // below line is to make
         // a json object request.
         queue.add(request);
-    }
+    }*/
 
     public EditText getTitleEditText() {
         return titleEditText;

@@ -22,11 +22,10 @@ public class TeamRequest {
         requestQueue = Volley.newRequestQueue(context);
     }
 
-    public void addTeam(int teamID, String teamName, String description, boolean isPrivate) {
+    public void addTeam(String teamName, String description, boolean isPrivate) {
         String url = URLs.ADD_TEAM_URL;
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("TeamID", teamID);
             jsonObject.put("Team Name", teamName);
             jsonObject.put("Description", description);
             jsonObject.put("Private", isPrivate);
@@ -127,43 +126,43 @@ public class TeamRequest {
         requestQueue.add(stringRequest);
     }
 
-//    public void deleteTeamMember(int studentID, int teamID) {
-//        String url = URLs.DELETE_TEAM_MEMBER_URL + studentID + teamID;
-//        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        Log.d(TAG, "Response: " + response);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Log.e(TAG, "Error: " + error.toString());
-//                    }
-//                });
-//
-//        requestQueue.add(stringRequest);
-//    }
+    public void deleteTeamMember(int studentID) {
+        String url = URLs.DELETE_TEAM_MEMBER_URL + studentID;
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, "Response: " + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, "Error: " + error.toString());
+                    }
+                });
 
-//    public void deleteTeamProject(int projectID, int teamID) {
-//        String url = URLs.DELETE_TEAM_PROJECT_URL + projectID + teamID;
-//        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        Log.d(TAG, "Response: " + response);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Log.e(TAG, "Error: " + error.toString());
-//                    }
-//                });
-//
-//        requestQueue.add(stringRequest);
-//    }
+        requestQueue.add(stringRequest);
+    }
+
+    public void deleteTeamProject(int projectID) {
+        String url = URLs.DELETE_TEAM_PROJECT_URL + projectID;
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, "Response: " + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, "Error: " + error.toString());
+                    }
+                });
+
+        requestQueue.add(stringRequest);
+    }
 
     public void updateTeam(int teamID, String teamName, String description, boolean isPrivate) {
         String url = URLs.UPDATE_TEAM_URL;

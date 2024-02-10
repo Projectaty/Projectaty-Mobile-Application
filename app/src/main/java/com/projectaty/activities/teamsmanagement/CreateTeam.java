@@ -44,7 +44,6 @@ public class CreateTeam extends AppCompatActivity {
     private void initilaize() {
         teamNameEdtTxt = findViewById(R.id.teamNameEdtTxt);
         memberIDEdtTxt = findViewById(R.id.memberIDEdtTxt);
-        projectNameEdtTxt = findViewById(R.id.projectNameEdtTxt);
         descriptionEdtTxt = findViewById(R.id.descriptionEdtTxt);
         isPrivateTeam = findViewById(R.id.isPrivateTeam);
         createTeam = findViewById(R.id.createTeam);

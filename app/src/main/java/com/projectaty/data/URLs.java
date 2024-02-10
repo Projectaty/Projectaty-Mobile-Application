@@ -20,9 +20,10 @@ public class URLs {
     Tasks Managemnt Requets URls
     */
     public static final String GET_TASKS_URL = localHost +"task/all";
-    public static final String ADD_TASK_URL = localHost +"task/add";
-    public static final String UPDATE_TASK_URL = localHost +"task/update/"; //follows a task_id
-    public static final String DELETE_TASK_URL = localHost +"task/delete/"; //follows a task_id
+    public static final String GET_TASKS_BY_ID = localHost +"task/";
+    public static final String POST_TASK = localHost +"task/add";
+    public static final String PUT_TASK_BY_ID = localHost +"task/update/"; //follows a task_id
+    public static final String DELETE_TASK_BY_ID = localHost +"task/delete/"; //follows a task_id
     public static final String GET_DONE = localHost +"task/done/"; //follows a proj. id
     public static final String GET_TODO = localHost +"task/todo/";  //follows a proj. id parameter
     public static final String GET_INPROGRESS = localHost +"task/inprogress/";  //follows a proj. id

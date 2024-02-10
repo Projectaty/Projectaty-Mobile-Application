@@ -89,4 +89,6 @@
     <string name="project_name">Project Name</string>
     <string name="deadline">Deadline</string>
     <string name="privacy">Privacy</string>
+    <string name="private_">Private</string>
+    <string name="teamname">اسم الفريق</string>
 </resources>

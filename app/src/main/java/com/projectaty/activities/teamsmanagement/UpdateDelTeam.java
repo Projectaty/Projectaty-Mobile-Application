@@ -27,6 +27,7 @@ public class UpdateDelTeam extends AppCompatActivity {
     private Button updateTeamButton;
     private Button deleteTeam;
     private Button updateMembersBtn;
+    private CheckBox isPrivateTeamUpdate;
     private RecyclerView recyclerViewMemberIDsUpdate;
     private MemberIDAdapter memberIDAdapter;
     private List<String> memberIDsList;
@@ -44,6 +45,7 @@ public class UpdateDelTeam extends AppCompatActivity {
         updateTeamButton = findViewById(R.id.updateTeamButton);
         deleteTeam = findViewById(R.id.deleteTeam);
         updateMembersBtn = findViewById(R.id.updateMembersBtn);
+        isPrivateTeamUpdate = findViewById(R.id.isPrivateTeamUpdate);
         recyclerViewMemberIDsUpdate = findViewById(R.id.recyclerViewMemberIDs);
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
 
@@ -194,4 +196,13 @@ public class UpdateDelTeam extends AppCompatActivity {
     public void setWarningUpdate(EditText warningUpdate) {
         this.warningUpdate = warningUpdate;
     }
+
+    public CheckBox getIsPrivateTeamUpdate() {
+        return isPrivateTeamUpdate;
+    }
+
+    public void setIsPrivateTeamUpdate(CheckBox isPrivateTeamUpdate) {
+        this.isPrivateTeamUpdate = isPrivateTeamUpdate;
+    }
+
 }

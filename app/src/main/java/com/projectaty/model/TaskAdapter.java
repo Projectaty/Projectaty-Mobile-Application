@@ -58,7 +58,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         RelativeLayout relLay = convertView.findViewById(R.id.relLaytask);
         relLay.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), UpdateDelTask.class);
-            intent.putExtra("taskID", position);
+            intent.putExtra("taskID", task.getTaskID());
             intent.putExtra("projectID",task.getProjectID());
             intent.putExtra("status",task.getStatus() );
             getContext().startActivity(intent);

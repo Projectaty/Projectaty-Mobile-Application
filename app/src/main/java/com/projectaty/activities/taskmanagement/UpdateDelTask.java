@@ -186,7 +186,7 @@ public class UpdateDelTask extends AppCompatActivity {
                                     if (res.equals("updated")) {
                                         Toast.makeText(UpdateDelTask.this, "Task updated successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(UpdateDelTask.this, TaskList.class);
-                                        intent.putExtra("projectID", 0);
+                                        intent.putExtra("projectID", projectID);
                                         intent.putExtra("status", status);
                                         startActivity(intent);
                                         finish();

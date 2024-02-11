@@ -2,12 +2,15 @@ package com.projectaty.activities.teamsmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
+import com.projectaty.data.TeamRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.TeamListAdapter;
 import com.projectaty.model.Team;
 
@@ -16,7 +19,7 @@ import java.util.List;
 
 public class TeamList extends AppCompatActivity {
 
-//    private static List<Team> teams;
+    //    private static List<Team> teams;
     private TeamListAdapter teamListAdapter;
     private Button findTeamBtn;
     private Button addNewTeam;
@@ -34,35 +37,69 @@ public class TeamList extends AppCompatActivity {
 
         List<Team> teams = new ArrayList<>();
 
+        int teamID = getIntent().getIntExtra("teamID",0);
+        String keywordID= getIntent().getStringExtra("keywordID");
+        String keywordName = getIntent().getStringExtra("keywordName");
+        Boolean isSearch  = getIntent().getBooleanExtra("isSearch", false);
+
         TeamListAdapter teamListAdapter = new TeamListAdapter(this, teams);
         getTeamListView().setAdapter(teamListAdapter);
 
+        getTeamsData(teamID,isSearch, keywordID, keywordName);
+
         setFindTeamBtn(findViewById(R.id.findTeam));
         setAddNewTeamBtn(findViewById(R.id.addNewTeam));
-        handle_addTeam(getAddNewTeamBtn());
-        hadnle_findTeam(getFindTeamBtn());
+        setTeamListView(findViewById(R.id.teamListView));
+        handle_add(getAddNewTeamBtn());
+        hadnle_find(getFindTeamBtn());
     }
 
     /*
     Buttons Handlers
      */
-    private void hadnle_findTeam(Button findTeamBtn) {
-        findTeamBtn.setOnClickListener(e -> {
+    private List<Team> getTeamsData(int teamID, Boolean isSearch, String keywordID, String keywordName) {
+        List<Team> teams = new ArrayList<>();
+
+        if (isSearch) {
+            TeamRequest.findByIDOrName(VolleySingleton.getInstance(this),
+                    new TeamRequest.TeamResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Team> teams = (List<Team>) response;
+                            updateTeamAdapter(teams);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    },teamID, keywordID, keywordName
+            );
+        }
+        return teams;
+    }
+
+    private void updateTeamAdapter(List<Team> teams) {
+        TeamListAdapter teamAdapter = new TeamListAdapter(this, teams);
+        getTeamListView().setAdapter(teamAdapter);
+    }
+
+    /*
+        Buttons Handlers */
+    private void hadnle_find(Button find) {
+        find.setOnClickListener(e -> {
             Intent intent = new Intent(this, SearchTeam.class);
             startActivity(intent);
         });
     }
 
-    private void handle_addTeam(Button addNewTeam) {
-        addNewTeam.setOnClickListener(e -> {
+    private void handle_add(Button add) {
+        add.setOnClickListener(e -> {
             Intent intent = new Intent(this, CreateTeam.class);
             startActivity(intent);
         });
     }
 
-    private void handleTeamListView() {
-
-    }
 
      /*
     Getters & setters

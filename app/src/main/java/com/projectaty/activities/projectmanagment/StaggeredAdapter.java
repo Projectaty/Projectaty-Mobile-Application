@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +45,7 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
 
         TextView projectDate = cardView.findViewById(R.id.viewdate);
         projectDate.setText(projects.get(position).getDeadline() + "");
-        Button edit = cardView.findViewById(R.id.editButton);
+        ImageButton edit = cardView.findViewById(R.id.editButton);
         edit.setOnClickListener(e->{
             Intent intent = new Intent(context, UpdateDelProject.class);
             intent.putExtra("projectID", position);

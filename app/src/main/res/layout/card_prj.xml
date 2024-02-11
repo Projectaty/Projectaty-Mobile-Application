@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="4dp"
-        card_view:cardElevation="8dp"
+        card_view:cardElevation="2dp"
         card_view:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +18,9 @@
 
         <TextView
             android:id="@+id/viewName"
-            android:layout_width="212dp"
-            android:layout_height="43dp"
+            android:layout_width="345dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
             android:background="@android:color/transparent"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -27,15 +28,14 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.08"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/viewdate"
-            android:layout_width="183dp"
-            android:layout_height="29dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="181dp"
+            android:layout_height="54dp"
             android:background="@android:color/transparent"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -43,7 +43,7 @@
             android:textColor="@color/design_default_color_error"
             android:textSize="18sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@+id/editButton"
+            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/viewName"
@@ -56,9 +56,10 @@
             android:background="@color/white"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.733"
-            card_view:layout_constraintStart_toEndOf="@+id/viewName"
+            card_view:layout_constraintHorizontal_bias="0.86"
+            card_view:layout_constraintStart_toEndOf="@+id/viewdate"
             card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="1.0"
             card_view:srcCompat="@android:drawable/ic_menu_edit"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,7 +55,7 @@ public class Dashboard extends AppCompatActivity {
         setUser(findViewById(R.id.User));
         setTeam(findViewById(R.id.Team));
         setPrjRecyclerView(findViewById(R.id.StaggerdPrjView));
-        getPrjRecyclerView().setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        getPrjRecyclerView().setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         ArrayList<Project> projectList = new ArrayList<>();
         Project project1 = new Project(1, "Installation", "Creating an immersive art experience to evoke empathy", LocalDate.of(2024, 4, 15), "Public", 101);

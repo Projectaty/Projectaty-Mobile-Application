@@ -22,12 +22,15 @@ public class URLs {
     public static final String UPDATE_TEAM_URL = "team/update/";
     public static final String DELETE_TEAM_URL = "team/delete/";
     public static final String GET_ONE_TEAM_URL = "team/";
+    public static final String GET_IS_PRIVATE_URL = "team/";
     public static final String ADD_TEAM_MEMBER_URL = "team/";
     public static final String GET_TEAM_MEMBERS_URL = "team/";
     public static final String ADD_TEAM_PROJECT_URL = "team/";
     public static final String GET_TEAM_PROJECTS_URL = "team/";
     public static final String DELETE_TEAM_MEMBER_URL = "team/";
     public static final String DELETE_TEAM_PROJECT_URL = "team/";
+    public static final String FIND_TEAM_BY_ID_OR_NAME_URL = "team/";
+
 
     private static final String GET_PROJECTS_URL = "";
     private static final String ADD_PROJECT_URL = "";

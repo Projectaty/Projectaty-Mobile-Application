@@ -17,6 +17,12 @@ public class Team {
         this.isPrivate = isPrivate;
     }
 
+    public Team(String teamName, String description, boolean isPrivate) {
+        this.teamName = teamName;
+        this.description = description;
+        this.isPrivate = isPrivate;
+    }
+
     /*
     Getters & setters
      */

@@ -25,7 +25,6 @@ public class ProjectRequest {
         requestQueue = Volley.newRequestQueue(context);
     }
 
-
     public void addProjects( String Title, String Description, int Deadline, boolean Privacy) {
         String url = URLs.ADD_PROJECT_URL;
         JSONObject jsonParams = new JSONObject();
@@ -58,7 +57,6 @@ public class ProjectRequest {
         requestQueue.add(jsonObjectRequest);
     }
 
-
     public void deleteProject(int projectID) {
         String url = URLs.DELETE_PROJECT_URL + projectID;
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
@@ -77,7 +75,6 @@ public class ProjectRequest {
 
         requestQueue.add(stringRequest);
     }
-
 
     public void updateProject( String Title, String Description, int Deadline, boolean Privacy) {
         String url = URLs.UPDATE_PROJECT_URL;
@@ -104,9 +101,7 @@ public class ProjectRequest {
                         Log.e(TAG, "Error: " + error.toString());
                     }
                 });
-
         requestQueue.add(jsonObjectRequest);
-
     }
 
     public void getAllProjects() {
@@ -162,6 +157,4 @@ public class ProjectRequest {
 
         requestQueue.add(jsonObjectRequest);
     }
-
-
 }

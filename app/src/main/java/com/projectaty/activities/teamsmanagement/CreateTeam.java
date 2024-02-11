@@ -2,6 +2,7 @@ package com.projectaty.activities.teamsmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,8 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.projectaty.R;
+import com.projectaty.data.TeamRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.MemberIDAdapter;
+import com.projectaty.model.Team;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,16 +63,17 @@ public class CreateTeam extends AppCompatActivity {
         memberIDAdapter = new MemberIDAdapter(memberIDsList);
         recyclerViewMemberIDs.setAdapter(memberIDAdapter);
 
-        handle_create_team(getCreateTeam());
+        String isPrivate = getIntent().getStringExtra("status");
+
+        handle_create_team(getCreateTeam(), isPrivate);
         handleAddIDs(getAddMembersBtn());
         handleDiscardTeam(getDiscardTeam());
     }
 
-    private void handle_create_team(Button createTeamButton) {
+    private void handle_create_team(Button createTeamButton, String isPrivate) {
         createTeamButton.setOnClickListener(e -> {
             String teamName = getTeamNameEdtTxt().getText().toString().trim();
             String description = getDescriptionEdtTxt().getText().toString().trim();
-            String projectName = getProjectNameEdtTxt().getText().toString().trim();
 
 
             if (!teamName.isEmpty()) {
@@ -75,13 +83,34 @@ public class CreateTeam extends AppCompatActivity {
                     showToast("Cannot create a team when there are no existing members.");
                     return;
                 }
+                Team team = new Team(teamName, description, isPrivate);
+                //                    int teamID = generateTeamID();
 
-                int teamID = generateTeamID();
+                try {
+                    TeamRequest.addTeam(VolleySingleton.getInstance(this),
+                            new TeamRequest.TeamResponseCallback() {
+                                @Override
+                                public void onSuccess(Object response) {
+                                    String res = (String) response;
+                                    if (res.equals("added")) {
+                                        Toast.makeText(CreateTeam.this, "Task added successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(CreateTeam.this, TeamList.class);
+                                        intent.putExtra("IsPrivate", isPrivate);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
 
+                                @Override
+                                public void onError(String errorMessage) {
+                                    Log.d("error", errorMessage);
+                                }
+                            }
+                            , new Gson().toJson(team));
+                } catch (JSONException ex) {
+                    throw new RuntimeException(ex);
+                }
 
-                Intent intent = new Intent(CreateTeam.this, TeamList.class);
-                startActivity(intent);
-                finish();
             } else {
                 setWarning(findViewById(R.id.warning));
                 getWarning().setVisibility(View.VISIBLE);

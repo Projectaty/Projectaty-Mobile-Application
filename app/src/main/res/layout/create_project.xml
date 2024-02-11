@@ -25,7 +25,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212" />
 
-    <!--        android:entries="@array/team_members"-->
+    <TextView
+        android:id="@+id/pageProjectTitle"
+        android:layout_width="320dp"
+        android:layout_height="74dp"
+        android:fontFamily="@font/mirza"
+        android:foregroundGravity="center"
+        android:text="@string/newproject"
+        android:textColor="#2F2E41"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076" />
 
     <EditText
         android:id="@+id/descriptionEditText"
@@ -38,10 +52,10 @@
         android:labelFor="@id/descriptionTxtView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.45" />
 
     <EditText
         android:id="@+id/dateEditText"
@@ -54,10 +68,10 @@
         android:labelFor="@id/pickDate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.637" />
 
     <TextView
         android:id="@+id/dueTxtView"
@@ -72,10 +86,12 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.573" />
+
+    <!--        android:entries="@array/team_members"-->
 
     <Button
         android:id="@+id/pickDate"
@@ -90,10 +106,10 @@
         app:icon="@android:drawable/ic_menu_my_calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.568" />
 
     <TextView
         android:id="@+id/descriptionTxtView"
@@ -108,10 +124,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <Button
         android:id="@+id/createPrjButton"
@@ -120,7 +136,6 @@
         android:fontFamily="@font/mirza"
         android:foreground="@color/redish"
         android:foregroundGravity="center"
-        android:onClick="AddProjectOnClick"
         android:text="@string/createnewprj"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -129,7 +144,7 @@
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintVertical_bias="0.899" />
 
     <EditText
         android:id="@+id/titleEditText"
@@ -142,10 +157,9 @@
         android:labelFor="@id/titleTxtView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <TextView
         android:id="@+id/titleTxtView"
@@ -160,45 +174,52 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
+        app:layout_constraintVertical_bias="0.214" />
 
     <TextView
-        android:id="@+id/PrivacySettings"
+        android:id="@+id/membersTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
-        android:labelFor="@id/PrivacySettings"
-        android:text="@string/privacy"
+        android:labelFor="@id/numberofmembers"
+        android:text="@string/numberofmembers"
         android:textColor="#2F2E41"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616" />
+        app:layout_constraintVertical_bias="0.729" />
 
     <EditText
-        android:id="@+id/PrivacyEditTextUpdate"
-        android:layout_width="329dp"
-        android:layout_height="47dp"
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:foregroundGravity="center"
-        android:gravity="start|top"
-        android:inputType="datetime|date"
-        android:labelFor="@id/pickDate"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.365"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/membersTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/membersTxtView"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/createPrjButton"
+        app:layout_constraintEnd_toEndOf="@+id/createPrjButton"
+        app:layout_constraintStart_toEndOf="@+id/createPrjButton"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/circular_background"
         android:src="@drawable/profile" />
 
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:text="@string/choose_photo" />
 
     <!-- ID Field -->
@@ -34,13 +34,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="178dp"
+        android:layout_marginTop="260dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
         android:hint="@string/enter_username"
-        android:inputType="text"
-        android:textSize="24sp" />
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -49,7 +47,7 @@
         android:layout_below="@id/editTextId"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/enter_email"
         android:inputType="textEmailAddress" />
@@ -61,21 +59,19 @@
         android:layout_below="@id/editTextUsername"
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:hint="@string/enter_password"
-        android:inputType="textPassword"
-        android:textSize="24sp" />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/editTextId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextUsername"
+        android:layout_below="@id/editTextPassword"
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/enter_id"
         android:inputType="text" />
@@ -84,14 +80,13 @@
         android:id="@+id/buttonRegister"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
+        android:layout_below="@id/editTextEmail"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:fontFamily="@font/mirza"
         android:onClick="registerUser"
         android:text="@string/register"
@@ -105,7 +100,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="89dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/mirza"
@@ -121,7 +116,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="135dp"
         android:fontFamily="@font/mirza"
         android:text="@string/login"

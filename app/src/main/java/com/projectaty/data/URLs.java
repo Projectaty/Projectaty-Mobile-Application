@@ -37,9 +37,18 @@ public class URLs {
     /*
     Teams Managemnt Requets URls
      */
-    public static final String GET_TEAMS_URL = "";
-    public static final String ADD_TEAM_URL = "";
-    public static final String UPDATE_TEAM_URL = "";
-    public static final String DELETE_TEAM_URL = "";
+    public static final String GET_TEAMS_URL = localHost +"team/all/";
+    public static final String ADD_TEAM_URL = localHost +"team/add/";
+    public static final String UPDATE_TEAM_URL = localHost +"team/update/";
+    public static final String DELETE_TEAM_URL = localHost +"team/delete/";
+    public static final String GET_ONE_TEAM_URL = localHost +"team/";
+    public static final String GET_IS_PRIVATE_URL = localHost +"team/";
+    public static final String ADD_TEAM_MEMBER_URL = localHost +"team/";
+    public static final String GET_TEAM_MEMBERS_URL = localHost +"team/members/";
+    public static final String ADD_TEAM_PROJECT_URL = localHost +"team/";
+    public static final String GET_TEAM_PROJECTS_URL = localHost +"team/";
+    public static final String DELETE_TEAM_MEMBER_URL = localHost +"team/";
+    public static final String DELETE_TEAM_PROJECT_URL = localHost +"team/";
+    public static final String FIND_TEAM_BY_ID_OR_NAME_URL = localHost +"team/";
 
 }

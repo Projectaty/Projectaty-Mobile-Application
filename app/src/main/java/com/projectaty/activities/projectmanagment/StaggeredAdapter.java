@@ -48,7 +48,7 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
         ImageButton edit = cardView.findViewById(R.id.editButton);
         edit.setOnClickListener(e->{
             Intent intent = new Intent(context, UpdateDelProject.class);
-            intent.putExtra("projectID", position);
+            intent.putExtra("projectID", projects.get(position).getProjectID());
             context.startActivity(intent);
         });
         setCardClickListener(cardView, projects.get(position).getProjectID());
@@ -72,6 +72,7 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
         cardView.setOnClickListener(e->{
             Intent intent = new Intent(context, TasksDashboard.class);
             intent.putExtra("projectID", position);
+            intent.putExtra("projectName", projects.get(position).getTitle());
             context.startActivity(intent);
         });
     }

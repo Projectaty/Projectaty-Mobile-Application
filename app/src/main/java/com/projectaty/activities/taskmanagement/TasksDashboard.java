@@ -3,6 +3,7 @@ package com.projectaty.activities.taskmanagement;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +33,9 @@ public class TasksDashboard extends AppCompatActivity{
             Will be showing the extra project ID and use it show the tasks based on it
         */
         int projectID = getIntent().getIntExtra("projectID", 0);
+        String projectName = getIntent().getStringExtra("projectName");
+        TextView name =  findViewById(R.id.projTitle);
+        name.setText(projectName);
         handle_done(getLyDone(), projectID);
         handle_todo(getLyTodo(), projectID);
         hadnle_progress(getLyProg(), projectID);

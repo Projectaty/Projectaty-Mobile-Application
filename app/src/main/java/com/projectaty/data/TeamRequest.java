@@ -62,8 +62,8 @@ public class TeamRequest {
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
-    public static void findByIDOrName(VolleySingleton volleySingleton, final TeamResponseCallback callback,  int teamID,String IDKey, String teamName, String nameKey) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.FIND_TEAM_BY_ID_OR_NAME_URL+ teamID+"/"+IDKey+"/"+teamName+"/"+nameKey+"/" , null,
+    public static void findByIDOrName(VolleySingleton volleySingleton, final TeamResponseCallback callback,  int teamID,String IDKey, String nameKey) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.FIND_TEAM_BY_ID_OR_NAME_URL+ teamID+"/"+IDKey+"/"+nameKey+"/" , null,
                 response -> {
                     List<Team> teams = parseItems(response);
                     callback.onSuccess(teams);

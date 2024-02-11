@@ -80,7 +80,7 @@ public class TeamList extends AppCompatActivity {
                         public void onError(String errorMessage) {
                             Log.d("error", errorMessage);
                         }
-                    },teamID, keywordID, keywordName
+                    }, teamID, keywordID,  keywordName
             );
         }
         return teams;

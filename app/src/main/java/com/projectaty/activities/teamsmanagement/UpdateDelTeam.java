@@ -75,19 +75,38 @@ public class UpdateDelTeam extends AppCompatActivity {
         memberIDAdapter = new MemberIDAdapter(memberIDsList);
         recyclerViewMemberIDsUpdate.setAdapter(memberIDAdapter);
 
-        handle_update_team(getUpdateTeam(), teamID);
-        setOldValues(teamIDInt);
+        setOldValues(teamID);
 
         String isPrivate = getIntent().getStringExtra("isPrivate");
 
-        handle_update_team(getUpdateTeam(), teamIDInt, isPrivate);
         handleAddIDs(getUpdateMembersBtn());
-        handleDeleteTeam(getDeleteTeam(), teamID);
-        handle_update_team(getDeleteTeam(), teamIDInt, isPrivate);
+        handle_delete_team(getDeleteTeam(), teamID);
+        handle_update_team(getUpdateTeam(), teamID, isPrivate);
     }
 
-    private void handleDeleteTeam(Button deleteTeam, int teamID) {
-        deleteTeam.setOnClickListener(e -> {
+    private void handle_delete_team(Button delete, int teamID) {
+        delete.setOnClickListener(e -> {
+
+            TaskRequest.deleteTaskByID(VolleySingleton.getInstance(this), new TaskRequest.TaskResponseCallback() {
+                @Override
+                public void onSuccess(Object response) {
+                    String res = (String) response;
+                    if (res.equals("deleted")) {
+                        Toast.makeText(UpdateDelTeam.this, "Team deleted successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UpdateDelTeam.this, TeamList.class);
+                        intent.putExtra("teamID", teamID);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("error", errorMessage);
+                }
+            }, teamID);
+        });
+    }
 
     private void setOldValues(int teamIDInt) {
         /* Make volley request and fill the data into the textfeilds */
@@ -129,11 +148,11 @@ public class UpdateDelTeam extends AppCompatActivity {
         });
     }
 
-    private void handle_update_team(Button updateTeamButton, int teamID) {
-        updateTeamButton.setOnClickListener(e -> {
-        String teamName = getTeamNameEdtTxtUpdate().getText().toString().trim();
-        String description = getDescriptionUpdateEdtTxt().getText().toString().trim();
-        String projectName = getProjectNameUpdateEdtTxt().getText().toString().trim();
+    private void handle_update_team(Button updateTaskButton, int teamIDInt, String isPrivate) {
+        updateTaskButton.setOnClickListener(e -> {
+            String teamName = getTeamNameEdtTxtUpdate().getText().toString().trim();
+            String description = getDescriptionUpdateEdtTxt().getText().toString().trim();
+
 
             if (!teamName.isEmpty()) { /* Make  a volley request to update the data */
                 Team team = new Team(teamIDInt, teamName, description, isPrivate);
@@ -160,9 +179,9 @@ public class UpdateDelTeam extends AppCompatActivity {
                     throw new RuntimeException(ex);
                 }
             } else {
-                setWarningUpdate(findViewById(R.id.warning));
+                setWarningUpdate(findViewById(R.id.warningC));
+                // At least the title should be added
                 getWarningUpdate().setVisibility(View.VISIBLE);
-                showToast("Please fill in all fields.");
             }
         });
     }

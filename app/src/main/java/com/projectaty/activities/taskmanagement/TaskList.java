@@ -56,8 +56,8 @@ public class TaskList extends AppCompatActivity {
     private List<Task> getTasksData(int projectID, String status,Boolean isSearch,  String keyword, String month) {
         /* Make a volley request to show tasks within a specific status fpr specific id  */
         List<Task> tasks = new ArrayList<>();
-        if(status.equals("todo")){
-           TaskRequest.getTODO(VolleySingleton.getInstance(this),
+        if(!isSearch){
+            TaskRequest.getByStatus(VolleySingleton.getInstance(this),
                     new TaskRequest.TaskResponseCallback() {
                         @Override
                         public void onSuccess(Object response) {
@@ -69,37 +69,7 @@ public class TaskList extends AppCompatActivity {
                         public void onError(String errorMessage) {
                             Log.d("error", errorMessage);
                         }
-                    }, projectID
-            );
-        }else if(status.equals("done")){
-            TaskRequest.getDone(VolleySingleton.getInstance(this),
-                    new TaskRequest.TaskResponseCallback() {
-                        @Override
-                        public void onSuccess(Object response) {
-                            List<Task> tasks = (List<Task>) response;
-                            updateTaskAdapter(tasks);
-                        }
-
-                        @Override
-                        public void onError(String errorMessage) {
-                            Log.d("error", errorMessage);
-                        }
-                    }, projectID
-            );
-        }else if(status.equals("inprogress")){
-            TaskRequest.getINProgress(VolleySingleton.getInstance(this),
-                    new TaskRequest.TaskResponseCallback() {
-                        @Override
-                        public void onSuccess(Object response) {
-                            List<Task> tasks = (List<Task>) response;
-                            updateTaskAdapter(tasks);
-                        }
-
-                        @Override
-                        public void onError(String errorMessage) {
-                            Log.d("error", errorMessage);
-                        }
-                    }, projectID
+                    }, status,projectID
             );
         } if(isSearch){
             //String keyword, String month

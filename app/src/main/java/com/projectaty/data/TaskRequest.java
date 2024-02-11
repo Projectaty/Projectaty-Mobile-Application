@@ -71,32 +71,19 @@ public class TaskRequest {
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
-    public static void getDone(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_DONE+ projectid, null,
+    public static void getByStatus(VolleySingleton volleySingleton, final TaskResponseCallback callback,  String status, int projectid) {
+        String url = "";
+        if(status.equals("inprogress")){
+            url = URLs.GET_INPROGRESS;
+        }else if(status.equals("todo")){
+            url = URLs.GET_TODO;
+        }else if(status.equals("done")){
+            url = URLs.GET_DONE;
+        }
+        url = url +projectid;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
-                    List<Task> tasks = null;
-                    tasks = parseItems(response);
-                    callback.onSuccess(tasks);
-                },
-                error -> callback.onError(error.toString()));
-        volleySingleton.addToRequestQueue(jsonObjectRequest);
-    }
-    public static void getTODO(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_TODO+ (projectid+1), null,
-                response -> {
-                    List<Task> tasks = null;
-                    tasks = parseItems(response);
-                    callback.onSuccess(tasks);
-                },
-                error -> callback.onError(error.toString()));
-        volleySingleton.addToRequestQueue(jsonObjectRequest);
-    }
-
-    public static void getINProgress(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_INPROGRESS+ projectid, null,
-                response -> {
-                    List<Task> tasks = null;
-                    tasks = parseItems(response);
+                    List<Task> tasks  = parseItems(response);
                     callback.onSuccess(tasks);
                 },
                 error -> callback.onError(error.toString()));

@@ -6,14 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.projectaty.R;
-import com.projectaty.activities.taskmanagement.UpdateDelTask;
 import com.projectaty.activities.teamsmanagement.UpdateDelTeam;
-import com.projectaty.model.Team;
 
 import java.util.List;
 

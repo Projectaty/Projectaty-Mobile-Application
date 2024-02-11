@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.android.volley.Request;
@@ -16,7 +15,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
@@ -32,7 +30,6 @@ import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Dashboard extends AppCompatActivity {
     Button Team;
@@ -75,8 +72,8 @@ public class Dashboard extends AppCompatActivity {
         projectList.add(project5);
         projectList.add(project6);
 
-//        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
-//        getPrjRecyclerView().setAdapter(adapter);
+        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
+        getPrjRecyclerView().setAdapter(adapter);
     }
 
     public void ViewProj(View view) {

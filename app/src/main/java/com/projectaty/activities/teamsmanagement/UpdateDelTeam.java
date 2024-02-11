@@ -61,12 +61,12 @@ public class UpdateDelTeam extends AppCompatActivity {
         memberIDAdapter = new MemberIDAdapter(memberIDsList);
         recyclerViewMemberIDsUpdate.setAdapter(memberIDAdapter);
 
-        handle_update_team(getUpdateTeam());
+        handle_update_team(getUpdateTeam(), teamID);
         handleAddIDs(getUpdateMembersBtn());
-        handleDeleteTeam(getDeleteTeam());
+        handleDeleteTeam(getDeleteTeam(), teamID);
     }
 
-    private void handleDeleteTeam(Button deleteTeam) {
+    private void handleDeleteTeam(Button deleteTeam, int teamID) {
         deleteTeam.setOnClickListener(e -> {
 
         });
@@ -93,12 +93,11 @@ public class UpdateDelTeam extends AppCompatActivity {
         });
     }
 
-    private void handle_update_team(Button updateTeamButton) {
+    private void handle_update_team(Button updateTeamButton, int teamID) {
         updateTeamButton.setOnClickListener(e -> {
             String teamName = getTeamNameEdtTxtUpdate().getText().toString().trim();
             String description = getDescriptionUpdateEdtTxt().getText().toString().trim();
             String projectName = getProjectNameUpdateEdtTxt().getText().toString().trim();
-
 
             if (!teamName.isEmpty()) {
                 if (isMemberIDsListEmpty()) {

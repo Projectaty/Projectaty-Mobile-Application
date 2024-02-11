@@ -78,8 +78,11 @@ public class CreateTask extends AppCompatActivity {
             }else{
                 date = null;
             }
-
-            String assignee = getAsssignSpinner().getSelectedItem().toString().trim();
+            if(!dateStr.isEmpty()) {
+            }
+            String assignee = "1";
+                    //getAsssignSpinner().getSelectedItem().toString().trim();
+            if(assignee != null) {
 
             if(!title.isEmpty()){
                 Task newTask = new Task(projectID, title, description,status, Integer.parseInt(assignee), date);
@@ -92,7 +95,7 @@ public class CreateTask extends AppCompatActivity {
                                     if (res.equals("added")) {
                                         Toast.makeText(CreateTask.this, "Task added successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(CreateTask.this, TaskList.class);
-                                        intent.putExtra("projectID", 0);
+                                        intent.putExtra("projectID", projectID);
                                         intent.putExtra("status",status);
                                         startActivity(intent);
                                         finish();
@@ -112,6 +115,7 @@ public class CreateTask extends AppCompatActivity {
                 setWarning(findViewById(R.id.warningC));
                 // At least the title should be added
                 getWarning().setVisibility(View.VISIBLE);
+            }
             }
         });
     }

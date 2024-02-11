@@ -3,18 +3,25 @@ package com.projectaty.activities.taskmanagement;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.projectaty.R;
+import com.projectaty.data.TaskRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.Task;
 
 import java.time.LocalDate;
 import java.util.Calendar;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
 
 public class CreateTask extends AppCompatActivity {
     EditText titleEditText;
@@ -39,13 +46,16 @@ public class CreateTask extends AppCompatActivity {
         setAsssignSpinner(findViewById(R.id.asssignSpinner));
         setCreateTaskButton(findViewById(R.id.createTaskButton));
 
+        int projectID  =getIntent().getIntExtra("projectID", 0);
+        String status = getIntent().getStringExtra("status");
+
         handle_pick_date(getPickDate());
-        handle_create_task(getCreateTaskButton());
+        handle_create_task(getCreateTaskButton(), projectID, status);
     }
     /*
     Buttons Handlers
      */
-    private void handle_create_task(Button createTaskButton) {
+    private void handle_create_task(Button createTaskButton, int projectID, String status) {
         createTaskButton.setOnClickListener(e->{
             String title = getTitleEditText().getText().toString().trim();
             String description = getDescriptionEditText().getText().toString().trim();
@@ -72,11 +82,32 @@ public class CreateTask extends AppCompatActivity {
             String assignee = getAsssignSpinner().getSelectedItem().toString().trim();
 
             if(!title.isEmpty()){
-//                Task newTask = new Task(title, description, assignee, date, false);
-//
-//                Intent intent1 = new Intent(this, StatusInform.class);
-//                intent1.putExtra("status", "added");
-//                startActivity(intent1);
+                Task newTask = new Task(projectID, title, description,status, Integer.parseInt(assignee), date);
+                try {
+                    TaskRequest.addTask(VolleySingleton.getInstance(this),
+                            new TaskRequest.TaskResponseCallback() {
+                                @Override
+                                public void onSuccess(Object response) {
+                                    String res = (String) response;
+                                    if (res.equals("added")) {
+                                        Toast.makeText(CreateTask.this, "Task added successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(CreateTask.this, TaskList.class);
+                                        intent.putExtra("projectID", 0);
+                                        intent.putExtra("status",status);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onError(String errorMessage) {
+                                    Log.d("error", errorMessage);
+                                }
+                            }
+                            , new Gson().toJson(newTask));
+                } catch (JSONException ex) {
+                    throw new RuntimeException(ex);
+                }
             }else{
                 setWarning(findViewById(R.id.warningC));
                 // At least the title should be added

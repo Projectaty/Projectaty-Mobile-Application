@@ -2,14 +2,21 @@ package com.projectaty.activities.taskmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.projectaty.R;
+import com.projectaty.data.TaskRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.TaskAdapter;
 import com.projectaty.model.Task;
+
+import org.json.JSONException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,40 +33,115 @@ public class TaskList extends AppCompatActivity {
     }
 
     private void initialize() {
-        setTaskListView(findViewById(R.id.taskListView));
-
-        List<Task> tasks = new ArrayList<>();
-
-        Task task1 = new Task("Download The Requirements", "Description for Task 1", 1, LocalDate.now());
-        Task task2 = new Task("Sent the Email Submit", "Description for Task 2", 2, LocalDate.now().plusDays(1));
-        Task task3 = new Task("Create ERD", "Description for Task 3", 3, LocalDate.now().plusDays(2));
-
-        tasks.add(task1);
-        tasks.add(task2);
-        tasks.add(task3);
-
-        TaskAdapter taskAdapter = new TaskAdapter(this, tasks);
-        getTaskListView().setAdapter(taskAdapter);
+        int projectID = getIntent().getIntExtra("projectID",0);
+        String status = getIntent().getStringExtra("status");
+        String keyword= getIntent().getStringExtra("keyword");
+        String month = getIntent().getStringExtra("month");
+        Boolean isSearch  = getIntent().getBooleanExtra("isSearch", false);
 
         setFind(findViewById(R.id.find));
         setAdd(findViewById(R.id.add));
-        handle_add(getAdd());
-        hadnle_find(getFind());
-    }
-    /*
-    Buttons Handlers
+        setTaskListView(findViewById(R.id.taskListView));
 
-     */
-    private void hadnle_find(Button find) {
+        getTasksData(projectID, status,isSearch, keyword, month);
+
+        /*
+            Button Handlers
+            - based on status, and to a specific project ID
+         */
+        handle_add(getAdd(), status,  projectID);
+        hadnle_find(getFind(), status,  projectID);
+    }
+
+    private List<Task> getTasksData(int projectID, String status,Boolean isSearch,  String keyword, String month) {
+        /* Make a volley request to show tasks within a specific status fpr specific id  */
+        List<Task> tasks = new ArrayList<>();
+        if(status.equals("todo")){
+           TaskRequest.getTODO(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        }else if(status.equals("done")){
+            TaskRequest.getDone(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        }else if(status.equals("inprogress")){
+            TaskRequest.getINProgress(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID
+            );
+        } if(isSearch){
+            //String keyword, String month
+            TaskRequest.findByKeyOrMonth(VolleySingleton.getInstance(this),
+                    new TaskRequest.TaskResponseCallback() {
+                        @Override
+                        public void onSuccess(Object response) {
+                            List<Task> tasks = (List<Task>) response;
+                            updateTaskAdapter(tasks);
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("error", errorMessage);
+                        }
+                    }, projectID, keyword, month
+            );
+        }
+        return tasks;
+    }
+
+    private void updateTaskAdapter(List<Task> tasks) {
+        TaskAdapter taskAdapter = new TaskAdapter(this, tasks);
+        getTaskListView().setAdapter(taskAdapter);
+    }
+
+    /*
+        Buttons Handlers */
+    private void hadnle_find(Button find, String status, int projectID) {
         find.setOnClickListener(e->{
             Intent intent = new Intent(this, SearchTask.class);
+            intent.putExtra("projectID",projectID);
+            intent.putExtra("status",status );
             startActivity(intent);
         });
     }
 
-    private void handle_add(Button add) {
+    private void handle_add(Button add, String status, int projectID) {
         add.setOnClickListener(e->{
             Intent intent = new Intent(this, CreateTask.class);
+            intent.putExtra("projectID",projectID );
+            intent.putExtra("status",status );
             startActivity(intent);
         });
     }
@@ -67,7 +149,6 @@ public class TaskList extends AppCompatActivity {
     /*
     Getters & setters
      */
-
     public Button getFind() {
         return find;
     }

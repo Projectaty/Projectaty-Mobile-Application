@@ -75,6 +75,7 @@
     <string name="deadline">الموعد النهائي</string>
     <string name="private_">خاص</string>
     <string name="teamname">اسم الفريق</string>
+    <string name="privacy">الخصوصية</string>
     <string-array name="months">
         <item>كل الأشهر</item>
         <item>يناير</item>

@@ -28,6 +28,7 @@
         android:layout_height="69dp"
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
+        android:onClick="ViewProj"
         android:text="@string/app_name"
         android:textColor="#2F2E41"
         android:textSize="40sp"

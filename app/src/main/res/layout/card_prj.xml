@@ -5,21 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="wrap_content"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="2dp"
         card_view:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/projectItem"
-        android:layout_width="match_parent"
+        android:layout_width="275dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/viewName"
-            android:layout_width="302dp"
-            android:layout_height="46dp"
+            android:layout_width="212dp"
+            android:layout_height="43dp"
             android:background="@android:color/transparent"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -34,8 +34,8 @@
 
         <TextView
             android:id="@+id/viewdate"
-            android:layout_width="269dp"
-            android:layout_height="28dp"
+            android:layout_width="183dp"
+            android:layout_height="29dp"
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
             android:focusable="false"

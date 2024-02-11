@@ -1,5 +1,7 @@
 package com.projectaty.data;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.projectaty.model.Task;
@@ -7,8 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class TaskRequest {
     /*
@@ -70,7 +74,8 @@ public class TaskRequest {
     public static void getDone(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_DONE+ projectid, null,
                 response -> {
-                    List<Task> tasks = parseItems(response);
+                    List<Task> tasks = null;
+                    tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
                 error -> callback.onError(error.toString()));
@@ -79,7 +84,8 @@ public class TaskRequest {
     public static void getTODO(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_TODO+ (projectid+1), null,
                 response -> {
-                    List<Task> tasks = parseItems(response);
+                    List<Task> tasks = null;
+                    tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
                 error -> callback.onError(error.toString()));
@@ -89,7 +95,8 @@ public class TaskRequest {
     public static void getINProgress(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_INPROGRESS+ projectid, null,
                 response -> {
-                    List<Task> tasks = parseItems(response);
+                    List<Task> tasks = null;
+                    tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
                 error -> callback.onError(error.toString()));
@@ -99,34 +106,41 @@ public class TaskRequest {
     public static void findByKeyOrMonth(VolleySingleton volleySingleton, final TaskResponseCallback callback,  int projectid,String key, String month) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.FIND_BY_KEYorMONTH+ projectid+"/"+key+"/"+month , null,
                 response -> {
-                    List<Task> tasks = parseItems(response);
+                    List<Task> tasks = null;
+                    tasks = parseItems(response);
                     callback.onSuccess(tasks);
                 },
                 error -> callback.onError(error.toString()));
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
-    private static List<Task> parseItems(JSONObject tasksArray ) {
-
+    private static List<Task> parseItems(JSONObject response) {
         List<Task> tasks = new ArrayList<>();
         try {
-            for (int i = 0; i < tasksArray.length(); i++) {
-                JSONObject taskObject = tasksArray.getJSONObject(String.valueOf(i));
-                int ProjectID = taskObject.optInt("ProjectID", 0);
-                int TaskID = taskObject.optInt("TaskID", 0);
-                String title = taskObject.optString("Title", "");
-                String description = taskObject.optString("Description", "");
-                String status = taskObject.optString("Status", "");
-                int assignedTo = taskObject.optInt("AssignedTo", 0);
-                LocalDate date = LocalDate.parse(taskObject.optString("Date", ""));
-
-                Task task = new Task(TaskID, ProjectID, title, description, status, assignedTo, date);
-                tasks.add(task);
+            if (response.has("tasks")) {
+                JSONArray array = response.getJSONArray("tasks");
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject taskObject = array.getJSONObject(i);
+                    int ProjectID = taskObject.optInt("ProjectID", 0);
+                    int TaskID = taskObject.optInt("TaskID", 0);
+                    String title = taskObject.optString("Title", "");
+                    String description = taskObject.optString("Description", "");
+                    String status = taskObject.optString("Status", "");
+                    int assignedTo = taskObject.optInt("AssignedTo", 0);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm:ss z", Locale.ENGLISH);
+                    LocalDate date = LocalDate.parse(taskObject.optString("Deadline", ""), formatter);
+                    Task task = new Task(TaskID, ProjectID, title, description, status, assignedTo, date);
+                    Log.d("task", task.toString());
+                    tasks.add(task);
+                }
+            } else {
+                Log.e("parseItems", "Key 'donetasks' not found in the JSON response");
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+        return tasks;
     }
+
     private static Task parseTask(JSONObject taskObject) {
         int ProjectID = taskObject.optInt("ProjectID",0);
         int TaskID = taskObject.optInt("TaskID",0);

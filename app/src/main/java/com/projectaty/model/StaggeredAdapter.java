@@ -40,7 +40,7 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
         CardView cardView = holder.cardView;
 
         TextView projectName = cardView.findViewById(R.id.viewName);
-        projectName.setText(projects.get(position).getTitle());
+        projectName.setText(projects.get(position-1).getTitle());
 
         TextView projectDate = cardView.findViewById(R.id.viewdate);
         projectDate.setText(projects.get(position).getDeadline() + "");

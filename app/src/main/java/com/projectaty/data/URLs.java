@@ -42,7 +42,7 @@ public class URLs {
     public static final String DELETE_TEAM_URL = localHost +"team/delete/";
     public static final String GET_ONE_TEAM_URL = localHost +"team/";
     public static final String FIND_TEAM_BY_ID_OR_NAME_URL = localHost +"team/";
-    public static final String GET_TEAMS_URL = localHost +"team/all/";
+    public static final String GET_TEAMS_URL = localHost +"team/all";
     public static final String GET_IS_PRIVATE_URL = localHost +"team/";
     public static final String ADD_TEAM_MEMBER_URL = localHost +"team/";
     public static final String GET_TEAM_MEMBERS_URL = localHost +"team/members/";

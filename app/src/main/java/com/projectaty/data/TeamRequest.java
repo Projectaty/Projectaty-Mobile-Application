@@ -118,9 +118,9 @@ public class TeamRequest {
                 int TeamID = teamObject.optInt("TeamID",0);
                 String TeamName = teamObject.optString("TeamName", "");
                 String Description = teamObject.optString("Description", "");
-                boolean IsPrivate = teamObject.optBoolean("Private",false);
+                String isPrivate = teamObject.optString("Private","");
 
-                Team team = new Team(TeamID, TeamName, Description, IsPrivate );
+                Team team = new Team(TeamID, TeamName, Description, isPrivate );
                 teams.add(team);
             }
         } catch (JSONException e) {
@@ -133,7 +133,7 @@ public class TeamRequest {
         int TeamID = teamObject.optInt("TeamID",0);
         String teamName = teamObject.optString("TeamName", "");
         String Description = teamObject.optString("Description", "");
-        boolean isPrivate = teamObject.optBoolean("Private",false);
+        String isPrivate = teamObject.optString("Private","");
         return new Team(TeamID,teamName, Description, isPrivate );
     }
 

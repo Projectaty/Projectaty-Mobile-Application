@@ -4,20 +4,20 @@ public class Team {
     private int teamID;
     private String description;
     private String teamName;
-    private boolean isPrivate;
+    private String isPrivate;
 
     public Team() {
 
     }
 
-    public Team(int teamID, String teamName, String description, boolean isPrivate) {
+    public Team(int teamID, String teamName, String description, String isPrivate) {
         this.teamID = teamID;
         this.teamName = teamName;
         this.description = description;
         this.isPrivate = isPrivate;
     }
 
-    public Team(String teamName, String description, boolean isPrivate) {
+    public Team(String teamName, String description, String isPrivate) {
         this.teamName = teamName;
         this.description = description;
         this.isPrivate = isPrivate;
@@ -35,11 +35,11 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public boolean isPrivate() {
+    public String isPrivate() {
         return isPrivate;
     }
 
-    public void setPrivate(boolean aPrivate) {
+    public void setPrivate(String aPrivate) {
         isPrivate = aPrivate;
     }
 

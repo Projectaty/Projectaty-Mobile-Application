@@ -73,8 +73,8 @@ public class Dashboard extends AppCompatActivity {
         projectList.add(project5);
         projectList.add(project6);
 
-        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
-        getPrjRecyclerView().setAdapter(adapter);
+//        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
+//        getPrjRecyclerView().setAdapter(adapter);
     }
 
     public void ViewProj(View view) {

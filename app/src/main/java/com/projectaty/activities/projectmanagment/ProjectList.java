@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.projectaty.R;
+import com.projectaty.data.URLs;
 import com.projectaty.model.Project;
 
 import org.json.JSONException;
@@ -45,16 +46,7 @@ public class ProjectList extends AppCompatActivity  {
         setAdd(findViewById(R.id.add));
 
         handle_add(getAdd());
-
-     //   hadnle_find(getFind());
-
     }
-/*    private void hadnle_find(Button find) {
-        find.setOnClickListener(e->{
-            Intent intent = new Intent(this, SearchTask.class);
-            startActivity(intent);
-        });
-    }*/
     private void handle_add(Button add) {
         add.setOnClickListener(e->{
             Intent intent = new Intent(this, CreateProject.class);
@@ -63,11 +55,7 @@ public class ProjectList extends AppCompatActivity  {
     }
 
     public void addPrjList (View view) {
-
-
-        String url = "project/all/";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URLs.GET_PROJECTS_URL,
                 null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -94,10 +82,7 @@ public class ProjectList extends AppCompatActivity  {
                 Log.d("volley_error", error.toString());
             }
         });
-
         queue.add(request);
-
-
     }
     public Button getFind() {
         return find;

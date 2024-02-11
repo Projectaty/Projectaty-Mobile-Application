@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     android:foregroundGravity="center">
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addBtn"
-        android:layout_width="55dp"
-        android:layout_height="66dp"
+        android:layout_width="61dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="52dp"
         android:clickable="true"
         android:onClick="addProject"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Team"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/User"
         app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
-        app:layout_constraintVertical_bias="0.62"
+        app:layout_constraintVertical_bias="0.965"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="MissingConstraints" />
 
@@ -32,19 +33,17 @@
         android:text="@string/app_name"
         android:textColor="#2F2E41"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/StaggerdPrjView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
-
+        app:layout_constraintVertical_bias="0.742" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/StaggerdPrjView"
-        android:layout_width="356dp"
-        android:layout_height="473dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="367dp"
+        android:layout_height="472dp"
         android:layout_marginBottom="140dp"
         android:dividerHeight="0.5dp"
         android:footerDividersEnabled="false"
@@ -54,8 +53,9 @@
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toStartOf="parent"
 
+        tools:ignore="MissingConstraints"
         tools:listitem="@layout/card_prj" />
 
     <Button
@@ -67,10 +67,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
+        app:layout_constraintVertical_bias="0.337" />
 
     <Button
         android:id="@+id/User"
@@ -81,10 +81,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
+        app:layout_constraintVertical_bias="0.337" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -93,7 +93,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/StaggerdPrjView"
         app:layout_constraintEnd_toStartOf="@+id/prjList"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"

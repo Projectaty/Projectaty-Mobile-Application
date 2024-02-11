@@ -29,16 +29,14 @@ public class UpdateDelProject extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         initialize();
-        
-        handle_delete(getDelete());
+
+        int projectID = getIntent().getIntExtra("projectID",0);
+        handle_delete(getDelete(), projectID);
         handle_edit_date(getUodateDate());
-        handle_update(getUpdatePrjButton());
-
-
+        handle_update(getUpdatePrjButton(), projectID);
     }
+
     private void initialize(){
         setContentView(R.layout.update_del_project);
 
@@ -49,19 +47,14 @@ public class UpdateDelProject extends AppCompatActivity {
         setDateEditTextUpdate(findViewById(R.id.dateEditTextUpdate));
         setPrivacyEditText(findViewById(R.id.PrivacyEditTextUpdate));
         setDelete(findViewById(R.id.delete));
+        setUpdatePrjButton(findViewById(R.id.updateProjectButton));
     }
 
-    private void handle_delete(Button delete) {
+    private void handle_delete(Button delete, int projectID) {
         delete.setOnClickListener(e->{
-
-
-
-
-
 
         });
     }
-
 
     private void deleteProjectData(int projectId) {
         ProjectRequest projectRequest = new ProjectRequest(this);
@@ -92,10 +85,8 @@ public class UpdateDelProject extends AppCompatActivity {
             datePickerDialog.show();
         });
     }
-    private void handle_update(Button updateProjectButton) {
+    private void handle_update(Button updateProjectButton, int projectID) {
         updateProjectButton.setOnClickListener(e->{
-
-
             String Title = getTitleEditTextUpdate().getText().toString().trim();
             String Description = getDescriptionEditTextUpdate().getText().toString().trim();
 
@@ -117,10 +108,6 @@ public class UpdateDelProject extends AppCompatActivity {
             }
 
             boolean PrivacyText = Boolean.parseBoolean(getPrivacyEditText().getText().toString());
-
-
-
-
         });
     }
     public EditText getTitleEditTextUpdate() {

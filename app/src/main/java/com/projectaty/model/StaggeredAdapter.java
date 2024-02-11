@@ -1,10 +1,10 @@
-package com.projectaty.activities.projectmanagment;
+package com.projectaty.model;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,8 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
+import com.projectaty.activities.projectmanagment.UpdateDelProject;
 import com.projectaty.activities.taskmanagement.TasksDashboard;
-import com.projectaty.model.Project;
 
 import java.util.ArrayList;
 
@@ -44,8 +44,13 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
 
         TextView projectDate = cardView.findViewById(R.id.viewdate);
         projectDate.setText(projects.get(position).getDeadline() + "");
-
-        setCardClickListener(cardView, position);
+        ImageButton edit = cardView.findViewById(R.id.editButton);
+        edit.setOnClickListener(e->{
+            Intent intent = new Intent(context, UpdateDelProject.class);
+            intent.putExtra("projectID", projects.get(position).getProjectID());
+            context.startActivity(intent);
+        });
+        setCardClickListener(cardView, projects.get(position).getProjectID());
     }
 
     @Override
@@ -54,7 +59,6 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         private final CardView cardView;
 
         public ViewHolder(CardView cardView) {
@@ -64,17 +68,11 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
     }
 
     private void setCardClickListener(CardView cardView, final int position) {
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToTasksDashboard(position);
-            }
+        cardView.setOnClickListener(e->{
+            Intent intent = new Intent(context, TasksDashboard.class);
+            intent.putExtra("projectID", position);
+            intent.putExtra("projectName", projects.get(position).getTitle());
+            context.startActivity(intent);
         });
-    }
-
-    private void navigateToTasksDashboard(int position) {
-        Intent intent = new Intent(context, TasksDashboard.class);
-        intent.putExtra("projectID", position);
-        context.startActivity(intent);
     }
 }

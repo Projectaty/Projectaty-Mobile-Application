@@ -10,8 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.projectaty.R;
-import com.projectaty.activities.taskmanagement.UpdateDelTask;
-import com.projectaty.model.Team;
+import com.projectaty.activities.teamsmanagement.UpdateDelTeam;
 
 import java.util.List;
 
@@ -30,19 +29,16 @@ public class TeamListAdapter extends ArrayAdapter<Team> {
         }
 
         TextView teamName = convertView.findViewById(R.id.teamItemName);
+        teamName.setText(team.getTeamName());
 
-        if (team != null) {
-            teamName.setText(team.getTeamName());
-        }
-
-        RelativeLayout teamLayout = convertView.findViewById(R.id.teamLayout);
-        teamLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), UpdateDelTask.class);
-            intent.putExtra("TeamID", position);
-            intent.putExtra("TeamName",team.getTeamName() );
+        RelativeLayout relLay = convertView.findViewById(R.id.teamLayout);
+        relLay.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), UpdateDelTeam.class);
+            intent.putExtra("teamID", team.getTeamID());
+            intent.putExtra("teamName",team.getTeamName());
+            intent.putExtra("describtion",team.getDescription() );
             getContext().startActivity(intent);
         });
-
         return convertView;
     }
 }

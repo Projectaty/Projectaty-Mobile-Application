@@ -3,6 +3,7 @@ package com.projectaty.activities.teamsmanagement;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,12 +15,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.google.gson.Gson;
 import com.projectaty.R;
 import com.projectaty.data.TaskRequest;
 import com.projectaty.data.TeamRequest;
 import com.projectaty.data.VolleySingleton;
+import com.projectaty.data.TaskRequest;
+import com.projectaty.data.VolleySingleton;
 import com.projectaty.model.MemberIDAdapter;
 import com.projectaty.model.Team;
+
+import org.json.JSONException;
 
 import org.json.JSONException;
 
@@ -48,8 +54,9 @@ public class UpdateDelTeam extends AppCompatActivity {
     }
 
     private void initilaize() {
-        String teamID = getIntent().getStringExtra("teamID");
-        int teamIDInt = Integer.parseInt(teamID);
+        int teamID = getIntent().getIntExtra("teamID",0);
+        String teamName = getIntent().getStringExtra("teamName");
+        String description = getIntent().getStringExtra("describtion");
 
         setTeamNameEdtTxtUpdate(findViewById(R.id.teamNameEdtTxtUpdate));
         setMemberIDUpdateEdtTxt(findViewById(R.id.memberIDUpdateEdtTxt));
@@ -61,19 +68,26 @@ public class UpdateDelTeam extends AppCompatActivity {
         setRecyclerViewMemberIDsUpdate(findViewById(R.id.recyclerViewMemberIDs));
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
 
+        getTeamNameEdtTxtUpdate().setText(teamName);
+        getDescriptionUpdateEdtTxt().setText(description);
+
         memberIDsList = new ArrayList<>();
         memberIDAdapter = new MemberIDAdapter(memberIDsList);
         recyclerViewMemberIDsUpdate.setAdapter(memberIDAdapter);
 
+        handle_update_team(getUpdateTeam(), teamID);
         setOldValues(teamIDInt);
 
         String isPrivate = getIntent().getStringExtra("isPrivate");
 
         handle_update_team(getUpdateTeam(), teamIDInt, isPrivate);
         handleAddIDs(getUpdateMembersBtn());
+        handleDeleteTeam(getDeleteTeam(), teamID);
         handle_update_team(getDeleteTeam(), teamIDInt, isPrivate);
     }
 
+    private void handleDeleteTeam(Button deleteTeam, int teamID) {
+        deleteTeam.setOnClickListener(e -> {
 
     private void setOldValues(int teamIDInt) {
         /* Make volley request and fill the data into the textfeilds */
@@ -94,9 +108,7 @@ public class UpdateDelTeam extends AppCompatActivity {
         }, teamIDInt);
     }
 
-
     private void handleAddIDs(Button addMembersBtn) {
-
         addMembersBtn.setOnClickListener(e -> {
             String memberID = getMemberIDUpdateEdtTxt().getText().toString().trim();
 
@@ -117,12 +129,11 @@ public class UpdateDelTeam extends AppCompatActivity {
         });
     }
 
-
-    private void handle_update_team(Button updateTaskButton, int teamIDInt, String isPrivate) {
-        updateTaskButton.setOnClickListener(e -> {
-            String teamName = getTeamNameEdtTxtUpdate().getText().toString().trim();
-            String description = getDescriptionUpdateEdtTxt().getText().toString().trim();
-
+    private void handle_update_team(Button updateTeamButton, int teamID) {
+        updateTeamButton.setOnClickListener(e -> {
+        String teamName = getTeamNameEdtTxtUpdate().getText().toString().trim();
+        String description = getDescriptionUpdateEdtTxt().getText().toString().trim();
+        String projectName = getProjectNameUpdateEdtTxt().getText().toString().trim();
 
             if (!teamName.isEmpty()) { /* Make  a volley request to update the data */
                 Team team = new Team(teamIDInt, teamName, description, isPrivate);
@@ -149,9 +160,9 @@ public class UpdateDelTeam extends AppCompatActivity {
                     throw new RuntimeException(ex);
                 }
             } else {
-                setWarningUpdate(findViewById(R.id.warningC));
-                // At least the title should be added
+                setWarningUpdate(findViewById(R.id.warning));
                 getWarningUpdate().setVisibility(View.VISIBLE);
+                showToast("Please fill in all fields.");
             }
         });
     }
@@ -272,5 +283,4 @@ public class UpdateDelTeam extends AppCompatActivity {
     public void setIsPrivateTeamUpdate(CheckBox isPrivateTeamUpdate) {
         this.isPrivateTeamUpdate = isPrivateTeamUpdate;
     }
-
 }

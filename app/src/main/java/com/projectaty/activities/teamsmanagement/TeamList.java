@@ -34,8 +34,15 @@ public class TeamList extends AppCompatActivity {
 
     private void initialize() {
         setTeamListView(findViewById(R.id.teamListView));
-
+        /*
+        Sample
+         */
         List<Team> teams = new ArrayList<>();
+        teams.add(new Team(1, "Team A", "Description A", "Public"));
+        teams.add(new Team(2, "Team B", "Description B", "Private"));
+        teams.add(new Team(3, "Team C", "Description C", "Public"));
+        teams.add(new Team(4, "Team D", "Description D", "Private"));
+        teams.add(new Team(5, "Team E", "Description E", "Public"));
 
         int teamID = getIntent().getIntExtra("teamID",0);
         String keywordID= getIntent().getStringExtra("keywordID");

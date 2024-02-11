@@ -9,6 +9,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -164,32 +166,42 @@ public class UserRequest {
 
     public void getStudentByNameAndPassword(String username, String password, StudentByNameAndPasswordListener listener) {
         String url = URLs.GET_USER_BY_NAME_AND_PASSWORD_URL+username+"/"+password;
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("username", username);
-            jsonObject.put("password", password);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        JSONObject jsonObject = new JSONObject();
+//        try {
+//            jsonObject.put("username", username);
+//            jsonObject.put("password", password);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            if(response.getString("message").equals("login")) {
+                            String message = response.getString("message");
+                            if (message.equals("login")) {
                                 try {
-                                    int id = response.getInt("StudentID");
-                                    String name = response.getString("username");
-                                    String password = response.getString("password");
-                                    String email = response.getString("email");
-                                    String profilePic = response.getString("profile_pic");
+                                    JSONArray studentArray = response.getJSONArray("student");
+                                    if (studentArray.length() > 0) {
+                                        JSONObject studentObject = studentArray.getJSONObject(0);
 
-                                    listener.onSuccess(id, name, password, email, profilePic);
+                                        int id = studentObject.getInt("StudentID");
+                                        String name = studentObject.getString("username");
+                                        String password = studentObject.getString("password");
+                                        String email = studentObject.getString("email");
+                                        String profilePic = studentObject.getString("profile_pic");
+
+                                        listener.onSuccess(id, name, password, email, profilePic);
+                                    } else {
+                                        listener.onError(new VolleyError("No student information found in the response"));
+                                    }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    listener.onError(new VolleyError("Error parsing JSON response"));
+                                    listener.onError(new VolleyError("Error parsing student JSON response"));
                                 }
+                            } else {
+                                listener.onError(new VolleyError("Invalid 'message' in the response"));
                             }
                         } catch (JSONException e) {
                             throw new RuntimeException(e);

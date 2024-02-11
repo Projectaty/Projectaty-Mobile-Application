@@ -9,13 +9,12 @@ public class URLs {
     /*
     Student Managemnt Requets URls
      */
-    public static final String GET_USERS_URL = localHost +"user/studentsS/";
-    public static final String GET_ONE_USER_URL = localHost +"user/studentsS/";
-    public static final String GET_USER_BY_NAME_AND_PASSWORD_URL = localHost +"user/studentsS/";
-    public static final String ADD_USER_URL = localHost +"user/studentsI";
-    public static final String UPDATE_USER_URL = localHost +"user/studentsU";
-    public static final String DELETE_USER_URL = localHost +"user/studentsD/";
-
+    public static final String GET_USERS_URL = localHost +"user/all";
+    public static final String GET_ONE_USER_URL = localHost +"user/";
+    public static final String GET_USER_BY_NAME_AND_PASSWORD_URL = localHost +"user/login/";
+    public static final String ADD_USER_URL = localHost +"user/add";
+    public static final String UPDATE_USER_URL = localHost +"user/update";
+    public static final String DELETE_USER_URL = localHost +"user/delete/";
 
     /*
     Tasks Managemnt Requets URls
@@ -34,14 +33,16 @@ public class URLs {
     public static final String UPDATE_PROJECT_URL = "project/update/";
     public static final String DELETE_PROJECT_URL = "project/delete/";
     public static final String GET_ONE_PROJECT_URL = "project/<int:ProjectID>";
+
     /*
     Teams Managemnt Requets URls
      */
-    public static final String GET_TEAMS_URL = localHost +"team/all/";
     public static final String ADD_TEAM_URL = localHost +"team/add/";
     public static final String UPDATE_TEAM_URL = localHost +"team/update/";
     public static final String DELETE_TEAM_URL = localHost +"team/delete/";
     public static final String GET_ONE_TEAM_URL = localHost +"team/";
+    public static final String FIND_TEAM_BY_ID_OR_NAME_URL = localHost +"team/";
+    public static final String GET_TEAMS_URL = localHost +"team/all";
     public static final String GET_IS_PRIVATE_URL = localHost +"team/";
     public static final String ADD_TEAM_MEMBER_URL = localHost +"team/";
     public static final String GET_TEAM_MEMBERS_URL = localHost +"team/members/";
@@ -49,6 +50,4 @@ public class URLs {
     public static final String GET_TEAM_PROJECTS_URL = localHost +"team/";
     public static final String DELETE_TEAM_MEMBER_URL = localHost +"team/";
     public static final String DELETE_TEAM_PROJECT_URL = localHost +"team/";
-    public static final String FIND_TEAM_BY_ID_OR_NAME_URL = localHost +"team/";
-
 }

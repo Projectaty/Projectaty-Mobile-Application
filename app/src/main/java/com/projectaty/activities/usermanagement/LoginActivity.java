@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser() {
-        String enteredUsername = editTextUsernameLogin.getText().toString();
-        String enteredPassword = editTextPasswordLogin.getText().toString();
+        String enteredUsername = editTextUsernameLogin.getText().toString().trim();
+        String enteredPassword = editTextPasswordLogin.getText().toString().trim();
         userRequest.getStudentByNameAndPassword(enteredUsername, enteredPassword, new UserRequest.StudentByNameAndPasswordListener() {
             @Override
             public void onSuccess(int studentId, String username, String password, String email, String profilePic) {

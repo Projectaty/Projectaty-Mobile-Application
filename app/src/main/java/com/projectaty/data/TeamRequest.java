@@ -1,13 +1,7 @@
 package com.projectaty.data;
 
-import android.content.Context;
-import android.util.Log;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.projectaty.model.Team;
 
 import org.json.JSONArray;
@@ -68,35 +62,6 @@ public class TeamRequest {
         volleySingleton.addToRequestQueue(jsonObjectRequest);
     }
 
-//    public static void getIsPrivate(VolleySingleton volleySingleton, final TeamResponseCallback callback, int teamID) {
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_IS_PRIVATE_URL+ teamID, null,
-//                response -> {
-//                    List<Team> teams = parseItems(response);
-//                    callback.onSuccess(teams);
-//                },
-//                error -> callback.onError(error.getMessage()));
-//        volleySingleton.addToRequestQueue(jsonObjectRequest);
-//    }
-//    public static void getTODO(VolleySingleton volleySingleton, final TeamResponseCallback callback,  int projectid) {
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_TODO+ projectid, null,
-//                response -> {
-//                    List<Team> teams = parseItems(response);
-//                    callback.onSuccess(teams);
-//                },
-//                error -> callback.onError(error.getMessage()));
-//        volleySingleton.addToRequestQueue(jsonObjectRequest);
-//    }
-
-//    public static void getINProgress(VolleySingleton volleySingleton, final TeamResponseCallback callback,  int projectid) {
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.GET_INPROGRESS+ projectid, null,
-//                response -> {
-//                    List<Team> teams = parseItems(response);
-//                    callback.onSuccess(teams);
-//                },
-//                error -> callback.onError(error.getMessage()));
-//        volleySingleton.addToRequestQueue(jsonObjectRequest);
-//    }
-
     public static void findByIDOrName(VolleySingleton volleySingleton, final TeamResponseCallback callback,  int teamID,String IDKey, String teamName, String nameKey) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URLs.FIND_TEAM_BY_ID_OR_NAME_URL+ teamID+"/"+IDKey+"/"+teamName+"/"+nameKey+"/" , null,
                 response -> {
@@ -136,30 +101,6 @@ public class TeamRequest {
         String isPrivate = teamObject.optString("Private","");
         return new Team(TeamID,teamName, Description, isPrivate );
     }
-
-
-    /**
-     *
-     *     public void deleteTeamMember(int studentID) {
-     *         String url = URLs.DELETE_TEAM_MEMBER_URL + studentID;
-     *         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
-     *                 new Response.Listener<String>() {
-     *                     @Override
-     *                     public void onResponse(String response) {
-     *                         Log.d(TAG, "Response: " + response);
-     *                     }
-     *                 },
-     *                 new Response.ErrorListener() {
-     *                     @Override
-     *                     public void onErrorResponse(VolleyError error) {
-     *                         Log.e(TAG, "Error: " + error.toString());
-     *                     }
-     *                 });
-     *
-     *         requestQueue.add(stringRequest);
-     *     }
-     *
-     */
 
     /**
      *

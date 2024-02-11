@@ -23,6 +23,7 @@ import com.projectaty.activities.teamsmanagement.TeamList;
 import com.projectaty.activities.usermanagement.StudentProfile;
 import com.projectaty.data.URLs;
 import com.projectaty.model.Project;
+import com.projectaty.model.StaggeredAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;

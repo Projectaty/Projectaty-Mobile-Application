@@ -1,10 +1,9 @@
-package com.projectaty.activities.projectmanagment;
+package com.projectaty.model;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -13,8 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectaty.R;
+import com.projectaty.activities.projectmanagment.UpdateDelProject;
 import com.projectaty.activities.taskmanagement.TasksDashboard;
-import com.projectaty.model.Project;
 
 import java.util.ArrayList;
 

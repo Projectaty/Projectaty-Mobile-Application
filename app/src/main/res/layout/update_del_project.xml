@@ -183,7 +183,7 @@
         android:fontFamily="@font/mirza"
         android:foregroundGravity="center"
         android:labelFor="@id/PrivacySettings"
-        android:text="@string/privacy"
+        android:text="privacy"
         android:textColor="#2F2E41"
         android:textSize="24sp"
         android:textStyle="bold"

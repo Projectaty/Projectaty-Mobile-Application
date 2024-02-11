@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.projectaty.R;
 import com.projectaty.activities.projectmanagment.ProjectList;
@@ -25,6 +26,7 @@ public class TeamDashboard extends AppCompatActivity {
         setLyMembers(findViewById(R.id.membersly));
         setLyProj(findViewById(R.id.projectly));
         setLyEdit(findViewById(R.id.editly));
+
 
         handle_member(getLyMembers());
         handle_proj(getLyProj());

@@ -75,4 +75,16 @@ public class Project {
     public void setCreatorID(int creatorID) {
         this.creatorID = creatorID;
     }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectID=" + projectID +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", deadline=" + deadline +
+                ", privacySetting='" + privacySetting + '\'' +
+                ", creatorID=" + creatorID +
+                '}';
+    }
 }

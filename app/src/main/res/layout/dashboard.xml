@@ -16,10 +16,9 @@
         android:onClick="addProject"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Team"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/User"
         app:layout_constraintTop_toBottomOf="@+id/StaggerdPrjView"
-        app:layout_constraintVertical_bias="0.965"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="MissingConstraints" />
 
@@ -44,7 +43,6 @@
         android:id="@+id/StaggerdPrjView"
         android:layout_width="367dp"
         android:layout_height="472dp"
-        android:layout_marginBottom="140dp"
         android:dividerHeight="0.5dp"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
@@ -55,6 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:listitem="@layout/card_prj" />
 
@@ -93,7 +92,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/StaggerdPrjView"
         app:layout_constraintEnd_toStartOf="@+id/prjList"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"

@@ -15,6 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.projectaty.R;
@@ -35,12 +36,9 @@ import java.util.ArrayList;
 public class Dashboard extends AppCompatActivity {
     Button Team;
     Button User;
-
-    Button editButton;
     FloatingActionButton project;
     RecyclerView prjRecyclerView;
     private RequestQueue queue;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,30 +76,38 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void ViewProj(View view) {
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, URLs.GET_PROJECTS_URL,
-                null, new Response.Listener<JSONArray>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URLs.GET_PROJECTS_URL, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONArray response) {
-                ArrayList<Project> projects = new ArrayList<>();
-                for (int i = 0; i < prjRecyclerView.getItemDecorationCount(); i++) {
-                    try {
-                        JSONObject obj = response.getJSONObject(i);
-                        int id = obj.optInt("ProjectID");
-                        String title = obj.optString("Title");
-                        String des = obj.getString("Description");
-                        LocalDate date = LocalDate.parse(obj.getString("Deadline"));
-                        String privacy = obj.optString("privacySetting");
-                        int creatorID = obj.optInt("creatorID",0);
-                        Project proj = new Project(id, title, des, date, privacy, creatorID);
-                        projects.add(proj);
-                    }catch(JSONException exception){
-                        Log.d("volley_error", exception.toString());
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray projsArray = response.getJSONArray("projects");
+                    if (projsArray.length() > 0) {
+                        ArrayList<Project> projects = new ArrayList<>();
+                        for (int i = 0; i < projsArray.length(); i++) {
+                            try {
+                                JSONObject obj = projsArray.getJSONObject(i);
+
+                                int id = obj.optInt("ProjectID");
+                                String title = obj.optString("Title");
+                                String des = obj.getString("Description");
+                                LocalDate date = LocalDate.parse(obj.getString("Deadline"));
+                                String privacy = obj.optString("privacySetting");
+                                int creatorID = obj.optInt("creatorID", 0);
+                                Project proj = new Project(id, title, des, date, privacy, creatorID);
+                                projects.add(proj);
+                            } catch (JSONException exception) {
+                                Log.d("volley_error", exception.toString());
+                            }
+                        }
+                        StaggeredAdapter adapter = new StaggeredAdapter(projects, Dashboard.this);
+                        getPrjRecyclerView().setAdapter(adapter);
                     }
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
-                StaggeredAdapter adapter = new StaggeredAdapter(projects, Dashboard.this);
-                getPrjRecyclerView().setAdapter(adapter);
-            }
-        }, new Response.ErrorListener() {
+                }
+            },
+            new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("volley_error", error.toString());
@@ -118,26 +124,16 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void editPrj (View view, int projId){
-        Intent intent=new Intent(this , UpdateDelProject.class);
-        startActivity(intent);
-    }
-
-    public void teams (View view){
+    public void teams (int id){
         Intent intent=new Intent(this , TeamList.class);
-        startActivity(intent);
-    }
-    public void profile (View view){
-        Intent intent=new Intent(this , StudentProfile.class);
-        startActivity(intent);
-    }
-
-    public void goToTasks (View view, int id){
-        Intent intent=new Intent(this , TasksDashboard.class);
         intent.putExtra("projectID", id);
         startActivity(intent);
     }
-
+    public void profile (int id){
+        Intent intent=new Intent(this , StudentProfile.class);
+        intent.putExtra("projectID", id);
+        startActivity(intent);
+    }
 
     public Button getTeam() {
         return Team;

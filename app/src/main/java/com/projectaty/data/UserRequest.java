@@ -166,13 +166,6 @@ public class UserRequest {
 
     public void getStudentByNameAndPassword(String username, String password, StudentByNameAndPasswordListener listener) {
         String url = URLs.GET_USER_BY_NAME_AND_PASSWORD_URL+username+"/"+password;
-//        JSONObject jsonObject = new JSONObject();
-//        try {
-//            jsonObject.put("username", username);
-//            jsonObject.put("password", password);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

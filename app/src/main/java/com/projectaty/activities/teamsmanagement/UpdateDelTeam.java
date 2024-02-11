@@ -40,6 +40,10 @@ public class UpdateDelTeam extends AppCompatActivity {
     }
 
     private void initilaize() {
+        int teamID = getIntent().getIntExtra("teamID",0);
+        String teamName = getIntent().getStringExtra("teamName");
+        String description = getIntent().getStringExtra("describtion");
+
         teamNameEdtTxtUpdate = findViewById(R.id.teamNameEdtTxtUpdate);
         memberIDUpdateEdtTxt = findViewById(R.id.memberIDUpdateEdtTxt);
         descriptionUpdateEditText = findViewById(R.id.descriptionUpdateEditText);
@@ -47,8 +51,11 @@ public class UpdateDelTeam extends AppCompatActivity {
         deleteTeam = findViewById(R.id.deleteTeam);
         updateMembersBtn = findViewById(R.id.updateMembersBtn);
         isPrivateTeamUpdate = findViewById(R.id.isPrivateTeamUpdate);
-        recyclerViewMemberIDsUpdate = findViewById(R.id.recyclerViewMemberIDs);
+        recyclerViewMemberIDsUpdate = findViewById(R.id.recyclerViewMemberIDsUpdate);
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
+
+        getTeamNameEdtTxtUpdate().setText(teamName);
+        getDescriptionUpdateEdtTxt().setText(description);
 
         memberIDsList = new ArrayList<>();
         memberIDAdapter = new MemberIDAdapter(memberIDsList);
@@ -66,7 +73,6 @@ public class UpdateDelTeam extends AppCompatActivity {
     }
 
     private void handleAddIDs(Button addMembersBtn) {
-
         addMembersBtn.setOnClickListener(e -> {
             String memberID = getMemberIDUpdateEdtTxt().getText().toString().trim();
 
@@ -120,8 +126,6 @@ public class UpdateDelTeam extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
-
 
     /*
         Getters & setters
@@ -205,5 +209,4 @@ public class UpdateDelTeam extends AppCompatActivity {
     public void setIsPrivateTeamUpdate(CheckBox isPrivateTeamUpdate) {
         this.isPrivateTeamUpdate = isPrivateTeamUpdate;
     }
-
 }

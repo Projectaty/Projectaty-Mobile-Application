@@ -59,6 +59,7 @@ public class Dashboard extends AppCompatActivity {
         setTeam(findViewById(R.id.Team));
         setPrjRecyclerView(findViewById(R.id.StaggerdPrjView));
         getPrjRecyclerView().setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
         ArrayList<Project> projectList = new ArrayList<>();
         Project project1 = new Project(1, "Installation", "Creating an immersive art experience to evoke empathy", LocalDate.of(2024, 4, 15), "Public", 101);
         Project project2 = new Project(2, "Journaling Platform", "Developing a platform for users to practice mindfulness through journaling", LocalDate.of(2024, 5, 10), "Private", 102);
@@ -66,14 +67,16 @@ public class Dashboard extends AppCompatActivity {
         Project project4 = new Project(4, "Mental Awareness", "Designing a campaign to raise awareness about mental health issues", LocalDate.of(2024, 7, 5), "Public", 104);
         Project project5 = new Project(5, "Educational Game", "Creating an interactive game to make learning fun for young children", LocalDate.of(2024, 8, 15), "Private", 105);
         Project project6 = new Project(6, "Workshop Series", "Organizing workshops to promote sustainable living practices", LocalDate.of(2024, 9, 30), "Public", 106);
+
         projectList.add(project1);
         projectList.add(project2);
         projectList.add(project3);
         projectList.add(project4);
         projectList.add(project5);
         projectList.add(project6);
-        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
-        getPrjRecyclerView().setAdapter(adapter);
+
+//        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
+//        getPrjRecyclerView().setAdapter(adapter);
     }
 
     public void ViewProj(View view) {
@@ -131,8 +134,9 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToTasks (View view){
+    public void goToTasks (View view, int id){
         Intent intent=new Intent(this , TasksDashboard.class);
+        intent.putExtra("projectID", id);
         startActivity(intent);
     }
 

@@ -2,6 +2,7 @@ package com.projectaty.activities.teamsmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,14 +27,26 @@ public class SearchTeam extends AppCompatActivity {
         setTeamKey(findViewById(R.id.teamKey));
         setTeamIDKey(findViewById(R.id.teamIDKey));
         setSearchTeamBtn(findViewById(R.id.searchTeamBtn));
-        handle_search(getSearchTeamBtn());
+
+        int teamID = getIntent().getIntExtra("teamID",0);
+        handle_search(getSearchTeamBtn(),teamID);
     }
 
-    private void handle_search(Button search) {
-        search.setOnClickListener(e -> {
+    private void handle_search(Button search, int teamID) {
+        search.setOnClickListener(e->{
 
+            String keywordID = getTeamKey().getText().toString();
+            String keyName = getTeamIDKey().getText().toString();
+
+            Intent intent = new Intent(this, TeamList.class);
+            intent.putExtra("teamID",teamID );
+            intent.putExtra("isSearch",true);
+            intent.putExtra("keywordID",keywordID);
+            intent.putExtra("keywordName",keyName );
+            startActivity(intent);
         });
     }
+
 
     /*
     Getter and Setters

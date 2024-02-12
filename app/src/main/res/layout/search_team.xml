@@ -72,17 +72,6 @@
 
     <Button
         android:id="@+id/searchTeamBtn"
-        android:layout_width="274dp"
-        android:layout_height="64dp"
-        android:layout_below="@+id/teamNameKey"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="65dp"
-        android:icon="?android:attr/actionModeWebSearchDrawable"
-        android:text="@string/search" />
-
-    <Button
-        android:id="@+id/button"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -71,8 +71,8 @@ public class Dashboard extends AppCompatActivity {
         projectList.add(project5);
         projectList.add(project6);
 
-//        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
-//        getPrjRecyclerView().setAdapter(adapter);
+        StaggeredAdapter adapter = new StaggeredAdapter(projectList, this);
+        getPrjRecyclerView().setAdapter(adapter);
     }
 
     public void ViewProj(View view) {
@@ -124,14 +124,12 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void teams (int id){
+    public void teams (View view){
         Intent intent=new Intent(this , TeamList.class);
-        intent.putExtra("projectID", id);
         startActivity(intent);
     }
-    public void profile (int id){
+    public void profile (View view){
         Intent intent=new Intent(this , StudentProfile.class);
-        intent.putExtra("projectID", id);
         startActivity(intent);
     }
 

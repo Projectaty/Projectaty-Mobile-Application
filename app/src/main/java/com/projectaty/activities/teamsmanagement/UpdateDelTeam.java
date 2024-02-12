@@ -65,7 +65,7 @@ public class UpdateDelTeam extends AppCompatActivity {
         setDeleteTeam(findViewById(R.id.deleteTeam));
         setUpdateMembersBtn(findViewById(R.id.updateMembersBtn));
         setIsPrivateTeamUpdate(findViewById(R.id.isPrivateTeamUpdate));
-        setRecyclerViewMemberIDsUpdate(findViewById(R.id.recyclerViewMemberIDs));
+        setRecyclerViewMemberIDsUpdate(findViewById(R.id.recyclerViewMemberIDsUpdate));
         recyclerViewMemberIDsUpdate.setLayoutManager(new LinearLayoutManager(this));
 
         getTeamNameEdtTxtUpdate().setText(teamName);

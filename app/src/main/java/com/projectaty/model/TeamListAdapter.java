@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.projectaty.R;
+import com.projectaty.activities.teamsmanagement.TeamDashboard;
 import com.projectaty.activities.teamsmanagement.UpdateDelTeam;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class TeamListAdapter extends ArrayAdapter<Team> {
 
         RelativeLayout relLay = convertView.findViewById(R.id.teamLayout);
         relLay.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), UpdateDelTeam.class);
+            Intent intent = new Intent(getContext(), TeamDashboard.class);
             intent.putExtra("teamID", team.getTeamID());
             intent.putExtra("teamName",team.getTeamName());
             intent.putExtra("describtion",team.getDescription() );

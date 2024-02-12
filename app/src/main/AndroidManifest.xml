@@ -51,5 +51,6 @@
         <activity android:name=".activities.teamsmanagement.UpdateDelTeam" android:exported="false" />
         <activity android:name=".activities.teamsmanagement.CreateTeam" android:exported="false">
         </activity>
+        <activity android:name=".activities.teamsmanagement.MembersList" android:exported="false" />
     </application>
 </manifest>
